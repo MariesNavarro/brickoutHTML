@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Bud Light Docs | Día Gamer</title>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="stylesheet" href="css/orientation_utils.css" type="text/css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -443,7 +443,7 @@
                       $("#block_game").css("background-color","");
                       $("#block_game").css("background-image",'url("./img/back-home.jpg")');
                       s_oMain.stopUpdate();
-                   }    
+                   }
                 }
 
               }
@@ -452,7 +452,7 @@
               if(checkPopUp())
                {
                  valido();
-               }   
+               }
           });
         </script>
         <!-- Globales Front -->
