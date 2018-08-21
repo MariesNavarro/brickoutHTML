@@ -105,7 +105,7 @@ function CInterface() {
         _oLifeText.x = CANVAS_WIDTH * 0.5 + 100;
         _oLifeText.y = 125;
         s_oStage.addChild(_oLifeText);
-
+        displayLives.innerHtml=""+LIFE+"";
         s_oGame.setPause(true);
         this.refreshButtonPos(s_iOffsetX, s_iOffsetY);
     };
@@ -127,6 +127,7 @@ function CInterface() {
 
     this.refreshBallLife = function (iValue) {
         _oLifeText.text = "x" + +iValue;
+        displayLives.innerHtml=""+iValue+"";
     };
 
     this.gameOver = function (iScore) {

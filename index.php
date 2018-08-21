@@ -393,7 +393,7 @@
                   <p>Regístrate con Facebook</p>
                   <img src="img/facebook.svg" height="20">
                 </a>
-                <a id="quitarFront" role="button" onclick="quitarRegistroFront()">
+                <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (FRONT)
                 </a>
               </section>
@@ -482,7 +482,11 @@
           var frontBarMenu = document.getElementById("head");
           var frontMenu = document.getElementById("menu");
           var menuIsHidden = false;
-
+          function quitarRegistroFrontsinRegistro()
+          {
+            quitarRegistroFront();
+            sinregistro();
+          }
         </script>
     </body>
 </html>
