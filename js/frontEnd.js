@@ -278,6 +278,7 @@ function hideMenu(t, c){
 
 function checkAge(c){
   if(c === "true"){
+    messagesGame.setAttribute("class", "flexDisplay"); 
     disclaimer.style.opacity = "0";
     setTimeout(function(){
       disclaimer.style.display = "none";
@@ -288,7 +289,7 @@ function checkAge(c){
 
       setTimeout(function(){
         mensajebienvenida.style.opacity = "1";
-        // canvasFront.setAttribute("class", "canvasWrd");
+
         messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
       },300)
     },700);
@@ -307,6 +308,7 @@ function quitarRegistroFront(){
 function cuponUnoOk(){
   cuponUno.style.opacity = "0";
   setTimeout(function(){
+    canvasFront.setAttribute("class", "canvasWrd");
     cuponUno.style.display = "none";
   },800);
 }

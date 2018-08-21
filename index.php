@@ -355,12 +355,12 @@
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
-                <img src="img/budlightdocs.png">
+                <img src="img/budlightdocs-white.svg">
                 <h1>Bud Light Docs</h1>
                 <h3>¿Eres mayor de edad?</h3>
                 <div class="flexDisplay">
-                  <a role="button" class="trans7" onclick="checkAge('true')">Sí</a>
-                  <a role="button" class="trans7" onclick="checkAge('false')">No</a>
+                  <a role="button" class="trans7" onclick="checkAge('true')"><p>Sí</p><span></span> </a>
+                  <a role="button" class="trans7" onclick="checkAge('false')"><span></span>No</a>
                 </div>
                 <p>
                   Al confirmar ser mayor de edad manifiestas
@@ -402,7 +402,7 @@
         </div>
 
         <!-- Cupón primera vez -->
-        <div id="cuponUno" class="flexDisplay trans7">
+        <div id="cuponUno" class="noneDisplay trans7">
           <div>
             <p>Felicidades ganaste tu primer cupón de descuento en <b>Rappi!</b></p>
             <br>

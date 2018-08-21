@@ -501,15 +501,12 @@ footer>div>a{
     font-size: 2rem;
     margin: 5px auto;
   }
-  #disclaimer>h3{
-    font-size: 1.5rem;
-    font-weight: 400;
-  }
   #messagesGame{
     color: #fff;
     position: absolute;
     width: 100vw;
     min-width: 250px;
+    height: 100vh
     -webkit-justify-content: center;
     -moz-justify-content: center;
     -ms-justify-content: center;
@@ -524,7 +521,7 @@ footer>div>a{
   }
   #messagesGame>div{
     width: 840px;
-    height: 1024px;
+    height: 100vh;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     -ms-justify-content: center;
@@ -542,7 +539,33 @@ footer>div>a{
     text-align: center;
     margin-top: 30px;
   }
-  #disclaimer>img{ width: 120px; }
+  #disclaimer>img{
+    width: 120px;
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 1s forwards;
+    -moz-animation: fadeIn 1s ease-in 1s forwards;
+    -ms-animation: fadeIn 1s ease-in 1s forwards;
+    -o-animation: fadeIn 1s ease-in 1s forwards;
+    animation: fadeIn 1s ease-in 1s forwards;
+  }
+  #disclaimer>h1{
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 1.3s forwards;
+    -moz-animation: fadeIn 1s ease-in 1.3s forwards;
+    -ms-animation: fadeIn 1s ease-in 1.3s forwards;
+    -o-animation: fadeIn 1s ease-in 1.3s forwards;
+    animation: fadeIn 1s ease-in 1.3s forwards;
+  }
+  #disclaimer>h3{
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 1.6s forwards;
+    -moz-animation: fadeIn 1s ease-in 1.6s forwards;
+    -ms-animation: fadeIn 1s ease-in 1.6s forwards;
+    -o-animation: fadeIn 1s ease-in 1.6s forwards;
+    animation: fadeIn 1s ease-in 1.6s forwards;
+  }
   #disclaimer>div{
     width: 90%;
     margin: 10px auto;
@@ -556,34 +579,59 @@ footer>div>a{
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 1.9s forwards;
+    -moz-animation: fadeIn 1s ease-in 1.9s forwards;
+    -ms-animation: fadeIn 1s ease-in 1.9s forwards;
+    -o-animation: fadeIn 1s ease-in 1.9s forwards;
+    animation: fadeIn 1s ease-in 1.9s forwards;
   }
   #disclaimer>div>a{
+    position: relative;
     display: block;
     width: 150px;
     line-height: 40px;
-    background: #fff;
-    color: #263072;
+    border: 2px solid #fff;
+    color: #fff;
     margin: 5px auto;
+    box-sizing: border-box;
+  }
+  #disclaimer>div>a>p{
+    display: block;
+    width: 150px;
+    position: absolute;
+  }
+  #disclaimer>div>a>span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+     width: 75px; /*146px */
+    height: 40px;
+    background: red;
   }
   #disclaimer>div>a:hover{
-    background: #344694;
-    transform: scale(1.1);
   }
   #disclaimer>p{
     width: 80%;
     margin: 0 auto;
     font-weight: 300;
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 2.2s forwards;
+    -moz-animation: fadeIn 1s ease-in 2.2s forwards;
+    -ms-animation: fadeIn 1s ease-in 2.2s forwards;
+    -o-animation: fadeIn 1s ease-in 2.2s forwards;
+    animation: fadeIn 1s ease-in 2.2s forwards;
   }
   #disclaimer>p>a{
     width: 400px;
     margin: 0 auto;
     color: #fff;
     font-weight: 400;
-    text-decoration: none;
+    text-decoration: underline;
   }
   #disclaimer>p>a:hover{
-    opacity: 0.8;
-    text-decoration: underline;
+    opacity: 0.6;
   }
   /* iPAD */
   @media (min-width: 720px) {
@@ -757,8 +805,11 @@ footer>div>a{
     transform: scale(1.1);
   }
 
-
-
+/* ANIMATIONS */
+@keyframes fadeIn {
+from{opacity: 0}
+to{opacity: 1}
+}
 
 
 
