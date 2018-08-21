@@ -1,25 +1,9 @@
-  #disclaimer{
-    margin-top: 180px;
-  }
+
 h1{
   font-size: 3rem;
 }
-#disclaimer>div{
-  margin: 30px auto;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  -o-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content:space-around;
-  -moz-justify-content:space-around;
-  -ms-justify-content:space-around;
-  -o-justify-content:space-around;
-  justify-content:space-around;
-}
-#disclaimer>div>a{
-  margin: 0;
-}
+
+
 #disclaimer>p{
   width: 400px;
 }
