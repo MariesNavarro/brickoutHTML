@@ -312,3 +312,7 @@ function cuponUnoOk(){
     cuponUno.style.display = "none";
   },800);
 }
+
+function checkMenu(w){
+  console.log(w);
+}

@@ -293,8 +293,10 @@ body{
   -o-align-items: center;
   align-items: center;
 }
-/* Espacio general boton*/
+/* Boton General*/
 #menu>#bar>div{
+  width: 80px;
+  height: 60px;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -309,6 +311,17 @@ body{
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
+}
+/* Botón Iconos pequeños */
+#menu>#bar>aside{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  width: 160px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url('../img/bar/small-icons.svg');
 }
 /* TEXTO */
 #menu>#bar>div>p{
@@ -330,21 +343,6 @@ body{
   /* border: 1px solid #000; */
 }
 .noFuncional{ color: #4d4d4d }
-.bgBut{
-  width: 80px;
-  height: 60px;
-}
-.smButs{
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  /* padding: 0 40px; */
-  width: 160px;
-  height: 60px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-image: url('../img/bar/small-icons.svg');
-}
 .abuget{ background-image: url('../img/bar/abuget.svg') }
 .carpeta{ background-image: url('../img/bar/carpeta.svg') }
 .llama{ background-image: url('../img/bar/llama.svg') }
@@ -455,6 +453,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
 #menulateral>a>img{
   width: 18px;
   margin: 0 5px;
+}
+/* MEDIA QUERIES MENU */
+.esconderUno{ display: none; }
+.esconderDos{ display: none; }
+.esconderTres{ display: none; }
+@media (min-width: 1050px){
+  .esconderTres{ display: block ; }
+}
+@media (min-width: 1250px){
+  .esconderDos{ display: block ; }
+}
+@media (min-width: 1350px){
+  .esconderUno{ display: block ; }
 }
 
 footer{
@@ -772,7 +783,6 @@ footer>div>a{
     min-width: 250px;
     height: 100vh;
     background: rgba(255,255,255,0.9);
-    /* background: purple; */
     z-index: 4800;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
@@ -817,15 +827,16 @@ footer>div>a{
   }
 
 /* ANIMATIONS */
-@keyframes fadeIn {
-from{opacity: 0}
-to{opacity: 1}
-}
+@-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-ms-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-o-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 
 
 
 
 /* QUITAR */
-#menulateral{
+/* #menulateral{
   display: none !important;
-}
+} */

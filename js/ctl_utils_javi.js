@@ -181,7 +181,7 @@ function isIOS() {
                     s_oLevelMenu.refreshButtonPos(s_iOffsetX, s_iOffsetY);
                 }
 
-                if(s_bIsIphone){
+                if(s_bIsIphone!=undefined&&s_bIsIphone){
                     canvas = document.getElementById('canvas');
                     s_oStage.canvas.width = destW*2;
                     s_oStage.canvas.height = destH*2;
@@ -443,9 +443,15 @@ function setMute(szSound, bMute){
         } else{
             document.body.className = this[hidden] ? "hidden" : "visible";
             if (document.body.className === "hidden"){
-                s_oMain.stopUpdate();
+                if(s_oMain!=undefined)
+                {
+                   s_oMain.stopUpdate(); 
+                }
             } else{
-                s_oMain.startUpdate();
+                if(s_oMain!=undefined)
+                {
+                  s_oMain.startUpdate();
+                }
             }
         }
     }

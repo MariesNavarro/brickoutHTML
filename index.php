@@ -87,123 +87,123 @@
           </div>
           <div id="bar" class="flexDisplay">
             <!-- iconos -->
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgLevel" class="level_begin"></a>
             <p class="textFuncional">Nivel</p>
-            </div> <!-- Nivel -->
+            </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgLives" class="iconChange livesWrd" data-icon="lives"></a>
             <p id="displayLives" class="textFuncional">23</p>
-            </div> <!-- Vidas -->
+            </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgScore" class="iconChange scoreWrd" data-icon="score"></a>
             <p id="displayScore" class="textFuncional">233</p>
-            </div> <!-- Puntaje -->
+            </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgBestScore" class="iconChange bestWrd" data-icon="best"></a>
             <p id="displayBest" class="textFuncional">4723</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgPosition" class="iconChange positionWrd" data-icon="position"></a>
             <p id="displayPosition" class="textFuncional">74</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" class="abuget"></a>
             <p class="noFuncional">Abuget</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div class="esconderDos">
             <a role="button" class="llama" ></a>
             <p class="noFuncional">Encuentra</p>
             </div>
 
-            <span></span>
+            <span class="esconderDos"></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" class="carpeta"></a>
             <p class="noFuncional" id="displayPrincess">Peach</p>
-            </div> <!-- Null -->
+            </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" class="invertir"></a>
             <p class="noFuncional">Invertir</p>
-            </div> <!-- Null -->
+            </div>
 
             <span></span>
 
-            <div class="smButs"></div>
+            <aside class="esconderTres"></aside>
 
-            <span></span>
+            <span class="esconderTres"></span>
 
-            <div class="bgBut">
+            <div class="esconderDos">
             <a role="button" class="cambiar"></a>
             <p class="noFuncional">Cambiar</p>
-            </div> <!-- Null -->
+            </div>
 
-            <span></span>
+            <span class="esconderDos"></span>
 
-            <div class="bgBut">
+            <div class="esconderUno">
             <a role="button" class="digital"></a>
             <p class="noFuncional">Digital</p>
-            </div> <!-- Null -->
+            </div>
 
-            <span></span>
+            <span class="esconderUno"></span>
 
-            <div class="bgBut">
+            <div class="esconderUno">
             <a role="button" class="vinculos"></a>
             <p class="noFuncional">Vinculos</p>
             </div>
 
-            <span></span>
+            <span class="esconderUno"></span>
 
-            <div class="bgBut">
+            <div class="esconderUno">
             <a role="button" class="formas"></a>
             <p class="noFuncional">Formas</p>
             </div>
 
-            <span></span>
+            <span class="esconderUno"></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
             <p class="textFuncional">Audio</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgHide" class="iconChange evasionWrd" data-icon="evasion"></a>
             <p class="textFuncional">Modo Evasión</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgFull" class="iconChange fullWrd" data-icon="full"></a>
             <p class="textFuncional">Pantalla Completa</p>
             </div>
 
             <span></span>
 
-            <div class="bgBut">
+            <div>
             <a role="button" id="imgQuit" class="iconChange quitWrd" data-icon="quit"></a>
             <p class="textFuncional">Menú Principal</p>
             </div>
@@ -414,7 +414,6 @@
           </div>
         </div>
         <script>
-
           $(document).ready(function () {
                function mostrarInformacionCaracter(evObject) {
                    var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
@@ -482,11 +481,13 @@
           var frontBarMenu = document.getElementById("head");
           var frontMenu = document.getElementById("menu");
           var menuIsHidden = false;
+          var width = window.innnerWidth;
           function quitarRegistroFrontsinRegistro()
           {
             quitarRegistroFront();
             sinregistro();
           }
+          window.onresize = function(){ width = window.innnerWidth; checkMenu(width); }
         </script>
     </body>
 </html>
