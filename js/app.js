@@ -224,6 +224,7 @@ function jugar()
     }
   });
   $(oMain).on("start_level", function (evt, iLevel) {
+     changeFrontLevel(iLevel);
      if (getParamValue('ctl-arcade') === "true") {
        parent.__ctlArcadeStartLevel({level: iLevel});
       }
