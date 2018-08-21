@@ -307,6 +307,7 @@ function quitarRegistroFront(){
 
 function cuponUnoOk(){
   cuponUno.style.opacity = "0";
+   but_jugar();
   setTimeout(function(){
     canvasFront.setAttribute("class", "canvasWrd");
     cuponUno.style.display = "none";
