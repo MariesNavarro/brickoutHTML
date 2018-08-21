@@ -349,7 +349,7 @@
           </ul>
         </div>
 
-        <div id="messagesGame" class="flexDisplay"> <!-- style="display:none"  -->
+        <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
           <div class="flexDisplay"><!-- alto -->
             <div id="content">

@@ -495,9 +495,6 @@ footer>div>a{
 
 
 
-
-
-
   /* MESSAGES */
   h1{
     font-weight:700;
@@ -523,12 +520,11 @@ footer>div>a{
     -o-align-items: center;
     align-items: center;
     z-index: 4900;
-    background: #fff;
+    background: red;
   }
   #messagesGame>div{
     width: 840px;
     height: 1024px;
-    background: #fff;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     -ms-justify-content: center;
@@ -537,7 +533,7 @@ footer>div>a{
   }
   #messagesGame>div>#content{
     width: 80%;
-    background: #fff;
+    background: transparent;
   }
   /* DISCLAIMER */
   #disclaimer{
