@@ -109,7 +109,7 @@
   }
   function sinregistrar_php()
   {
-    $reg=2;
+    $reg=12;
     echo '<p>Bienvenido las reglas son</p><p>1.-Regla1</p><p>2.-Regla2</p><button id="btnjugar" onclick="but_jugar();">Jugar</button></br><button id="btnvercuponespromo" onclick="cuponesenpromocion();">Cupones en la promocion</button></br><button id="btncuponesobtenidos" onclick="cuponesobtenidos();">Mis cupones</button>&'.$reg;
   }
   function jugar_php()
