@@ -100,18 +100,28 @@ function actualizadiv(){
       if(anunciocupon!='')
       {
         alert(anunciocupon);
+        cuponUno.setAttribute("class", "flexDisplay");
       }
       else
       {
-        quitarRegistroFront();
-        cuponUnoOk();
+        cuponunojugar();
       }
       console.log(data1);
-      $('#general').html(pagina).fadeIn();
+      //$('#general').html(pagina).fadeIn();
      
     }  
   });     
 } 
+function cuponunojugar()
+{
+  cuponUnoOk();
+  but_jugar();
+}
+function quitarregistrogetpermisions()
+{
+   quitarRegistroFront();
+   getPermitionsFB();
+}
 function actualizadivjug(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
@@ -196,10 +206,10 @@ function checkLoginState() {
     }); 
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
-       quitarRegistroFront();
-       checkAge('true');
-       cuponUnoOk();
+       
+       quitarMensajes();
        getPermitionsFB();
+      //cuponUnoOk();
       }
       else if (response.status === "not_authorized") {
         //document.getElementById('login').hidden=false;
