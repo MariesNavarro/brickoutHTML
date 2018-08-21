@@ -1,0 +1,17 @@
+*Agregre favicon
+*Comprimi main, agrege reset, lo quite del head
+*En la linea 52 de custom voy a agregar mi custom css
+*Movi variable s_iLevelReached en CMain //249
+*Agregre en el head hasta abajo forntEnd.js
+*Agrege un script antes de cerrar body para ayudarme con algunas funciones globales
+*start_level
+agrego función para cambiar interfaz segun nivel
+*En GLOBALFRONT puse dos variables una de menú y otra de la barra de color
+
+
+frontEnd -*
+
+
+*En settings //130 Cambiar color text
+*En settings primary_font //10
+*En settings EDGE_OFFSET de 102 a 10
