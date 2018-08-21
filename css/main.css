@@ -45,12 +45,9 @@ canvas {
   -webkit-tap-highlight-color: transparent; /* mobile webkit */
   z-index: 10;
 }
-.canvasWrd{
-  border: 1px solid #000;
-}
-.canvasExc{
-  border: 2px solid #1F7448;
-}
+.canvasWrd{ border: 2px solid #263270; }
+.canvasPpt{ border: 2px solid #F45A2A; }
+.canvasExc{ border: 2px solid #1F7448; }
 /*custom*/
 body{
   font-family: 'Source Sans Pro', sans-serif;
@@ -63,13 +60,28 @@ body{
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
+}
+@media (min-width: 520px){
+  body{ overflow: hidden; }
+}
+/* LOGOTIPO */
+#logotipobudlight{
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  height: 40px;
+  opacity: 0;
+}
+#logotipobudlight>img{
+  height: 100%;
 }
 /* LOOK PPT */
 #lookLevelPpt{
   position: absolute;
   width: 250px;
-  height: calc(100vh - 145px);
-  top: 120px;
+  height: calc(100vh - 155px);
+  top: 130px;
 }
 #lookLevelPpt>#reglaTop{
   position: absolute;
@@ -135,8 +147,8 @@ body{
   position: absolute;
   width: 100vw;
   min-width: 250px;
-  height: 100vh;
-  top: 0;
+  height: calc(100vh - 155px);
+  top: 130px;
   background-image: url('../img/celdas.png');
 }
 #lookLevelExc>ul{
@@ -158,52 +170,76 @@ body{
 /* MENU */
 #menu{
   position: fixed;
-  top: 0;
+  top: -200px;
   width: 100vw;
   min-width: 250px;
-  height: 120px;
-  background: #f7f7f7;
+  height: 130px;
+  background: transparent;
   z-index: 5000;
   overflow: hidden;
 }
-
 #menu>#head{
-  position: relative;
+  position: absolute;
+  top: -50px;
   width:100%;
-  height: 50px;
+  height: 60px;
   color: #fff;
+  -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out;
+}
+#menu>#head>p{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 300;
+  text-align: center;
 }
 #menu>#head>#top{
-  width: 100%;
-  height: 25px;
+  position: relative;
+  width: calc(100% - 40px);
+  height: 30px;
+  margin-left: 20px;
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
+  overflow: hidden;
 }
 #menu>#head>#top>#izq{
-  width: 400px;
-  margin-left: 20px;
-  -webkit-justify-content:space-around;
-  -moz-justify-content:space-around;
-  -ms-justify-content:space-around;
-  -o-justify-content:space-around;
-  justify-content:space-around;
+  width: 450px;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
 }
 #menu>#head>#top>#izq>#closewindow{
-  height: 15px;
-  margin-top: 5px;
-}
-#menu>#head>#top>#izq>#gamermood{
-  margin-top: 3px;
+  width: 80px;
   height: 20px;
+  background-image: url('../img/head/closewindow.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-#menu>#head>#top>#izq>#gamertit{
-  width: 130px;
+#menu>#head>#top>#izq>#pipe{
   display: block;
+  width: 10px;
+  height: 20px;
+  overflow: hidden;
   text-align: center;
 }
+#menu>#head>#top>#izq>#gamertit{
+  display: block;
+  text-align: center;
+  font-weight: 300;
+}
+#menu>#head>#top>#izq>#gamermood{ height: 20px; }
 #menu>#head>#top>#izq>ul{
   margin-top: 3px;
   width: 150px;
@@ -216,25 +252,21 @@ body{
 #menu>#head>#top>#izq>ul>li{ width: 25px }
 #menu>#head>#top>#izq>ul>li>img{
   margin: 0 10px;
-  height: 15px; }
-#menu>#head>#top>p{
-  display: block;
-  width: 200px;
-  font-weight: 300;
-  margin: 0 auto;
+  height: 15px;
 }
 #menu>#head>#top>#der{
-  margin-right: 20px;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
 }
-#menu>#head>#top>#der>img{
-  height: 18px;
-  margin-top: 5px;
-}
+#menu>#head>#top>#der>img{ height: 20px; }
 #menu>#head>#top>#der>a{
   display: block;
   width: 20px;
   height: 20px;
-  margin: 2px 10px;
+  margin: 0 5px;
 }
 #menu>#head>#top>#der>a:hover{
   opacity: 0.7;
@@ -242,10 +274,16 @@ body{
 /* TABS */
 #menu>#head>ul{
   width: 100%;
-  height: 25px;
+  height: 30px;
   font-weight: 300;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
 }
 #menu>#head>ul>li{
+  height: 30px;
   padding: 0 25px;
 }
 #menu>#head>ul>li>a{
@@ -271,14 +309,12 @@ body{
   right: 20px;
   height: 20px;
 }
-#menu>#head>ul>a:hover{
-  opacity: 0.7;
-}
-#menu>#head>ul>a>img{
-  height: 90%;
-}
-
+#menu>#head>ul>a:hover{ opacity: 0.7; }
+#menu>#head>ul>a>img{ height: 90%; }
+/* MENU BAR */
 #menu>#bar{
+  position: absolute;
+  top: -70px;
   width:100%;
   height: 70px;
   background: #f7f7f7;
@@ -292,6 +328,7 @@ body{
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
+  z-index: -1;
 }
 /* Boton General*/
 #menu>#bar>div{
@@ -340,7 +377,6 @@ body{
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  /* border: 1px solid #000; */
 }
 .noFuncional{ color: #4d4d4d }
 .abuget{ background-image: url('../img/bar/abuget.svg') }
@@ -400,11 +436,10 @@ body{
 /* Borde entre botones */
 #menu>#bar>span{
   display: block;
-  width: 1px;
+  width: 2px;
   height: 80%;
   background: #c9c9c9;
 }
-
 .back_word{
 background: #263270;
 background: -moz-linear-gradient(top, #263270 0%, #344694 100%);
@@ -455,56 +490,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
   margin: 0 5px;
 }
 /* MEDIA QUERIES MENU */
-.esconderUno{ display: none; }
-.esconderDos{ display: none; }
-.esconderTres{ display: none; }
-@media (min-width: 1050px){
-  .esconderTres{ display: block ; }
-}
+@media (min-width: 960px){ #menu{ top: 0;} }
+.esconderTres, .esconderTresSpan{ display: none !important }
+.esconderDos, .esconderDosSpan{ display: none !important }
+.esconderUno, .esconderUnoSpan{ display: none !important }
+@media (min-width: 1050px){ .esconderTres, .esconderTresSpan{ display: block !important } }
 @media (min-width: 1250px){
-  .esconderDos{ display: block ; }
+  .esconderTres{
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .esconderTresSpan{
+    display: block !important;
+  }
 }
 @media (min-width: 1350px){
-  .esconderUno{ display: block ; }
+  .esconderUno{
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .esconderUnoSpan{
+    display: block !important;
+  }
 }
-
-footer{
-  position: fixed;
-  bottom:0;
-  left: 0;
-  width: 100vw;
-  min-width: 250px;
-  height: 25px;
-  background: #e0e0e0;
-  color: #4d4d4d;
-  z-index: 5000;
-}
-footer>p{
-  width: 300px;
-  margin-left: 20px;
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 25px;
-}
-footer>div{
-  position: absolute;
-  right: 20px;
-  font-size: 0.8rem;
-  font-weight: 300;
-}
-footer>div>img{
-  height: 15px;
-  margin: 5px 10px;
-}
-footer>div>p{
-  line-height: 25px;
-}
-footer>div>a{
-  line-height: 25px;
-  color: #4d4d4d }
-
-
-
 
   /* MESSAGES */
   h1{
@@ -550,8 +562,20 @@ footer>div>a{
     text-align: center;
     margin-top: 30px;
   }
+  #disclaimer>#back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/fondo-juegos.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+  }
   #disclaimer>img{
-    width: 120px;
+    width: 250px;
+    margin: 10px auto;
     opacity: 0;
     -webkit-animation: fadeIn 1s ease-in 1s forwards;
     -moz-animation: fadeIn 1s ease-in 1s forwards;
@@ -648,11 +672,48 @@ footer>div>a{
   #disclaimer>p>a:hover{
     opacity: 0.6;
   }
+  #footerprovisional{
+    width: calc(100% - 40px);
+    height: 20px;
+    font-weight: 300;
+    font-size: 0.9rem;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 2.2s forwards;
+    -moz-animation: fadeIn 1s ease-in 2.2s forwards;
+    -ms-animation: fadeIn 1s ease-in 2.2s forwards;
+    -o-animation: fadeIn 1s ease-in 2.2s forwards;
+    animation: fadeIn 1s ease-in 2.2s forwards;
+    display: none;
+  }
+  #footerprovisional>div>a{
+    color: #fff;
+    font-weight: 400;
+    text-decoration: underline;
+  }
   /* EDADNOVALIDA */
   #edadnovalida{
     position: relative;
     width: 100%;
     height: 100%;
+  }
+  #edadnovalida>#back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/fondo-juegos-azul.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
   }
   #edadnovalida>div{
     position: absolute;
@@ -672,11 +733,124 @@ footer>div>a{
     font-size: 1.5rem;
     width: 80%;
   }
+  /* MENSAJE BIENVENIDA */
+  #mensajebienvenida{
+    margin-top: 200px;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+  }
+  #mensajebienvenida>img{
+    width: 200px;
+  }
+  #mensajebienvenida>p{
+    font-size: 1.1rem;
+    width: 600px;
+    margin: 10px auto;
+    font-weight: 400;
+    text-align: center;
+  }
+  #mensajebienvenida>.registrocss{
+    position: relative;
+    width: 230px;
+    height: 40px;
+    border:2px solid #263072;
+    color: #263072;
+    margin: 15px auto;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-justify-content:space-around;
+    -moz-justify-content:space-around;
+    -ms-justify-content:space-around;
+    -o-justify-content:space-around;
+    justify-content:space-around;
+  }
+  #mensajebienvenida>.registrocss>p{
+    font-weight: 400;
+  }
+  #mensajebienvenida>.registrocss>svg{
+    height: 20px;
+    fill:#263072;
+  }
+  #mensajebienvenida>.registrocss>span{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 36px;
+    background: #263072;
+    z-index: -1;
+  }
+  #mensajebienvenida>.registrocss:hover>span{ width: 226px; }
+  #mensajebienvenida>.registrocss:hover>p{ color: #fff }
+  #mensajebienvenida>.registrocss:hover>svg{ fill:#fff }
+  #quitarFront{
+    padding: 15px;
+    border: 1px solid red;
+  }
+  footer{
+    position: fixed;
+    bottom:-40px;
+    left: 0;
+    width: 100vw;
+    min-width: 250px;
+    height: 25px;
+    background: #e0e0e0;
+    color: #4d4d4d;
+    z-index: 5000;
+    opacity: 0;
+  }
+  footer>p{
+    width: 300px;
+    margin-left: 20px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 25px;
+  }
+  footer>div{
+    position: absolute;
+    right: 20px;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+  footer>div>img{
+    height: 15px;
+    margin: 5px 10px;
+  }
+  footer>div>p{
+    line-height: 25px;
+  }
+  footer>div>a{
+    line-height: 25px;
+    color: #4d4d4d;
+    font-weight: 400;
+  }
+
+
   /* iPAD */
   @media (min-width: 720px) {
     h1{ font-size: 3rem; margin: 10px auto }
     #disclaimer>h3{ font-size: 2rem }
-    #disclaimer>img{ width: 180px; }
+    #disclaimer>img{
+      width: 300px;
+      margin: 20px auto;
+    }
     #disclaimer>div>a{
       margin: 10px auto;
       font-size: 1.5rem;
@@ -687,6 +861,7 @@ footer>div>a{
 
   /* Desktop */
   @media (min-width: 960px){
+    footer{ opacity: 1 }
     #disclaimer{ margin-top: 120px; }
     #disclaimer>div{
       width: 400px;
@@ -710,72 +885,13 @@ footer>div>a{
     #disclaimer>p:nth-child(5){ margin-top: 0; }
     #disclaimer>p{
       margin: 0px auto }
-  }
-
-
-
-  /* MENSAJE BIENVENIDA */
-  #mensajebienvenida{
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
-    margin-top: 200px;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    -o-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-  }
-  #mensajebienvenida>img{
-    width: 200px;
-  }
-  #mensajebienvenida>p{
-    width: 400px;
-    margin: 0 auto;
-    font-weight: 300;
-    text-align: center;
-  }
-  #mensajebienvenida>#tablapdf{
-    color: #149BE4;
-    text-decoration: none;
-    margin: 20px auto;
-  }
-  #mensajebienvenida>#tablapdf:hover{
-    opacity: 0.7;
-    text-decoration: underline;
-  }
-  #mensajebienvenida>.registrocss{
-    height: 40px;
-    background: #263072;
-    color: #fff;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-  }
-  #mensajebienvenida>.registrocss>p{
-    margin: 0 10px;
-  }
-  #mensajebienvenida>.registrocss>img{
-    margin: 0 10px;
-  }
-  #quitarFront{
-    padding: 15px;
-    border: 1px solid red;
+    #footerprovisional{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      position: fixed;
+    }
   }
   #cuponUno{
     position: fixed;
@@ -837,6 +953,6 @@ footer>div>a{
 
 
 /* QUITAR */
-/* #menulateral{
+#menulateral{
   display: none !important;
-} */
+}

@@ -61,34 +61,38 @@ function changeLook(c){
 
 function changeColor(lvl){
   if(lvl === 0 || lvl === 3 || lvl === 6){
+    canvasFront.setAttribute("class", "canvasWrd");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
-    gamermood.setAttribute("src", "img/head/gamermood-wrd.png");
-    searchBar.setAttribute("src", "img/head/search-wrd.png");
+    gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
+    searchBar.setAttribute("src", "img/head/search-wrd.svg");
     lookLevelExcBool = false;
     lookLevelPptBool = false;
     changeLook("wrd");
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
+    canvasFront.setAttribute("class", "canvasPpt");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_ppt");
-    gamermood.setAttribute("src", "img/head/gamermood-ppt.png");
-    searchBar.setAttribute("src", "img/head/search-ppt.png");
+    gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
+    searchBar.setAttribute("src", "img/head/search-ppt.svg");
     lookLevelExcBool = false;
     lookLevelPptBool = true;
     changeLook("ppt");
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
+    canvasFront.setAttribute("class", "canvasExc");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_excel");
-    gamermood.setAttribute("src", "img/head/gamermood-exc.png");
-    searchBar.setAttribute("src", "img/head/search-exc.png");
+    gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
+    searchBar.setAttribute("src", "img/head/search-exc.svg");
     lookLevelExcBool = true;
     lookLevelPptBool = false;
     changeLook("exc");
   } else {
+    canvasFront.setAttribute("class", "canvasWrd");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
-    gamermood.setAttribute("src", "img/head/gamermood-wrd.png");
-    searchBar.setAttribute("src", "img/head/search-wrd.png");
+    gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
+    searchBar.setAttribute("src", "img/head/search-wrd.svg");
     lookLevelExcBool = false;
     lookLevelPptBool = false;
     changeLook("wrd");
@@ -98,7 +102,6 @@ function changeColor(lvl){
 function displayLevel(lvl){
   switch (lvl) {
   case 0: //1 Wrd
-  nivelDocumento.innerHTML = "Documento 1";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
@@ -112,7 +115,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 1: //2 Ppt
-  nivelDocumento.innerHTML = "Documento 2";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
@@ -126,7 +128,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 2: //3 Exc
-  nivelDocumento.innerHTML = "Documento 3";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
@@ -140,7 +141,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 3: //4 Wrd
-  nivelDocumento.innerHTML = "Documento 4";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
@@ -154,7 +154,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 4: //5 Ppt
-  nivelDocumento.innerHTML = "Documento 5";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
@@ -168,7 +167,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 5: //6 Exc
-  nivelDocumento.innerHTML = "Documento 6";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
@@ -182,7 +180,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 6: //7 Wrd
-  nivelDocumento.innerHTML = "Documento 7";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
@@ -196,7 +193,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 7: //8 Ppt
-  nivelDocumento.innerHTML = "Documento 8";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
@@ -210,7 +206,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 8: //9 Exc
-  nivelDocumento.innerHTML = "Documento 9";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
@@ -224,7 +219,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 9: //10 Exc
-  nivelDocumento.innerHTML = "Documento 10";
   tabSelect[0].setAttribute("class", "tabSelect ");
   tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
@@ -278,18 +272,23 @@ function hideMenu(t, c){
 
 function checkAge(c){
   if(c === "true"){
-
+    disableEnableTabs("disable");
+    footerprovisional.style.display = "none";
     disclaimer.style.opacity = "0";
     setTimeout(function(){
-      messagesGame.setAttribute("class", "flexDisplay");
       disclaimer.style.display = "none";
-      mensajebienvenida.setAttribute("class", "flexDisplay");
-      footer.style.opacity = "1";
+      messagesGame.setAttribute("class", "flexDisplay");
       frontMenu.style.opacity = "1";
+      frontBarMenu.style.top = "0";
+      mensajebienvenida.setAttribute("class", "flexDisplay");
       setTimeout(function(){
-        mensajebienvenida.style.opacity = "1";
-        messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
-      },300)
+        footer.style.bottom = "0";
+        setTimeout(function(){
+          logotipobudlight.style.opacity = "1";
+          messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
+          mensajebienvenida.style.opacity = "1";
+        },700)
+      },700)
     },700);
   }else if(c === "false"){
     messagesGame.setAttribute("class", "flexDisplay");
@@ -299,8 +298,29 @@ function checkAge(c){
 }
 
 
+
+
+
+
+function disableEnableTabs(c){
+  if(c === "enable"){
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", "tabSelectChange(this)"); }
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "pointer"; }
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", " ")}
+    tabButts[0].setAttribute("class", "tabButts tabSelect tabSelectWord");
+  } else{
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", " "); }
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "not-allowed"; }
+    for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", "Necesitas estar registrado")}
+  }
+}
+
+
 function quitarRegistroFront(){
   messagesGame.setAttribute("class", "noneDisplay");
+  frontToolsBar.style.opacity = "1";
+  frontToolsBar.style.top = "60px";
+  disableEnableTabs("enable");
 }
 
 
@@ -311,8 +331,4 @@ function cuponUnoOk(){
     canvasFront.setAttribute("class", "canvasWrd");
     cuponUno.style.display = "none";
   },800);
-}
-
-function checkMenu(w){
-  console.log(w);
 }

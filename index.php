@@ -49,13 +49,14 @@
         <!-- Menu -->
         <div id="menu" class="trans7" style="opacity:0">
           <div id="head" class="back_word">
+            <p>Documento de <span id="nivelDocumento">?</span></p>
             <div id="top" class="flexDisplay">
               <!-- Parte Izq -->
               <div id="izq" class="flexDisplay">
-                <img id="closewindow" src="img/head/closewindow.png">
-                <p>|</p>
+                <div id="closewindow"></div>
+                <p id="pipe">|</p>
                 <p id="gamertit">Gamer mood</p>
-                 <img id="gamermood" src="img/head/gamermood-wrd.png">
+                 <img id="gamermood" src="img/head/gamermood-wrd.svg">
                 <ul class="flexDisplay">
                   <li><img src="img/head/disk.svg"></li>
                   <li><img src="img/head/print.svg"></li>
@@ -64,28 +65,25 @@
                   <li><img src="img/head/down.svg"></li>
                 </ul>
               </div>
-              <p id="nivelDocumento">Documento 1</p>
               <div id="der" class="flexDisplay">
-                <img id="searchBar" src="img/head/search-wrd.png">
+                <img id="searchBar" src="img/head/search-wrd.svg">
                 <a href="#" class="trans7">
                   <img src="img/head/budlight.svg">
                 </a>
               </div>
             </div>
             <ul class="flexDisplay">
-              <li class="tabButts tabSelect tabSelectWord" onclick="tabSelectChange(this)"><a role="button">Partida</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Cupones</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Mis Cupones</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Mecánica</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Mensaje</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Créditos</a></li>
-              <li class="tabButts" onclick="tabSelectChange(this)"><a role="button">Pausa</a></li>
+              <li class="tabButts"><a role="button">Partida</a></li>
+              <li class="tabButts"><a role="button">Cupones</a></li>
+              <li class="tabButts"><a role="button">Mis Cupones</a></li>
+              <li class="tabButts"><a role="button">Instrucciones</a></li>
+              <li class="tabButts"><a role="button">Créditos</a></li>
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
             </ul>
           </div>
-          <div id="bar" class="flexDisplay">
+          <div id="bar" class="flexDisplay trans7">
             <!-- iconos -->
             <div>
             <a role="button" id="imgLevel" class="level_begin"></a>
@@ -152,35 +150,35 @@
 
             <aside class="esconderTres"></aside>
 
-            <span class="esconderTres"></span>
+            <span class="esconderTresSpan"></span>
 
             <div class="esconderDos">
             <a role="button" class="cambiar"></a>
             <p class="noFuncional">Cambiar</p>
             </div>
 
-            <span class="esconderDos"></span>
+            <span class="esconderDosSpan"></span>
 
             <div class="esconderUno">
             <a role="button" class="digital"></a>
             <p class="noFuncional">Digital</p>
             </div>
 
-            <span class="esconderUno"></span>
+            <span class="esconderUnoSpan"></span>
 
             <div class="esconderUno">
             <a role="button" class="vinculos"></a>
             <p class="noFuncional">Vinculos</p>
             </div>
 
-            <span class="esconderUno"></span>
+            <span class="esconderUnoSpan"></span>
 
             <div class="esconderUno">
             <a role="button" class="formas"></a>
             <p class="noFuncional">Formas</p>
             </div>
 
-            <span class="esconderUno"></span>
+            <span class="esconderUnoSpan"></span>
 
             <div>
             <a role="button" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
@@ -211,8 +209,8 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer" class="flexDisplay trans7" style="opacity:0">
-            <p>Bud Light Docs | Bud Light © 2018 | Día Gamer</p>
+        <footer id="footer" class="flexDisplay trans7">
+            <p>Bud Light Docs | Día Gamer | Bud Light © 2018</p>
             <div class="flexDisplay">
               <img src="img/footer/zoom.svg">
               <p>100%</p>
@@ -349,14 +347,19 @@
           </ul>
         </div>
 
+        <!-- Logotipo Bud Light -->
+        <a id="logotipobudlight" href="#" class="trans7">
+          <img src="img/budlight-logo-blue.svg">
+        </a>
+
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
           <div class="flexDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
-                <img src="img/budlightdocs-white.svg">
-                <h1>Bud Light Docs</h1>
+                <section id="back"></section>
+                <img src="img/budlight-logo-white.svg">
                 <h3>¿Eres mayor de edad?</h3>
                 <div class="flexDisplay">
                   <a role="button" class="trans7" onclick="checkAge('true')"><p class="trans7">Sí</p><span class="trans7"></span> </a>
@@ -371,9 +374,18 @@
                   También puedes ver nuestra <a href="#" class="trans7">política de
                   privacidad</a>.
                 </p>
-              </section>
 
+              </section>
+              <div id="footerprovisional">
+                <div>
+                  Bud light Docs | Día Gamer | Bud Light © 2018
+                </div>
+                <div>
+                  Siguenos en: <a href="#"> Facebook </a> y <a href="#"> Twitter </a>
+                </div>
+              </div>
               <section id="edadnovalida" class="noneDisplay">
+                <div id="back"></div>
                 <div>
                   <img src="img/404.svg">
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
@@ -388,11 +400,11 @@
                   te invitamos a celebrarlo jugando todo el día y ganando premios
                   increibles.
                 </p>
-                <a id="tablapdf" href="#" class="trans7"><p>Descarga la tabla de premios</p></a>
 
                 <a id="registro" class="registrocss flexDisplay" role="button" onclick="getPermitionsFB();">
+                  <span class="trans7"></span>
                   <p>Regístrate con Facebook</p>
-                  <img src="img/facebook.svg" height="20">
+                  <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
                 <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (FRONT)
@@ -471,23 +483,26 @@
           var lookLevelPpt = document.getElementById("lookLevelPpt");
           var lookLevelExc = document.getElementById("lookLevelExc");
           var footer = document.getElementById("footer");
+          var logotipobudlight = document.getElementById("logotipobudlight");
           var lookLevelExcBool = false;
           var lookLevelPptBool = false;
           var cuponUno = document.getElementById("cuponUno");
+          var footerprovisional = document.getElementById("footerprovisional");
           /* mensajes */
           var disclaimer = document.getElementById("disclaimer");
           var edadnovalida = document.getElementById("edadnovalida");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
           var frontBarMenu = document.getElementById("head");
+          var frontToolsBar = document.getElementById("bar");
           var frontMenu = document.getElementById("menu");
           var menuIsHidden = false;
-          var width = window.innnerWidth;
+          /* Menu Elementos */
+          var esconderTres = document.getElementsByClassName("esconderTres");
           function quitarRegistroFrontsinRegistro()
           {
             quitarRegistroFront();
             sinregistro();
           }
-          window.onresize = function(){ width = window.innnerWidth; checkMenu(width); }
         </script>
     </body>
 </html>
