@@ -138,7 +138,6 @@ body{
   height: 100vh;
   top: 0;
   background-image: url('../img/celdas.png');
-  /* display: none; */
 }
 #lookLevelExc>ul{
   width: 30px;
@@ -155,208 +154,6 @@ body{
 #lookLevelExc>ul>li>img{
   width: 30px;
   height: 30px;
-}
-/* MESSAGES */
-h1{ font-size: 3rem; }
-#messagesGame{
-  position: absolute;
-  width: 100vw;
-  min-width: 250px;
-  background: transparent;
-  z-index: 4000;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  z-index: 4900;
-}
-#messagesGame>div{
-  width: 840px;
-  height: 1024px;
-  background: #fff;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-}
-#messagesGame>div>#content{
-  width: 80%;
-  background: #fff;
-}
-/* EDADNOVALIDA */
-#edadnovalida{
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-}
-/* DISCLAIMER */
-#disclaimer{
-  width: 100%;
-  text-align: center;
-  margin-top: 180px;
-}
-#disclaimer>img{
-  width: 200px;
-}
-#disclaimer>h3{ font-size: 1.5rem; }
-#disclaimer>div{
-  margin: 30px auto;
-  width: 90%;
-  -webkit-justify-content:space-around;
--moz-justify-content:space-around;
--ms-justify-content:space-around;
--o-justify-content:space-around;
-justify-content:space-around;
-}
-#disclaimer>div>a{
-  display: block;
-  width: 150px;
-  line-height: 40px;
-  background: #263072;
-  color: #fff;
-}
-#disclaimer>div>a:hover{
-  background: #344694;
-  transform: scale(1.1);
-}
-#disclaimer>p{
-  width: 400px;
-  margin: 0 auto;
-  font-weight: 300;
-}
-#disclaimer>p>a{
-  width: 400px;
-  margin: 0 auto;
-  color: #149BE4;
-}
-/* MENSAJE BIENVENIDA */
-#mensajebienvenida{
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-  margin-top: 200px;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  -o-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-}
-#mensajebienvenida>img{
-  width: 200px;
-}
-#mensajebienvenida>p{
-  width: 400px;
-  margin: 0 auto;
-  font-weight: 300;
-  text-align: center;
-}
-#mensajebienvenida>#tablapdf{
-  color: #149BE4;
-  text-decoration: none;
-  margin: 20px auto;
-}
-#mensajebienvenida>#tablapdf:hover{
-  opacity: 0.7;
-  text-decoration: underline;
-}
-#mensajebienvenida>.registrocss{
-  height: 40px;
-  background: #263072;
-  color: #fff;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-}
-#mensajebienvenida>.registrocss>p{
-  margin: 0 10px;
-}
-#mensajebienvenida>.registrocss>img{
-  margin: 0 10px;
-}
-#quitarFront{
-  padding: 15px;
-  border: 1px solid red;
-}
-#cuponUno{
-  position: fixed;
-  width: 100vw;
-  min-width: 250px;
-  height: 100vh;
-  background: rgba(255,255,255,0.9);
-  /* background: purple; */
-  z-index: 4800;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  -o-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-}
-#cuponUno>div{
-  width: 400px;
-  height: 400px;
-  background: #fff;
-  text-align: center;
-}
-#cuponUno>div>img{
-  width: 200px;
-}
-#cuponUno>div>a{
-  margin:30px auto;
-  display: block;
-  width: 150px;
-  line-height: 40px;
-  text-align: center;
-  background: #28346F;
-  color: #fff;
-}
-#cuponUno>div>a:hover{
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
 }
 /* MENU */
 #menu{
@@ -695,7 +492,279 @@ footer>div>a{
   line-height: 25px;
   color: #4d4d4d }
 
-/* DESKTOP */
-@media (min-width: 880px) {
 
+
+
+
+
+
+  /* MESSAGES */
+  h1{
+    font-weight:700;
+    font-size: 2rem;
+    margin: 5px auto;
+  }
+  #disclaimer>h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  #messagesGame{
+    position: absolute;
+    width: 100vw;
+    min-width: 250px;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    z-index: 4900;
+    background: #fff;
+  }
+  #messagesGame>div{
+    width: 840px;
+    height: 1024px;
+    background: #fff;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+  }
+  #messagesGame>div>#content{
+    width: 80%;
+    background: #fff;
+  }
+  /* DISCLAIMER */
+  #disclaimer{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  #disclaimer>img{ width: 120px; }
+  #disclaimer>div{
+    width: 90%;
+    margin: 10px auto;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  #disclaimer>div>a{
+    display: block;
+    width: 150px;
+    line-height: 40px;
+    background: #263072;
+    color: #fff;
+    margin: 5px auto;
+  }
+  #disclaimer>div>a:hover{
+    background: #344694;
+    transform: scale(1.1);
+  }
+  #disclaimer>p{
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  #disclaimer>p>a{
+    width: 400px;
+    margin: 0 auto;
+    color: #149BE4;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+
+  /* iPAD */
+  @media (min-width: 720px) {
+    h1{ font-size: 3rem; margin: 10px auto }
+    #disclaimer>h3{ font-size: 2rem }
+    #disclaimer>img{ width: 180px; }
+    #disclaimer>div>a{
+      width: 200px;
+      line-height: 60px;
+      margin: 10px auto;
+      font-size: 1.5rem;
+    }
+    #disclaimer>p:nth-child(5){ margin-top: 30px; }
+    #disclaimer>p{ margin: 5px auto }
+  }
+
+  /* Desktop */
+  @media (min-width: 960px){
+    #disclaimer{ margin-top: 120px; }
+    #disclaimer>div{
+      width: 400px;
+      margin: 30px auto;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      -o-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content:space-around;
+      -moz-justify-content:space-around;
+      -ms-justify-content:space-around;
+      -o-justify-content:space-around;
+      justify-content:space-around;
+    }
+    #disclaimer>div>a{
+      width: 150px;
+      line-height: 40px;
+    }
+    #disclaimer>div>a{ margin: 0; }
+    #disclaimer>p:nth-child(5){ margin-top: 0; }
+    #disclaimer>p{
+      margin: 0px auto }
+  }
+
+  /* EDADNOVALIDA */
+  #edadnovalida{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+
+  /* MENSAJE BIENVENIDA */
+  #mensajebienvenida{
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    margin-top: 200px;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  #mensajebienvenida>img{
+    width: 200px;
+  }
+  #mensajebienvenida>p{
+    width: 400px;
+    margin: 0 auto;
+    font-weight: 300;
+    text-align: center;
+  }
+  #mensajebienvenida>#tablapdf{
+    color: #149BE4;
+    text-decoration: none;
+    margin: 20px auto;
+  }
+  #mensajebienvenida>#tablapdf:hover{
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+  #mensajebienvenida>.registrocss{
+    height: 40px;
+    background: #263072;
+    color: #fff;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  #mensajebienvenida>.registrocss>p{
+    margin: 0 10px;
+  }
+  #mensajebienvenida>.registrocss>img{
+    margin: 0 10px;
+  }
+  #quitarFront{
+    padding: 15px;
+    border: 1px solid red;
+  }
+  #cuponUno{
+    position: fixed;
+    width: 100vw;
+    min-width: 250px;
+    height: 100vh;
+    background: rgba(255,255,255,0.9);
+    /* background: purple; */
+    z-index: 4800;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  #cuponUno>div{
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    text-align: center;
+  }
+  #cuponUno>div>img{
+    width: 200px;
+  }
+  #cuponUno>div>a{
+    margin:30px auto;
+    display: block;
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    background: #28346F;
+    color: #fff;
+  }
+  #cuponUno>div>a:hover{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+
+
+
+
+
+
+/* QUITAR */
+#menulateral{
+  display: none !important;
 }
