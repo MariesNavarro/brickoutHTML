@@ -43,89 +43,9 @@
         <script type="text/javascript" src="js/CLevelBut.js"></script>
         <script type="text/javascript" src="js/CCreditsPanel.js"></script>
         <script type="text/javascript" src="js/frontEnd.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
-    <body ondragstart="return false;" ondrop="return false;" >
-        <div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div>
-        <script>
-            $(document).ready(function () {
-                var oMain = new CMain({
-                    ball_speed: 12, //SPEED OF BALL IN PIXEL
-                    bricks_score: [5, 10, 15, 20, 50, 40], //SCORE ASSIGNED TO EVERY BRICK (brick0 to brickN)
-                    bricks_resistance: [0, 0, 0, 0, 0, 1], //HOW MANY TIME THE BALL COLLISION THE BRICK UNTIL IT IS DESTROYED (brick0 to brickN)
-                    bricks_destructible: [true, true, true, true, false, true], //INDICATES THAT A BRICK IS DESTRUCTABLE BY BALL IN NORMAL STATE (brick0 to brick5)
-                    bonus_speed: 2, //SPEED OF BONUS IN PIXEL
-                    bonus_time: {t0: 15, t1: 150, t2: 15, t3: 15, t6: 15}, //DURATION OF EVERY BONUS IN THIS ORDER (IN SECONDS) t0=LargePad,t1=FireBall,t2=Floor,t3=Magnetic,t6=Shot
-                    bonus_score: {s0: 15, s1: 10, s2: 10, s3: 15, s4: 100, s5: 20, s6: 15, s7: 10, s8: 30, s9: 30}, //SCORE OF EVERY BONUS IN THIS ORDER s0=LargePad,s1=FireBall,s2=Floor,s3=Magnetic,s4=extra life,s5=multiBall,s6=Shot,s7=ball speed down,s8ball speed up,s9=smallPad
-                    life: 300, //LIVES ASSIGNED AT THE BEGIN OF THE GAME
-                    bullet_speed: 0.5, //SPEED OF THE BULLET OF THE SHOT BONUS
-                    speed_down_ball: 0.25, //DECREASE SPEED TO BALL EVERY TIME TAKES THE POWER UP SPEED DOWN BALL
-                    speed_up_ball: 0.25, //INCREASE SPEED TO BALL EVERY TIME TAKES THE POWER UP SPEED UP BALL
-                    fullscreen:true, //SET THIS TO FALSE IF YOU DON'T WANT TO SHOW FULLSCREEN BUTTON
-                    check_orientation:true,     //SET TO FALSE IF YOU DON'T WANT TO SHOW ORIENTATION ALERT ON MOBILE DEVICES
-                    num_levels_for_ads: 3 //NUMBER OF LEVELS TO COMPLETE BEFORE TRIGGERING SAVE_SCORE EVENT. USEFUL FOR INTER-LEVEL AD EVENTUALLY.
-                });
-
-                $(oMain).on("start_session", function (evt) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeStartSession();
-                    }
-                });
-
-
-                $(oMain).on("end_session", function (evt) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeEndSession();
-                    }
-                });
-
-
-                $(oMain).on("start_level", function (evt, iLevel) {
-                    changeFrontLevel(iLevel);
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeStartLevel({level: iLevel});
-                    }
-                });
-
-                $(oMain).on("end_level", function (evt, iLevel) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeEndLevel({level: iLevel});
-                    }
-                });
-
-                $(oMain).on("save_score", function (evt, iScore) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeSaveScore({score: iScore});
-                    }
-                });
-
-                $(oMain).on("show_interlevel_ad", function (evt) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeShowInterlevelAD();
-                    }
-                });
-
-                $(oMain).on("share_event", function (evt, iScore) {
-                    if (getParamValue('ctl-arcade') === "true") {
-                        parent.__ctlArcadeShareEvent({img: TEXT_SHARE_IMAGE,
-                            title: TEXT_SHARE_TITLE,
-                            msg: TEXT_SHARE_MSG1 + iScore
-                                    + TEXT_SHARE_MSG2,
-                            msg_share: TEXT_SHARE_SHARE1
-                                    + iScore + TEXT_SHARE_SHARE1});
-                    }
-                });
-
-                if (isIOS()) {
-                    setTimeout(function () {
-                        sizeHandler();
-                    }, 200);
-                } else {
-                    sizeHandler();
-                }
-            });
-
-        </script>
-
+     <body ondragstart="return false;" ondrop="return false;" >
         <!-- Menu -->
         <div id="menu" class="trans7" style="opacity:0">
           <div id="head" class="back_word">
@@ -311,12 +231,9 @@
           </a>
         </div>
 
-
-
-        <canvas id="canvas" class='ani_hack' width="840" height="1024"></canvas>
-        <div data-orientation="portrait" class="orientation-msg-container"><p class="orientation-msg-text">Please rotate your device</p></div>
-        <div id="block_game" style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:none"></div>
-
+        <div id="general">
+          <!-- <button hidden id="login" onclick="getPermitionsFB();">Registrarse</button> -->
+        </div>
         <div id="lookLevelPpt" style="opacity:0">
           <div id="reglaTop"></div>
           <div id="reglaRight"></div>
@@ -472,7 +389,7 @@
                 </p>
                 <a id="tablapdf" href="#" class="trans7"><p>Descarga la tabla de premios</p></a>
 
-                <a id="registro" class="registrocss flexDisplay" role="button" onclick="">
+                <a id="registro" class="registrocss flexDisplay" role="button" onclick="getPermitionsFB();">
                   <p>Regístrate con Facebook</p>
                   <img src="img/facebook.svg" height="20">
                 </a>
@@ -495,6 +412,49 @@
             <a role="button" class="trans7" onclick="cuponUnoOk()">Listo</a>
           </div>
         </div>
+        <script>
+
+          $(document).ready(function () {
+               function mostrarInformacionCaracter(evObject) {
+                   var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
+                   if (evObject.which!=0 && evObject.which!=13) {
+                    }
+                    else {
+                       jugando=!jugando;
+                       ocultarmostrar();
+                    }
+
+                 }
+              function ocultarmostrar() {
+                if(jugando)
+                  {
+                     if(s_oMain!=undefined)
+                       {
+                          // $("#block_game").
+                          $("#block_game").css("background-color","transparent");
+                          $("#block_game").css("background-image","");
+                          s_oMain.startUpdate();
+                       }
+                 }
+               else
+                {
+                  if(s_oMain!=undefined)
+                   {
+                      $("#block_game").css("background-color","");
+                      $("#block_game").css("background-image",'url("./img/back-home.jpg")');
+                      s_oMain.stopUpdate();
+                   }    
+                }
+
+              }
+              ocultarmostrar();
+              window.onload = function() { document.onkeypress = mostrarInformacionCaracter;}
+              if(checkPopUp())
+               {
+                 valido();
+               }   
+          });
+        </script>
         <!-- Globales Front -->
         <script type="text/javascript">
           var _FRONTButExit = document.getElementById('imgQuit');

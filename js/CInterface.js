@@ -137,10 +137,12 @@ function CInterface() {
         _oFade = new createjs.Shape();
         _oFade.graphics.beginFill("black").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         _oFade.alpha = 0;
+        actparticipacion(iScore);
         s_oStage.addChild(_oFade);
 
-        _oTextGameOver = new createjs.Text(TEXT_SCORE_GAMEOVER + "\n\n" + iScore, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
-        _oTextGameOver.textAlign = "center";
+        var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore+ "\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
+        _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+       _oTextGameOver.textAlign = "center";
         _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
         _oTextGameOver.y = -120;
