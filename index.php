@@ -471,7 +471,6 @@
           var lookLevelPpt = document.getElementById("lookLevelPpt");
           var lookLevelExc = document.getElementById("lookLevelExc");
           var footer = document.getElementById("footer");
-          var canvasFront = document.getElementById("canvas");
           var lookLevelExcBool = false;
           var lookLevelPptBool = false;
           var cuponUno = document.getElementById("cuponUno");

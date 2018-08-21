@@ -288,7 +288,7 @@ function checkAge(c){
 
       setTimeout(function(){
         mensajebienvenida.style.opacity = "1";
-        canvasFront.setAttribute("class", "canvasWrd");
+        // canvasFront.setAttribute("class", "canvasWrd");
         messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
       },300)
     },700);
