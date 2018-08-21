@@ -364,11 +364,11 @@
                 </div>
                 <p>
                   Al confirmar ser mayor de edad manifiestas
-                  tu conformidad con nuestros <a href="#">Términos y Condiciones</a>.
+                  tu conformidad con nuestros <a href="#" class="trans7">Términos y Condiciones</a>.
                 </p>
                 <br>
                 <p>
-                  También puedes ver nuestra <a href="#">política de
+                  También puedes ver nuestra <a href="#" class="trans7">política de
                   privacidad</a>.
                 </p>
               </section>

@@ -506,6 +506,7 @@ footer>div>a{
     font-weight: 400;
   }
   #messagesGame{
+    color: #fff;
     position: absolute;
     width: 100vw;
     min-width: 250px;
@@ -560,8 +561,8 @@ footer>div>a{
     display: block;
     width: 150px;
     line-height: 40px;
-    background: #263072;
-    color: #fff;
+    background: #fff;
+    color: #263072;
     margin: 5px auto;
   }
   #disclaimer>div>a:hover{
@@ -576,11 +577,14 @@ footer>div>a{
   #disclaimer>p>a{
     width: 400px;
     margin: 0 auto;
-    color: #149BE4;
+    color: #fff;
     font-weight: 400;
+    text-decoration: none;
+  }
+  #disclaimer>p>a:hover{
+    opacity: 0.8;
     text-decoration: underline;
   }
-
   /* iPAD */
   @media (min-width: 720px) {
     h1{ font-size: 3rem; margin: 10px auto }
