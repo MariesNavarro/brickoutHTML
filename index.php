@@ -359,8 +359,8 @@
                 <h1>Bud Light Docs</h1>
                 <h3>¿Eres mayor de edad?</h3>
                 <div class="flexDisplay">
-                  <a role="button" class="trans7" onclick="checkAge('true')"><p>Sí</p><span></span> </a>
-                  <a role="button" class="trans7" onclick="checkAge('false')"><span></span>No</a>
+                  <a role="button" class="trans7" onclick="checkAge('true')"><p class="trans7">Sí</p><span class="trans7"></span> </a>
+                  <a role="button" class="trans7" onclick="checkAge('false')"><p class="trans7">No</p><span class="trans7"></span></a>
                 </div>
                 <p>
                   Al confirmar ser mayor de edad manifiestas
@@ -374,9 +374,10 @@
               </section>
 
               <section id="edadnovalida" class="noneDisplay">
-                <p>
-                  Lo sentimos, tienes que ser mayor de 18 años para ingresar a este sitio.
-                </p>
+                <div>
+                  <img src="img/404.svg">
+                  <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
+                </div>
               </section>
 
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">

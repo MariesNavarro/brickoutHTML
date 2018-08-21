@@ -502,7 +502,6 @@ footer>div>a{
     margin: 5px auto;
   }
   #messagesGame{
-    color: #fff;
     position: absolute;
     width: 100vw;
     min-width: 250px;
@@ -534,6 +533,7 @@ footer>div>a{
   }
   /* DISCLAIMER */
   #disclaimer{
+    color: #fff;
     position: relative;
     width: 100%;
     text-align: center;
@@ -590,7 +590,7 @@ footer>div>a{
     position: relative;
     display: block;
     width: 150px;
-    line-height: 40px;
+    height: 40px;
     border: 2px solid #fff;
     color: #fff;
     margin: 5px auto;
@@ -599,19 +599,23 @@ footer>div>a{
   #disclaimer>div>a>p{
     display: block;
     width: 150px;
+    height: 40px;
+    line-height: 36px;
     position: absolute;
+    z-index: 2;
   }
   #disclaimer>div>a>span{
     position: absolute;
     top: 0;
     left: 0;
     display: block;
-     width: 75px; /*146px */
-    height: 40px;
-    background: red;
+    width: 0;
+    height: 36px;
+    background: #fff;
+    z-index: 1;
   }
-  #disclaimer>div>a:hover{
-  }
+  #disclaimer>div>a:hover>span{ width: 146px; }
+  #disclaimer>div>a:hover>p{ color: #263072; }
   #disclaimer>p{
     width: 80%;
     margin: 0 auto;
@@ -633,14 +637,36 @@ footer>div>a{
   #disclaimer>p>a:hover{
     opacity: 0.6;
   }
+  /* EDADNOVALIDA */
+  #edadnovalida{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #edadnovalida>div{
+    position: absolute;
+    top:calc(50% - 250px);
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 250px;
+    text-align: center;
+  }
+  #edadnovalida>div>img{
+    width: 80px;
+  }
+  #edadnovalida>div>p{
+    position: relative;
+    margin: 10px auto;
+    font-weight: 300;
+    font-size: 1.5rem;
+    width: 80%;
+  }
   /* iPAD */
   @media (min-width: 720px) {
     h1{ font-size: 3rem; margin: 10px auto }
     #disclaimer>h3{ font-size: 2rem }
     #disclaimer>img{ width: 180px; }
     #disclaimer>div>a{
-      width: 200px;
-      line-height: 60px;
       margin: 10px auto;
       font-size: 1.5rem;
     }
@@ -675,22 +701,7 @@ footer>div>a{
       margin: 0px auto }
   }
 
-  /* EDADNOVALIDA */
-  #edadnovalida{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-  }
+
 
   /* MENSAJE BIENVENIDA */
   #mensajebienvenida{

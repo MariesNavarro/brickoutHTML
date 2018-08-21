@@ -278,22 +278,21 @@ function hideMenu(t, c){
 
 function checkAge(c){
   if(c === "true"){
-    messagesGame.setAttribute("class", "flexDisplay"); 
+
     disclaimer.style.opacity = "0";
     setTimeout(function(){
+      messagesGame.setAttribute("class", "flexDisplay");
       disclaimer.style.display = "none";
       mensajebienvenida.setAttribute("class", "flexDisplay");
-
       footer.style.opacity = "1";
       frontMenu.style.opacity = "1";
-
       setTimeout(function(){
         mensajebienvenida.style.opacity = "1";
-
         messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
       },300)
     },700);
   }else if(c === "false"){
+    messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     edadnovalida.setAttribute("class", "flexDisplay");
   }
