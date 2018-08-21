@@ -181,7 +181,7 @@ function isIOS() {
                     s_oLevelMenu.refreshButtonPos(s_iOffsetX, s_iOffsetY);
                 }
 
-                if(s_bIsIphone){
+                if(s_bIsIphone!=undefined&&s_bIsIphone){
                     canvas = document.getElementById('canvas');
                     s_oStage.canvas.width = destW*2;
                     s_oStage.canvas.height = destH*2;
