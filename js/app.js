@@ -101,9 +101,14 @@ function actualizadiv(){
       {
         alert(anunciocupon);
       }
+      else
+      {
+        quitarRegistroFront();
+        cuponUnoOk();
+      }
       console.log(data1);
       $('#general').html(pagina).fadeIn();
-      but_jugar();
+     
     }  
   });     
 } 
