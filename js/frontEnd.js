@@ -489,6 +489,8 @@ function checkPais(c){
   }
 }
 
+//Aqui esta
+
 function cuponOpacity(t){
   var parent = t.parentNode;
   parent.style.opacity = "0";
