@@ -105,7 +105,7 @@ function CInterface() {
         _oLifeText.x = CANVAS_WIDTH * 0.5 + 100;
         _oLifeText.y = 125;
         s_oStage.addChild(_oLifeText);
-        document.getElementsByClassName("displayLives")[0].innerHTML=""+LIFE+"";
+        actValByClassName("displayLives",LIFE);
         s_oGame.setPause(true);
         this.refreshButtonPos(s_iOffsetX, s_iOffsetY);
     };
@@ -142,8 +142,6 @@ function CInterface() {
         s_oStage.addChild(_oFade);
 
         var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore; //"\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
-        document.getElementsByClassName("displayBest")[0].innerHTML=""+msjpuntospos+"";
-        document.getElementsByClassName("displayPosition")[0].innerHTML=""+msjposicion+"";
         actValByClassName("displayBest",msjpuntospos);
         actValByClassName("displayPosition",msjposicion);
         _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
@@ -158,7 +156,7 @@ function CInterface() {
                 var oSpriteRestart = s_oSpriteLibrary.getSprite("but_restart");
                 _oButReturnToMenu = new CGfxButton((CANVAS_WIDTH / 2), CANVAS_HEIGHT / 2 + 200, oSpriteRestart);
                 _oButReturnToMenu.addEventListener(ON_MOUSE_UP, s_oInterface._onButReturnToMenuRelease, this);
-            });
+            }); 
         });
 
         $(s_oMain).trigger("share_event", iScore);
