@@ -158,6 +158,13 @@ canvas {
   min-width: 250px;
   height: calc(100vh - 155px);
   top: 130px;
+  background: #fff;
+}
+#lookLevelExc>#lookLevelExcCeldas{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('../img/celdas.png');
 }
 #lookLevelExc>ul{
@@ -223,6 +230,12 @@ canvas {
 #menumobile>#barmenumobile>a>img{ width: 30px; }
 #menumobile>#barmenumobile>p{ text-align: center; }
 #menumobile>#barmenumobile>p,   #menumobile>#barmenumobile>a>p{ font-size: 0.75rem }
+/* OUTTER */
+/* #menuMobileOutter{
+  position: fixed;
+  width:100vw;
+  height: 100vh;
+} */
 /* MENU DESKTOP */
 #menu{
   position: fixed;
@@ -233,6 +246,7 @@ canvas {
   z-index: 5000;
   overflow: hidden;
 }
+
 #menu>#head{
   position: absolute;
   top: -50px;
@@ -556,13 +570,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
 @media (min-width: 1050px){ .esconderTres, .esconderTresSpan{ display: block !important } }
 @media (min-width: 1250px){
   #menu>#head>#top>#izq>ul{ opacity: 1; }
-  .esconderTres{
+  .esconderDos{
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: -webkit-flex !important;
     display: flex !important;
   }
-  .esconderTresSpan{
+  .esconderDosSpan{
     display: block !important;
   }
 }
@@ -1011,3 +1025,168 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
 #menulateral{
   display: none !important;
 }
+
+
+
+#pausaWrap{
+  position: fixed;
+  width: 100vw;
+  min-width: 250px;
+  height: 100vh;
+  background: #fff;
+  z-index: 7000;
+  display: none;
+}
+#pausaWrap>header{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-width: 250px;
+  height: 60px;
+  border:1px solid #CCC;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/pausa/textura.jpg');
+}
+#pausaWrap>header>#mobile{
+  position: relative;
+  margin: 10px auto;
+  display: block;
+  height: 80%;
+}
+#pausaWrap>header>#desktop{
+  position: relative;
+  margin: 0 auto;
+  display: none;
+  height: 100%;
+}
+#pausaWrap>#areatrabajoWRD, #pausaWrap>#areatrabajoPPT,
+#pausaWrap>#areatrabajoEXC, #areatrabajoMobile{
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: #fff;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+/* PAUSA WRD */
+#pausaWrap>#areatrabajoWRD>textarea{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #263072;
+  width: 100%;
+  max-width: 840px;
+  min-width: 250px;
+  height: 100%;
+  border: none;
+  padding: 0;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.2rem;
+  border: 2px solid #263072;
+}
+/* PAUSA PPT */
+#pausaWrap>#areatrabajoPPT>#tools{
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  display: none;
+  background-image: url('../img/pausa/tools-ppt.jpg');
+  background-repeat: repeat-y;
+  background-size: 100%;
+}
+#pausaWrap>#areatrabajoPPT>#diapositiva{
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  min-width: 250px;
+  height: 100%;
+  border: 2px solid #A3A3A3;
+  background: #fff;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+#pausaWrap>#areatrabajoPPT>#diapositiva>img{
+  width: 600px;
+}
+/* PAUSA EXC */
+#pausaWrap>#areatrabajoEXC>#celdas{
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+#pausaWrap>#areatrabajoEXC>#celdas>ul>li{
+  border: 1px solid #A2A2A2;
+  width: 100%;
+  height: 40px;
+}
+#pausaWrap>#areatrabajoEXC>#celdas>ul>li>textarea{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #1F7448;
+  line-height:40px;
+  text-align: center;
+  background: #fff;
+  border:0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  resize: none;
+  overflow: hidden;
+}
+#tituloCeldas>textarea{
+  background:#1F7448 !important;
+  color: #fff !important;
+  font-size: 1.7rem;
+}
+/* PAUSA MOBILE */
+#areatrabajoMobile{
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+
+#areatrabajoMobile>img{
+  height: 100%;
+}
+
+  @media (min-width: 960px){
+    #pausaWrap>header{
+      height: 130px;
+      background-repeat: repeat-x;
+      background-size: auto 109%;
+      background-image: url('../img/pausa/textura-wrd.jpg');
+    }
+    #pausaWrap>header>#mobile{ display: none }
+    #pausaWrap>header>#desktop{ display: block }
+    #pausaWrap>#areatrabajoWRD, #pausaWrap>#areatrabajoPPT,
+    #pausaWrap>#areatrabajoEXC{
+      top: 130px;
+      height: calc(100% - 130px);
+    }
+    #pausaWrap>#areatrabajoPPT>#tools{ display: block; }
+  }

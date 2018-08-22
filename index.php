@@ -62,6 +62,10 @@
           </a>
         </div>
        </div>
+       <!-- menu outter -->
+       <div id="menuMobileOutter">
+
+       </div>
         <!-- Menu Desktop -->
         <div id="menu" class="trans7">
           <div id="head" class="back_word" style="opacity:0;top:-200px">
@@ -90,6 +94,8 @@
             </div>
             <ul class="flexDisplay">
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Partida</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Mi Cupón</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
               <a id="facebookShare" href="#" class="trans7">
@@ -264,9 +270,9 @@
             </li>
           </ul>
         </div>
-
         <div id="lookLevelExc" style="opacity:0">
-          <ul>
+          <div id="lookLevelExcCeldas" style="opacity:0"></div>
+          <ul id="lookLevelExcRegla" style="opacity:0">
             <li><img src="img/look/cornerExc.svg"></li>
             <li>
               <p>1</p>
@@ -428,48 +434,40 @@
           </div>
         </div>
 
-        <script>
-          $(document).ready(function () {
-               function mostrarInformacionCaracter(evObject) {
-                   var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
-                   if (evObject.which!=0 && evObject.which!=13) {
-                    }
-                    else {
-                       jugando=!jugando;
-                       ocultarmostrar();
-                    }
+        <div id="pausaWrap">
+          <header>
+            <img id="mobile" src="img/pausa/menu-mobile-buttons.svg">
+            <img id="desktop" src="img/pausa/barra-pausa-wrd.jpg">
+          </header>
+          <!-- PAUSA MOBILE -->
+          <div id="areatrabajoMobile" class="flexDisplay">
+            <img src="img/pausa/pausa-mobile.png" alt="">
+          </div>
+          <!-- PAUSA WRD -->
+          <div id="areatrabajoWRD" class="noneDisplay">
+            <textarea name="name" rows="8" cols="80">
+            Título 1:
+            Tranquilo, aquí te dejamos un área de texto para que puedas escribir hasta que dejen de rondar detrás de ti.
+            Después quita la pausa y sigue jugando Bud Light Docs ©.
+            </textarea>
+          </div>
+          <!-- PAUSA PPT -->
+          <div id="areatrabajoPPT" class="noneDisplay">
+            <div id="tools"></div>
+            <div id="diapositiva" class="flexDisplay">
+              <img src="img/pausa/infografia-ppt.svg">
+            </div>
+          </div>
+          <!-- PAUSA EXC -->
+          <div id="areatrabajoEXC" class="noneDisplay">
+            <div id="celdas">
+              <ul class="flexDisplay">
+                <li id="tituloCeldas"><textarea>El documento con los números que nadie entiende</textarea></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-                 }
-              function ocultarmostrar() {
-                if(jugando)
-                  {
-                     if(s_oMain!=undefined)
-                       {
-                          // $("#block_game").
-                          $("#block_game").css("background-color","transparent");
-                          $("#block_game").css("background-image","");
-                          s_oMain.startUpdate();
-                       }
-                 }
-               else
-                {
-                  if(s_oMain!=undefined)
-                   {
-                      $("#block_game").css("background-color","");
-                      $("#block_game").css("background-image",'url("./img/back-home.jpg")');
-                      s_oMain.stopUpdate();
-                   }
-                }
-
-              }
-              ocultarmostrar();
-              window.onload = function() { document.onkeypress = mostrarInformacionCaracter;}
-              if(checkPopUp())
-               {
-                 valido();
-               }
-          });
-        </script>
         <!-- Globales Front -->
         <script type="text/javascript">
           /* Display Data */
@@ -489,12 +487,16 @@
           var gamermood = document.getElementById("gamermood");
           var searchBar = document.getElementById("searchBar");
           var messagesGame = document.getElementById("messagesGame");
-          var lookLevelPpt = document.getElementById("lookLevelPpt");
-          var lookLevelExc = document.getElementById("lookLevelExc");
+
           var footer = document.getElementById("footer");
           var logotipobudlight = document.getElementById("logotipobudlight");
-          var lookLevelExcBool = false;
-          var lookLevelPptBool = false;
+          var lookLevelPpt = document.getElementById("lookLevelPpt");
+
+
+          var lookLevelExc = document.getElementById("lookLevelExc");
+          var lookLevelExcCeldas = document.getElementById("lookLevelExcCeldas");
+          var lookLevelExcRegla = document.getElementById("lookLevelExcRegla");
+
           var footerprovisional = document.getElementById("footerprovisional");
           /* mensajes */
           var disclaimer = document.getElementById("disclaimer");
@@ -508,17 +510,29 @@
           // Menu
           var menuInit = false;
           var menuFull = false;
+          var isPausePressed = false;
           var frontBarMenu = document.getElementById("head");
           var frontToolsBar = document.getElementById("bar");
           var menumobile = document.getElementById("menumobile");
           function quitarRegistroFrontsinRegistro(){
             quitarRegistroFront();
             sinregistro();
+          };
+
+
+          window.onkeypress = function(e){
+            e = e || window.event;
+            if(e.keyCode === 13){
+              pausaEvent(nivelInterno+1);
+            }
           }
+
           var w = window.innerWidth;
           window.onresize = function(){
             w = window.innerWidth;
             menuDeployment(w);
+            changeLook(nivelInterno+1);
+            console.log(w);
           };
         </script>
     </body>

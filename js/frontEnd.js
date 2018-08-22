@@ -30,37 +30,30 @@ function changeFrontLevel(lvl){
 }
 
 
-
 function changeLook(c){
-  if(c === "wrd"){
-    lookLevelPpt.style.opacity = "0";
-    lookLevelExc.style.opacity = "0";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
-  } else if (c === "ppt") {
-    lookLevelPpt.style.opacity = "1";
-    lookLevelExc.style.opacity = "0";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
-  } else if (c === "exc") {
-    lookLevelPpt.style.opacity = "0";
-    lookLevelExc.style.opacity = "1";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
+  console.log("Nivel: " + c);
+  switch (c) {
+    case 1:
+    lookNone();
+    break;
+    case 2:
+      if(w<1300)lookNone();
+      if(w>1300)lookPpt();
+    break;
+    case 3:
+      if(w<1300)lookExcNoRegla();
+      if(w>1300)lookExcRegla();
+    break;
   }
 }
+function lookExcNoRegla(){lookLevelPpt.style.opacity = "0"; lookLevelExc.style.opacity = "1"; lookLevelExcRegla.style.opacity = "0"; lookLevelExcCeldas.style.opacity = "1"; }
+function lookExcRegla(){lookLevelPpt.style.opacity = "0"; lookLevelExc.style.opacity = "1"; lookLevelExcRegla.style.opacity = "1"; lookLevelExcCeldas.style.opacity = "1"; }
+function lookPpt(){ lookLevelPpt.style.opacity = "1"; lookLevelExcRegla.style.opacity = "0"; }
+function lookNone(){ lookLevelPpt.style.opacity = "0"; lookLevelExcRegla.style.opacity = "0"; }
 
 function changeColor(lvl){
   if(lvl === 0 || lvl === 3 || lvl === 6){
+    changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
     barmenumobile.setAttribute("class", "flexDisplay");
     barmenumobile.setAttribute("class", "flexDisplay back_word");
@@ -68,10 +61,8 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = false;
-    changeLook("wrd");
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
+    changeLook(2);
     canvasFront.setAttribute("class", "canvasPpt");
     barmenumobile.setAttribute("class", "flexDisplay");
     barmenumobile.setAttribute("class", "flexDisplay back_ppt");
@@ -79,10 +70,8 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_ppt");
     gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
     searchBar.setAttribute("src", "img/head/search-ppt.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = true;
-    changeLook("ppt");
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
+    changeLook(3);
     canvasFront.setAttribute("class", "canvasExc");
     barmenumobile.setAttribute("class", "flexDisplay");
     barmenumobile.setAttribute("class", "flexDisplay back_excel");
@@ -90,10 +79,8 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_excel");
     gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
     searchBar.setAttribute("src", "img/head/search-exc.svg");
-    lookLevelExcBool = true;
-    lookLevelPptBool = false;
-    changeLook("exc");
   } else {
+    changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
     barmenumobile.setAttribute("class", "flexDisplay");
     barmenumobile.setAttribute("class", "flexDisplay back_word");
@@ -101,9 +88,6 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = false;
-    changeLook("wrd");
   }
 }
 
@@ -365,6 +349,7 @@ function checkAge(c){
     messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
     mensajebienvenida.style.opacity = "1";
   }else{
+    nivelInterno = "no";
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     edadnovalida.setAttribute("class", "flexDisplay");
@@ -394,4 +379,52 @@ function quitarRegistroFront(){
 
 function quitarMensajes(){
   messagesGame.setAttribute("class", "noneDisplay");
+}
+
+
+
+function pausaEvent(c){
+  isPausePressed = !isPausePressed;
+  if(isPausePressed){
+    if(c == undefined){
+      pausaDisplay(true, "default");
+    }
+    else if (c === "no") {
+      pausaDisplay(true, "noage");
+    } else {
+      pausaDisplay(true, c);
+    }
+  } else {
+    if(c == undefined){
+      pausaDisplay(false, "default");
+    } else if (c === "no") {
+      pausaDisplay(false, "noage");
+    } else {
+      pausaDisplay(false, c);
+    }
+  }
+}
+
+function pausaDisplay(b, l){
+  var pausaWrap = document.getElementById("pausaWrap");
+  if(b){
+    pausaWrap.style.display = "block";
+  } else {
+    pausaWrap.style.display = "none";
+  }
+}
+
+function generaCeldas(){
+  var celdas = document.getElementById("celdas");
+  for (var i = 0; i < 20; i++) {
+    var ul = document.createElement("UL");
+    ul.setAttribute("class", "flexDisplay");
+    celdas.appendChild(ul);
+    for (var j = 0; j < 12; j++) {
+      var textarea = document.createElement("TEXTAREA");
+      var li = document.createElement("LI");
+      li.appendChild(textarea);
+      ul.appendChild(li)
+    }
+  }
 }
