@@ -422,3 +422,11 @@ function generaCeldas(){
     }
   }
 }
+function checkPais(c){
+  if(c === "NO"){
+    nivelInterno = "no";
+    messagesGame.setAttribute("class", "flexDisplay");
+    disclaimer.style.display = "none";
+    paisnovalido.setAttribute("class", "flexDisplay");
+  }
+}

@@ -370,7 +370,7 @@ FB.ui({
   display: 'popup',
   action_properties: JSON.stringify({
     object: {
-      'og:url': 'https://budlightdocs.com/fun/',
+      'og:url': 'https://budlightdocs.com',
       'og:title': 'Juega con budlight',
       'og:description': 'Disfrutando del dia de Gamer con budlight',
       'og:image': 'https://budlightdocs.com/fun/img/bugdoodle.JPG'
