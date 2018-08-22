@@ -249,7 +249,7 @@
             <span></span>
 
             <div>
-            <a role="button" id="imgHide" class="iconChange evasionWrd" data-icon="evasion"></a>
+            <a role="button" id="imgHide" class="iconChange evasionWrd" data-icon="evasion" onclick="buttonPausa()"></a>
             <p class="textFuncional">Modo Evasión</p>
             </div>
 
@@ -482,31 +482,34 @@
         </div>
 
         <div id="pausaWrap">
-          <header>
-            <img id="mobile" src="img/pausa/menu-mobile-buttons.svg">
-            <img id="desktop" src="img/pausa/barra-pausa-wrd.jpg">
+          <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
+            <img id="headerImgPausaM" src="img/pausa/menu-mobile-buttons.svg">
+            <img id="headerImgPausaD" src="img/pausa/barra-pausa-wrd.jpg">
           </header>
           <!-- PAUSA MOBILE -->
-          <div id="areatrabajoMobile" class="flexDisplay">
+          <div id="areatrabajoMobile" class="pausaArea noneDisplay">
             <img src="img/pausa/pausa-mobile.png" alt="">
           </div>
           <!-- PAUSA WRD -->
-          <div id="areatrabajoWRD" class="noneDisplay">
+          <div id="areatrabajoWRD" class="pausaArea noneDisplay">
             <textarea name="name" rows="8" cols="80">
-            Título 1:
-            Tranquilo, aquí te dejamos un área de texto para que puedas escribir hasta que dejen de rondar detrás de ti.
-            Después quita la pausa y sigue jugando Bud Light Docs ©.
+Título 1:
+
+Tranquilo, aquí te dejamos un área de texto para que puedas escribir
+hasta que dejen de rondar detrás de ti.
+
+Después quita la pausa y sigue jugando Bud Light Docs ©.
             </textarea>
           </div>
           <!-- PAUSA PPT -->
-          <div id="areatrabajoPPT" class="noneDisplay">
+          <div id="areatrabajoPPT" class="pausaArea noneDisplay">
             <div id="tools"></div>
             <div id="diapositiva" class="flexDisplay">
               <img src="img/pausa/infografia-ppt.svg">
             </div>
           </div>
           <!-- PAUSA EXC -->
-          <div id="areatrabajoEXC" class="noneDisplay">
+          <div id="areatrabajoEXC" class="pausaArea noneDisplay">
             <div id="celdas">
               <ul class="flexDisplay">
                 <li id="tituloCeldas"><textarea>El documento con los números que nadie entiende</textarea></li>
@@ -563,6 +566,11 @@
           var menuIsHidden = false;
           var pauseIsOn = false;
           var pauseIsOnPpt = false;
+          var pausaWrap = document.getElementById("pausaWrap");
+          var pausaArea = document.getElementsByClassName("pausaArea");
+          var headerImgPausaM = document.getElementById("headerImgPausaM");
+          var headerImgPausaD = document.getElementById("headerImgPausaD");
+          var headerPausa = document.getElementById("headerPausa");
           // Menu
           var menuInit = false;
           var menuFull = false;
@@ -574,18 +582,20 @@
             quitarRegistroFront();
             sinregistro();
           };
-
+          var w = window.innerWidth;
 
           window.onkeypress = function(e){
             e = e || window.event;
             if(e.keyCode === 13){
-              pausaEvent(nivelInterno+1);
+              isPausePressed = !isPausePressed;
+              pausaEvent(nivelInterno, w);
             }
           }
 
-          var w = window.innerWidth;
+
           window.onresize = function(){
             w = window.innerWidth;
+            pausaEvent(nivelInterno, w);
             menuDeployment(w);
             changeLook(nivelInterno+1);
             console.log(w);

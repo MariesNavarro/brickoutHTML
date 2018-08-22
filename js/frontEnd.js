@@ -243,8 +243,6 @@ function tabSelectChange(t){
 }
 
 
-
-
 function hideMenu(t, c){
   var img = t.children[0].children[1];
   var p = t.children[0].children[0];
@@ -377,35 +375,95 @@ function quitarRegistroFront(){
   disableEnableTabs("enable");
 }
 
-function pausaEvent(c){
-  isPausePressed = !isPausePressed;
+function pausaEvent(l, w){
+  var level = l;
   if(isPausePressed){
-    if(c == undefined){
-      pausaDisplay(true, "default");
-    }
-    else if (c === "no") {
-      pausaDisplay(true, "noage");
-    } else {
-      pausaDisplay(true, c);
-    }
+    if(level != undefined)toggleGame("pausa");
+    if(w < 960)displayPausaMobile(level);
+    if(w > 960)displayPausaDesktop(level);
   } else {
-    if(c == undefined){
-      pausaDisplay(false, "default");
-    } else if (c === "no") {
-      pausaDisplay(false, "noage");
+    if(level != undefined)toggleGame("play");
+    pausaWrap.style.display = "none";
+  }
+}
+
+function toggleGame(){
+  if(s_oMain!=undefined){
+    console.log("s_oMain esta definido");
+    if(isPausePressed){
+      s_oMain.stopUpdate();
     } else {
-      pausaDisplay(false, c);
+      s_oMain.startUpdate();
     }
   }
 }
 
-function pausaDisplay(b, l){
-  var pausaWrap = document.getElementById("pausaWrap");
-  if(b){
-    pausaWrap.style.display = "block";
-  } else {
-    pausaWrap.style.display = "none";
+function buttonPausa(){
+  isPausePressed = !isPausePressed;
+  pausaEvent(nivelInterno, w);
+}
+
+
+function displayPausaMobile(l){
+  var level = l;
+  pausaWrap.style.display = "block";
+  switchPausa(0);
+  if(level ==  undefined || level == 0) changeHeadMobilePausa(1);
+  if(level === 1 || level === 4 || level === 7) changeHeadMobilePausa(2);
+  if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9) changeHeadMobilePausa(3);
+  function changeHeadMobilePausa(c){
+    headerImgPausaM.style.display = "block";
+    headerImgPausaD.style.display = "none";
+    switch (c) {
+    case 1:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-wrd.jpg')";
+    break;
+    case 2:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-ppt.jpg')";
+    break;
+    case 3:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-exc.jpg')";
+    break;
+    }
   }
+}
+
+function displayPausaDesktop(l){
+  if(l == undefined) l = 0;
+  var level = l;
+  pausaWrap.style.display = "block";
+  if(level ==  undefined || level == 0) changeHeadDesktopPausa(1);
+  if(level === 1 || level === 4 || level === 7) changeHeadDesktopPausa(2);
+  if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9) changeHeadDesktopPausa(3);
+  function changeHeadDesktopPausa(c){
+    headerImgPausaM.style.display = "none";
+    headerImgPausaD.style.display = "block";
+    switch (c) {
+      case 1:
+        switchPausa(1);
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-wrd.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-wrd.jpg')";
+      break;
+      case 2:
+        switchPausa(2);
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-ppt.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-ppt.jpg')";
+      break;
+      case 3:
+        switchPausa(3);
+        generaCeldas();
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-exc.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-exc.jpg')";
+      break;
+    }
+  }
+}
+
+function switchPausa(n){
+  for (var i = 0; i < pausaArea.length; i++) {
+    pausaArea[i].setAttribute("class", "pausaArea noneDisplay");
+  }
+  pausaArea[n].setAttribute("class", "pausaArea flexDisplay");
 }
 
 function generaCeldas(){
