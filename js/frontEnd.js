@@ -377,12 +377,6 @@ function quitarRegistroFront(){
   disableEnableTabs("enable");
 }
 
-function quitarMensajes(){
-  messagesGame.setAttribute("class", "noneDisplay");
-}
-
-
-
 function pausaEvent(c){
   isPausePressed = !isPausePressed;
   if(isPausePressed){

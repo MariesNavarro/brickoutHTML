@@ -37,72 +37,108 @@ function checkregistro($usuario,$idfb,$link) {
     }
     return $reg;
 }
-function insertupdateregistro($nombre,$usuario,$idfb,$ip,&$cuponinicial)
+function insertupdateregistro($nombre,$usuario,$idfb,$ip,&$cuponinicial,&$ejecutar,&$codstado,&$city)
 {
-  $textoextra='';
+  $cuponinicial="";
 	$link=connect();
 	mysqli_autocommit($link, FALSE);
 	$registro=checkregistro($usuario,$idfb,$link);
 	if($registro>0)
 	{
+    $ejecutar='NO';
+    $codstado='NoNuevo';
+    $city='NoNuevo';
 		update_registro($usuario,$idfb,$link);
+    $contador=0;
+    $particip=0;
+    $maxscore=maxscoreobtenido($registro,$link,$particip);
+    if($maxscore>0)
+    {
+      $cuponinicial=$cuponinicial."&".$maxscore;
+    }
+    else
+    {
+      $cuponinicial=$cuponinicial."&?";
+    }
+    $posicion=posicionactual($registro,$link,$contador);
+    if($posicion==0&&$contador==0)
+    {
+      $cuponinicial=$cuponinicial."&?";
+    }
+    else if($posicion==0)
+    {
+      $cuponinicial=$cuponinicial."&".$contador+1;
+    }
+    else
+    {
+      $cuponinicial=$cuponinicial."&".$posicion;
+    }
     //$res=true;
 	}
 	else
 	{
 		$registro=registrar($nombre,$usuario,$idfb,$link);
-    if (!mysqli_commit($link)) {
-      //echo "Falló la consignación de la transacción<br>";
-     exit();
-    }
-    else
-    {
-     $country_code    = '';
-     $ip_address      = $ip;
-     $country_region  = '';
-     $salida = get_country_api($country_code,$ip_address,$country_region);
-     $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado) values(".$registro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."')";
-     if (mysqli_query($link, $consulta)) {
-       $participacion=mysqli_insert_id($link);
-       if (!mysqli_commit($link)) {
-         //echo "Falló la consignación de la transacción<br>";
-         exit();
-        }
-        else
-        {
-          $idcodigo=cuponobtenido(1,$registro,$link,$cup,$url,$idcup);
-          $obtenido=cuponyaobtenido($registro,$idcup,$link);
-          $query ="UPDATE  bdlt_participacion SET score =2 WHERE id =".$idpart.";";
-          if($obtenido==0)
-          {
-           if($idcodigo>0)
-            {
-              $query ="UPDATE bdlt_participacion SET score =2,id_codigo=".$idcodigo." WHERE id =".$participacion.";";
-              $cuponinicial="&Te has registrado con exito y ganaste un cupon :Cupon ".$cup." con codigo: ".$url;
-            }
-            else
-            {
-            }
-          }
-          else{
-          }
-          if (mysqli_query($link, $query)) {
-          } 
-          else
-          {
-          }
-          if (!mysqli_commit($link)) {
-            //exit();
-          }
-          else
-          {
-          }
-        }
-      }
-      else
-      {
-      }
-    }
+    $cuponinicial=$cuponinicial."&?&?";
+    $country_code    = '';
+    $ip_address      = $ip;
+    $country_region  = '';
+    $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
+    $ejecutar='SI';
+    $codstado=$codpais;
+    $city=$country_region;
+    //  
+    // if (!mysqli_commit($link)) {
+    //   //echo "Falló la consignación de la transacción<br>";
+    //  exit();
+    // }
+    // else
+    // {
+    //  $country_code    = '';
+    //  $ip_address      = $ip;
+    //  $country_region  = '';
+    //  $salida = get_country_api($country_code,$ip_address,$country_region);
+    //  $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado) values(".$registro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."')";
+    //  if (mysqli_query($link, $consulta)) {
+    //    $participacion=mysqli_insert_id($link);
+    //    if (!mysqli_commit($link)) {
+    //      //echo "Falló la consignación de la transacción<br>";
+    //      exit();
+    //     }
+    //     else
+    //     {
+    //       $idcodigo=cuponobtenido(1,$registro,$link,$cup,$url,$idcup);
+    //       $obtenido=cuponyaobtenido($registro,$idcup,$link);
+    //       $query ="UPDATE  bdlt_participacion SET score =2 WHERE id =".$idpart.";";
+    //       if($obtenido==0)
+    //       {
+    //        if($idcodigo>0)
+    //         {
+    //           $query ="UPDATE bdlt_participacion SET score =2,id_codigo=".$idcodigo." WHERE id =".$participacion.";";
+    //           $cuponinicial="&Te has registrado con exito y ganaste un cupon :Cupon ".$cup." con codigo: ".$url;
+    //         }
+    //         else
+    //         {
+    //         }
+    //       }
+    //       else{
+    //       }
+    //       if (mysqli_query($link, $query)) {
+    //       } 
+    //       else
+    //       {
+    //       }
+    //       if (!mysqli_commit($link)) {
+    //         //exit();
+    //       }
+    //       else
+    //       {
+    //       }
+    //     }
+    //   }
+    //   else
+    //   {
+    //   }
+    // }
 	}
 	if (!mysqli_commit($link)) {
     //echo "Falló la consignación de la transacción<br>";
@@ -124,7 +160,7 @@ function participacion($idregistro,$ip)
     $country_region  = '';
     $link=connect();
 	  mysqli_autocommit($link, FALSE);
-    $salida = get_country_api($country_code,$ip_address,$country_region);
+    $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
     $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado) values(".$idregistro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."')";
     if (mysqli_query($link, $consulta)) {
       $reg=mysqli_insert_id($link);
@@ -142,7 +178,7 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup) {
    $reg=0;
    $transaction_start="start transaction";
    if (mysqli_query($link, $transaction_start)) {
-      $consulta = "select min(b.id),a.id,a.cupon,b.url from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where id_cupon=(select Id from bdlt_cupones where score<=".$score." and id not in (select distinct b.id_cupon  from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id where a.id_registro=".$idreg." and a.id_codigo is not null) order by score desc LIMIT 1) and entregado=0 FOR UPDATE;";
+      $consulta = "select min(b.id),a.id,a.cupon,b.codigo from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where id_cupon=(select Id from bdlt_cupones where score<=".$score." and id not in (select distinct b.id_cupon  from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id where a.id_registro=".$idreg." and a.id_codigo is not null) order by score desc LIMIT 1) and entregado=0 FOR UPDATE;";
      if ($resultado = mysqli_query($link, $consulta)) {
         while ($fila = mysqli_fetch_row($resultado)) {
 
@@ -169,12 +205,13 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup) {
     } 
     return $reg;
 }
-function maxscoreobtenido($idreg,$link) {
+function maxscoreobtenido($idreg,$link,&$part) {
 	/* recuperar todas las filas de myCity */
    $score=0;
    $consulta = "select * from bdlt_participacion where id_registro=".$idreg." order by score desc LIMIT 1;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
+         $part=$fila[0];
          $score=$fila[3];
       }
       /* liberar el conjunto de resultados */
@@ -194,6 +231,39 @@ function cuponyaobtenido($idreg,$idcupon,$link) {
       mysqli_free_result($resultado);
     }
     return $obten;
+}
+function cuponunicoobtenido($idreg,$link) {
+  /* recuperar todas las filas de myCity select * from bdlt_participacion where id_registro=25 and id_codigo is not null    */
+   $obten=0;
+   $consulta = "select * from bdlt_participacion where id_registro=".$idreg." and id_codigo is not null LIMIT 1;";
+   if ($resultado = mysqli_query($link, $consulta)) {
+     while ($fila = mysqli_fetch_row($resultado)) {
+         $obten=1;
+      }
+      /* liberar el conjunto de resultados */
+      mysqli_free_result($resultado);
+    }
+    return $obten;
+}
+function numparticipacionesalacanzado($idreg,$link)
+{
+  $consulta = "select COUNT(*) NumeroParticipaciones,(select CONVERT(value,UNSIGNED INTEGER) AS num from bdlt_settings where Module='Participaciones' and setting='MinimoRequerido') NumeroNecesario from bdlt_participacion where id_registro=".$idreg." and score>0;";
+   if ($resultado = mysqli_query($link, $consulta)) {
+     while ($fila = mysqli_fetch_row($resultado)) {
+         $part=$fila[0];
+         $req=$fila[1];
+      }
+      /* liberar el conjunto de resultados */
+      mysqli_free_result($resultado);
+    }
+    if($part>=$req)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
 }
 function posicionactual($idreg,$link,&$contador) {
 	/* recuperar todas las filas de myCity */
@@ -228,18 +298,32 @@ function updateparticipacion($score,$idreg,$idpart)
     $obtenido=0;
     $contador=0;
     $link=connect();
-   
-    $maxscore=maxscoreobtenido($idreg,$link);
-    $reg=cuponobtenido($score,$idreg,$link,$cup,$url,$idcup);
-    $obtenido=cuponyaobtenido($idreg,$idcup,$link);
-
+    $parti=0;
     mysqli_autocommit($link, FALSE);
     $query ="UPDATE  bdlt_participacion SET score =".$score." WHERE id =".$idpart.";";
+    if (mysqli_query($link, $query)) {
+    } 
+    if (!mysqli_commit($link)) {
+     //exit();
+    }
+    $maxscore=maxscoreobtenido($idreg,$link,$parti);
+    if(numparticipacionesalacanzado($idreg,$link))
+    {
+      $obtenido=cuponunicoobtenido($idreg,$link);
+      if($obtenido==0)
+      {
+        $reg=cuponobtenido($maxscore,$idreg,$link,$cup,$url,$idcup);
+      }
+      
+    }
+
+
+   
     if($obtenido==0)
     {
     	if($reg>0)
     	{
-    	  $query ="UPDATE  bdlt_participacion SET score =".$score.",id_codigo=".$reg." WHERE id =".$idpart.";";
+    	  $query ="UPDATE  bdlt_participacion SET id_codigo=".$reg." WHERE id =".$parti.";";
     	}
     	
     }
@@ -365,4 +449,18 @@ function cuponesprom()
   $strhtml=$strhtml.'</table></br><button id="btnvercuponespromo" onclick="location.reload();">Regresar</button>';
   return $strhtml;    
 }
+function validapaisint($ip,&$estado)
+{
+  $reg=0;
+  $salida          = 0;
+    $country_code    = '';
+    $ip_address      = $ip;
+    $country_region  = '';
+    $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
+    $estado=$country_region;
+    return $country_code;
+    
+}
+
+
 ?>

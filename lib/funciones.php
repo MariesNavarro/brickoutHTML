@@ -81,7 +81,7 @@ function equivalencia_estados_api($country_code,$region) {
     // strpos($mystring, $findme);
     return $edo;
 }
-function get_country_api(&$country_code,&$ip_address,&$country_region){
+function get_country_api(&$country_code,&$ip_address,&$country_region,&$codpais){
     $salida     = 0;
     $geopluginURL   = 'http://www.geoplugin.net/php.gp?ip='.$ip_address;
     if ( function_exists('curl_init') ) {
@@ -108,7 +108,7 @@ function get_country_api(&$country_code,&$ip_address,&$country_region){
     $addrDetailsArr = unserialize($response);
     $country_code   = $addrDetailsArr['geoplugin_countryName'];
     $country_region = $addrDetailsArr['geoplugin_regionName'];
-
+    $codpais = $addrDetailsArr['geoplugin_countryCode'];
     if ($country_code!='') {  $salida = 1;}
     return $salida;
 }
