@@ -58,6 +58,7 @@ function insertupdateregistro($nombre,$usuario,$idfb,$ip,&$cuponinicial,&$ejecut
     }
     else
     {
+
       $cuponinicial=$cuponinicial."&?";
     }
     $posicion=posicionactual($registro,$link,$contador);
@@ -67,7 +68,8 @@ function insertupdateregistro($nombre,$usuario,$idfb,$ip,&$cuponinicial,&$ejecut
     }
     else if($posicion==0)
     {
-      $cuponinicial=$cuponinicial."&".$contador+1;
+      
+      $cuponinicial=$cuponinicial."&".($contador+1);
     }
     else
     {

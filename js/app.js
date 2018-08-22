@@ -46,6 +46,7 @@ var MetodoEnum = {
  var msjpuntospos;
  var jugando=true;
  var sonido=false;
+ var canvatop="130";
  function getPermitionsFB() {
   FB.login(function (response) {
     if (response.authResponse) {
