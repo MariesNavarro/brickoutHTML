@@ -436,5 +436,12 @@ function principal()
 }
 function fullscreen()
 {
-  s_oMenu._onFullscreenRelease();
+  if(s_oMenu!=null)
+  {
+    s_oMenu._onFullscreenRelease();
+  }
+  if(s_oInterface!=null)
+  {
+    s_oInterface._onFullscreenRelease();
+  }
 }
