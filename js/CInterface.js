@@ -182,14 +182,16 @@ function CInterface() {
             s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
             _oButPause.block(true);
 
-            _oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            //_oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextLevelComplete = new createjs.Text("");
             _oTextLevelComplete.textAlign = "center";
             _oTextLevelComplete.textBaseline = "alphabetic";
             _oTextLevelComplete.x = CANVAS_WIDTH / 2;
             _oTextLevelComplete.y = -140;
             s_oStage.addChild(_oTextLevelComplete);
 
-            _oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            //_oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextScoreLevelComplete= new createjs.Text("");
             _oTextScoreLevelComplete.textAlign = "center";
             _oTextScoreLevelComplete.textBaseline = "alphabetic";
             _oTextScoreLevelComplete.x = CANVAS_WIDTH / 2;

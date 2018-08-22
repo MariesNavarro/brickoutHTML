@@ -109,6 +109,7 @@ function actualizadiv(){
         if(eje=="SI")
         {
           //alert(eje+' '+estado+' '+ciudad);
+          //enviardata(param2,param1,ciudad,estado);
         }
         else
         {
@@ -341,8 +342,8 @@ function Validatepais() {
       }
       else
       {
-         // checkPais(data);
-         checkLoginState();
+          checkPais(data);
+         //checkLoginState();
       }
     }
   });
