@@ -97,7 +97,7 @@
           <p>
             Documento de <span class="displayUserName">Itzel León</span>
           </p>
-          <a id="" role="button" class="flexDisplay">
+          <a id="" role="button" class="flexDisplay" onclick="buttonPausa()">
             <img src="img/mobile/pausamobile.svg" alt="">
             <p>Escóndete!</p>
           </a>
@@ -139,7 +139,6 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
-              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Pausa</a></li>
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
