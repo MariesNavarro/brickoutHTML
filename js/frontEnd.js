@@ -344,8 +344,8 @@ function checkAge(c){
     mensajebienvenida.setAttribute("class", "flexDisplay");
     footer.style.bottom = "0";
     logotipobudlight.style.opacity = "1";
-    messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
     mensajebienvenida.style.opacity = "1";
+    // messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
   }else{
     nivelInterno = "no";
     messagesGame.setAttribute("class", "flexDisplay");

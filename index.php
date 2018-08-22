@@ -97,16 +97,16 @@
        <!-- Menu mobile -->
        <div id="menumobile" class="trans7">
         <div id="barmenumobile" class="flexDisplay back_word">
-          <a id="" role="button" class="flexDisplay">
+          <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
             <img src="img/mobile/bandeja.svg" alt="">
             <p>Bandeja</p>
           </a>
           <p>
-            Documento de <span class="displayUserName">Itzel León</span>
+            <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
           </p>
-          <a id="" role="button" class="flexDisplay" onclick="buttonPausa()">
-            <img src="img/mobile/pausamobile.svg" alt="">
-            <p>Escóndete!</p>
+          <a id="" role="button" class="flexDisplay">
+            <img src="img/mobile/corcholata.svg" alt="">
+            <p>Bud Light</p>
           </a>
         </div>
        </div>
@@ -415,6 +415,19 @@
           </ul>
         </div>
 
+        <!-- -->
+        <div id="cuponUno" class="cupon trans7">
+          <div>
+            <h2>¡Felicidades!</h2>
+            <h3>Ganaste un cupón de descuento en Rappi.</h3>
+            <h4>Este cupón cuenta por: <span id="combo">50% de descuento en un six.</span> </h4>
+            <img src="img/cupon.svg"/>
+            <p id="cgenerado">BL9302KLOSAZ3</p>
+            <h5>Sigue jugando para poder ganar una consola.</h5>
+          </div>
+          <a role="button" class="trans7" onclick="cuponUnoOk()"><p>Listo</p> <span class="trans7"></span></a>
+        </div>
+
         <!-- Logotipo Bud Light -->
         <a id="logotipobudlight" href="#" class="trans7">
           <img src="img/budlight-logo-blue.svg">
@@ -446,10 +459,10 @@
               </section>
               <div id="footerprovisional">
                 <div>
-                  Bud light Docs | Día Gamer | Bud Light © 2018
+                  Bud Light Docs | Día Gamer | Bud Light © 2018
                 </div>
                 <div>
-                  Siguenos en: <a href="#"> Facebook </a> y <a href="#"> Twitter </a>
+                  Siguenos en: <a href="https://www.facebook.com/BudLightMX/?ref=br_rs" target="_blank"> Facebook </a> y <a href="https://twitter.com/budlightmex" target="_blank"> Twitter </a>
                 </div>
               </div>
               <section id="edadnovalida" class="noneDisplay">
@@ -459,6 +472,7 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
+
                <section id="paisnovalido" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -466,13 +480,14 @@
                   <p> Lo sentimos, esta promocion <b>no es valida</b> para tu pais. </p>
                 </div>
               </section>
+
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">
                 <img src="img/budlightdocs.png">
                 <h1>Bud Light Docs</h1>
                 <p>
                   Festeja el día gamer jugando. No te preocupes entendemos que no siempre es el mejor momento para jugar, especialmente si estás en tu trabajo.
                   <br><br>
-                  Pero Bud Light ha encontrado la solución: hackear las herramientas de trabajo. Juega sin ser descubierto y <span>gana la oportunidad de participar por una consola</span> y cupones de descuento en Rappi.
+                  Pero Bud Light ha encontrado la solución: hackear las herramientas de trabajo. Juega sin ser descubierto, <span>esta es tu oportunidad de ganar una consola</span> y cupones de descuento en Rappi.
                 </p>
 
                 <a id="registro" class="registrocss flexDisplay" role="button" onclick="quitarregistrogetpermisions();">
@@ -490,12 +505,26 @@
 
         <div id="pausaWrap">
           <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
-            <img id="headerImgPausaM" src="img/pausa/menu-mobile-buttons.svg">
+            <div id="headerImgPausaM">
+                <div class="flexDisplay">
+                  <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
+                    <img src="img/mobile/bandeja.svg" alt="">
+                    <p>Bandeja</p>
+                  </a>
+                  <p>
+                    <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
+                  </p>
+                  <a id="" role="button" class="flexDisplay">
+                    <img src="img/mobile/corcholata.svg" alt="">
+                    <p>Bud Light</p>
+                  </a>
+                </div>
+            </div>
             <img id="headerImgPausaD" src="img/pausa/barra-pausa-wrd.jpg">
           </header>
           <!-- PAUSA MOBILE -->
           <div id="areatrabajoMobile" class="pausaArea noneDisplay">
-            <img src="img/pausa/pausa-mobile.png" alt="">
+            <img src="img/pausa/pausa-mobile.svg">
           </div>
           <!-- PAUSA WRD -->
           <div id="areatrabajoWRD" class="pausaArea noneDisplay">

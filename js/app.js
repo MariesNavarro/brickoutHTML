@@ -343,8 +343,8 @@ function Validatepais() {
       }
       else
       {
-          checkPais(data);
-         //checkLoginState();
+          // checkPais(data);
+         checkLoginState();
       }
     }
   });
