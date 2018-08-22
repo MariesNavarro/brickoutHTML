@@ -45,16 +45,16 @@
         <script type="text/javascript" src="js/frontEnd.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <!-- BEGIN Salesforce DMP ControlTag for "BudLight_GamersDay" -->
-        <script class="kxct" data-id="s8tl8k3wi" data-timing="async" data-version="3.0" type="text/javascript">
+       <!--  <script class="kxct" data-id="s8tl8k3wi" data-timing="async" data-version="3.0" type="text/javascript">
           window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
           (function(){
              var k=document.createElement('script');k.type='text/javascript';k.async=true;
              k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/s8tl8k3wi.js';
              var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
            }());
-       </script>
+       </script> -->
        <!-- END Salesforce DMP ControlTag -->
-       <script type="text/javascript">
+       <!-- <script type="text/javascript">
          !function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var r=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},s=["blockEvents","unblockEvents","setSignedMode","setAnonymousMode","resetUUID","addRecord","fetchGlobalID","set","trackEvent","trackPageview","trackClicks","ready"],n=0;n<s.length;n++){var c=s[n];e[t].prototype[c]=r(c)}var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=("https:%22===document.location.protocol?%22https:%22:%22http:%22)+%22//cdn.treasuredata.com/sdk/2.1/td.min.js%22");var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)}}("Treasure",this);
           // Configure an instance for your database
           var td = new Treasure({
@@ -83,7 +83,7 @@
             }
             td.trackEvent(webFormTableName, event);
         }
-</script>
+</script> -->
 
   </head>
      <body ondragstart="return false;" ondrop="return false;" >
@@ -514,6 +514,14 @@
             </div>
           </div>
         </div>
+       <script>
+          $(document).ready(function () {
+              if(checkPopUp())
+               {
+                 paisvalido();
+               }
+          });
+        </script>
 
         <!-- Globales Front -->
         <script type="text/javascript">
