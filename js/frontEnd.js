@@ -391,7 +391,10 @@ function quitarRegistroFront(){
   menuDeployment(w);
   disableEnableTabs("enable");
 }
-
-function quitarMensajes(){
-  messagesGame.setAttribute("class", "noneDisplay");
+function checkPais(c){
+  if(c === "NO"){
+    messagesGame.setAttribute("class", "flexDisplay");
+    disclaimer.style.display = "none";
+    paisnovalido.setAttribute("class", "flexDisplay");
+  }
 }

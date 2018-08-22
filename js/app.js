@@ -30,7 +30,8 @@ var MetodoEnum = {
   ActualizaParticipacion:5,
   Validar_Fecha:6,
   Obtener_cupones:7,
-  Cupones_obtenidos:8
+  Cupones_obtenidos:8,
+  Validar_Pais:9
  };
  var sett;
  var param1;
@@ -95,27 +96,32 @@ function actualizadiv(){
       var anunciocupon='';
       if(data.split("&").length>2)
       {
-        anunciocupon=data.split("&")[2];
+        actValByClassName("displayBest",data.split("&")[2]);
+        actValByClassName("displayPosition",data.split("&")[3]);
+        actValByClassName("displayUserName",data.split("&")[4]);
       }
-      if(anunciocupon!='')
-      {
-        alert(anunciocupon);
-        cuponunojugar();
+      if(data.split("&").length>5)
+      { 
+        var eje=data.split("&")[5];
+        var estado=data.split("&")[6];
+        var ciudad=data.split("&")[7];
+        if(eje=="SI")
+        {
+          alert(eje+' '+estado+' '+ciudad);
+        }
+        else
+        {
+          alert('El usuario ya esta registrado');
+        }
       }
-      else
-      {
-        cuponunojugar();
-      }
-      console.log(data1);
+      but_jugar();
+
       //$('#general').html(pagina).fadeIn();
 
     }
   });
 }
-function cuponunojugar()
-{
-  but_jugar();
-}
+
 function quitarregistrogetpermisions()
 {
    quitarRegistroFront();
@@ -205,10 +211,8 @@ function checkLoginState() {
     });
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
-
-       quitarMensajes();
+       
        getPermitionsFB();
-      //cuponUnoOk();
       }
       else if (response.status === "not_authorized") {
         //document.getElementById('login').hidden=false;
@@ -321,7 +325,34 @@ function valido()
   param4=MetodoEnum.Validar_Fecha;
   ValidateDate();
 }
-
+function Validatepais() {
+  var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
+  console.log(dataString);
+  $.ajax({
+    type : 'POST',
+    url  : 'respuesta.php',
+    data:  dataString,
+    success:function(data) {
+      console.log(data);
+      if(data=="SI")
+      {
+        checkLoginState();
+      }
+      else
+      {
+         checkPais(data);
+      }
+    }
+  });
+}
+function paisvalido()
+{
+  param1='';
+  param2='';
+  param3='';
+  param4=MetodoEnum.Validar_Pais;
+  Validatepais();
+}
 function compartir(){
   FB.ui({
    method: "feed",
@@ -376,4 +407,19 @@ function actualizadivcup(){
       $('#general').html(data).fadeIn();
     }
   });
+}
+function registrado()
+{
+  if(disclaimer.style.opacity!=="0"){
+    checkAge("true");
+    quitarRegistroFront();
+  }
+}
+function actValByClassName(classname,valor)
+{
+  var arrayobj=document.getElementsByClassName(classname);
+  for(var i=0;i<arrayobj.length;i++)
+  {
+    arrayobj[i].innerHTML=""+valor;
+  }
 }

@@ -44,7 +44,48 @@
         <script type="text/javascript" src="js/CCreditsPanel.js"></script>
         <script type="text/javascript" src="js/frontEnd.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-    </head>
+        <!-- BEGIN Salesforce DMP ControlTag for "BudLight_GamersDay" -->
+        <script class="kxct" data-id="s8tl8k3wi" data-timing="async" data-version="3.0" type="text/javascript">
+          window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+          (function(){
+             var k=document.createElement('script');k.type='text/javascript';k.async=true;
+             k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/s8tl8k3wi.js';
+             var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+           }());
+       </script>
+       <!-- END Salesforce DMP ControlTag -->
+       <script type="text/javascript">
+         !function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var r=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},s=["blockEvents","unblockEvents","setSignedMode","setAnonymousMode","resetUUID","addRecord","fetchGlobalID","set","trackEvent","trackPageview","trackClicks","ready"],n=0;n<s.length;n++){var c=s[n];e[t].prototype[c]=r(c)}var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=("https:%22===document.location.protocol?%22https:%22:%22http:%22)+%22//cdn.treasuredata.com/sdk/2.1/td.min.js%22");var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)}}("Treasure",this);
+          // Configure an instance for your database
+          var td = new Treasure({
+               host: 'in.treasuredata.com',
+               writeKey: '10086/9c06ed6fa48e0fb6952ed42773cca1cc1d43684e',
+               database: 'maz_source',
+               startInSignedMode: true
+            });
+          var pageViewsTableName = 'mex_page_views';
+          var webFormTableName = 'mex_web_form';
+          // Enable cross-domain tracking
+          td.set('$global', 'td_global_id', 'td_global_id');
+          td.trackPageview(pageViewsTableName);
+        </script>
+        <script type="text/javascript">
+        function enviardata(emailfb,nombrefb,cityip,codstate)
+        {
+          var event = {
+             event: 'form_submit',// Este es fijo o deberiamos carmbiarlo. 
+             form_name: 'Registro_dia_Gamer', //Nome do formulario
+             email: emailfb, // Email del usuario que estamos registrando
+             name: nombrefb, //Case sensitive Nombre completo del usuario que se registro
+             city: cityip, //Case sensitive Aqui es el nombre de la ciudad o igual es un codigo
+             state: codstate, //2 letras Para obtener estado y ciudad utilizamos una api y el valor que nos regresa varia entre 2 y tres caracteres lo que podemos hacer es que nos pases una lista de estados con codigos a dos caracteres y nosotros los converetimos, necesitariamos esta lista lo antes posible.
+             opt_in: 'Y' //'Y' ou 'N' Este campo que indica
+            }
+            td.trackEvent(webFormTableName, event);
+        }
+</script>
+
+  </head>
      <body ondragstart="return false;" ondrop="return false;" >
        <!-- Menu mobile -->
        <div id="menumobile" class="trans7">
@@ -108,28 +149,28 @@
 
             <div>
             <a role="button" id="imgLives" class="iconChange livesWrd" data-icon="lives"></a>
-            <p class="displayLives" class="textFuncional">23</p>
+            <p class="displayLives" class="textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgScore" class="iconChange scoreWrd" data-icon="score"></a>
-            <p class="displayScore" class="textFuncional">233</p>
+            <p class="displayScore" class="textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgBestScore" class="iconChange bestWrd" data-icon="best"></a>
-            <p class="displayBest" class="textFuncional">4723</p>
+            <p class="displayBest" class="textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgPosition" class="iconChange positionWrd" data-icon="position"></a>
-            <p class="displayPosition" class="textFuncional">74</p>
+            <p class="displayPosition" class="textFuncional">?</p>
             </div>
 
             <span></span>
@@ -405,7 +446,13 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
-
+               <section id="paisnovalido" class="noneDisplay">
+                <div id="back"></div>
+                <div>
+                  <img src="img/404.svg">
+                  <p> Lo sentimos, esta promocion <b>no es valida</b> para tu pais. </p>
+                </div>
+              </section>
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">
                 <img src="img/budlightdocs.png">
                 <h1>Bud Light Docs</h1>
@@ -466,7 +513,7 @@
               window.onload = function() { document.onkeypress = mostrarInformacionCaracter;}
               if(checkPopUp())
                {
-                 valido();
+                 paisvalido();
                }
           });
         </script>
@@ -499,6 +546,7 @@
           /* mensajes */
           var disclaimer = document.getElementById("disclaimer");
           var edadnovalida = document.getElementById("edadnovalida");
+          var paisnovalido=document.getElementById("paisnovalido");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
           var frontMenu = document.getElementById("menu");
           var barmenumobile = document.getElementById("barmenumobile");

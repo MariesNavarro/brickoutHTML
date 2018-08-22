@@ -70,7 +70,7 @@ function CInterface() {
         _oScoreText.x = CANVAS_WIDTH / 2 - 70;
         _oScoreText.y = CANVAS_HEIGHT / 2 - 400;
         s_oStage.addChild(_oScoreText);
-
+        actValByClassName("displayScore",0);
         _oLevelText = new createjs.Text(TEXT_LEVEL_UPPERCASE, "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
         _oLevelText.textAlign = "center";
         _oLevelText.textBaseline = "alphabetic";
@@ -105,7 +105,7 @@ function CInterface() {
         _oLifeText.x = CANVAS_WIDTH * 0.5 + 100;
         _oLifeText.y = 125;
         s_oStage.addChild(_oLifeText);
-        displayLives.innerHtml=""+LIFE+"";
+        document.getElementsByClassName("displayLives")[0].innerHTML=""+LIFE+"";
         s_oGame.setPause(true);
         this.refreshButtonPos(s_iOffsetX, s_iOffsetY);
     };
@@ -127,7 +127,7 @@ function CInterface() {
 
     this.refreshBallLife = function (iValue) {
         _oLifeText.text = "x" + +iValue;
-        displayLives.innerHtml=""+iValue+"";
+        actValByClassName("displayLives",iValue);
     };
 
     this.gameOver = function (iScore) {
@@ -141,7 +141,11 @@ function CInterface() {
         actparticipacion(iScore);
         s_oStage.addChild(_oFade);
 
-        var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore+ "\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
+        var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore; //"\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
+        document.getElementsByClassName("displayBest")[0].innerHTML=""+msjpuntospos+"";
+        document.getElementsByClassName("displayPosition")[0].innerHTML=""+msjposicion+"";
+        actValByClassName("displayBest",msjpuntospos);
+        actValByClassName("displayPosition",msjposicion);
         _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
        _oTextGameOver.textAlign = "center";
         _oTextGameOver.textBaseline = "alphabetic";
@@ -273,6 +277,7 @@ function CInterface() {
 
     this.refreshScore = function (iScore) {
         _oScoreText.text = "SCORE\n" + iScore;
+        actValByClassName("displayScore",iScore);
     };
 
     this._onButPauseRelease = function () {
