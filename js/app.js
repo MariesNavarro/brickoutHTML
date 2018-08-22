@@ -102,7 +102,7 @@ function actualizadiv(){
         actValByClassName("displayUserName",data.split("&")[4]);
       }
       if(data.split("&").length>5)
-      { 
+      {
         var eje=data.split("&")[5];
         var estado=data.split("&")[6];
         var ciudad=data.split("&")[7];
@@ -212,7 +212,7 @@ function checkLoginState() {
     });
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
-       
+
        getPermitionsFB();
       }
       else if (response.status === "not_authorized") {
@@ -341,7 +341,8 @@ function Validatepais() {
       }
       else
       {
-         checkPais(data);
+         // checkPais(data);
+         checkLoginState();
       }
     }
   });

@@ -1046,15 +1046,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
   border:1px solid #CCC;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../img/pausa/textura.jpg');
 }
-#pausaWrap>header>#mobile{
+#pausaWrap>header>#headerImgPausaM{
   position: relative;
   margin: 10px auto;
   display: block;
   height: 80%;
 }
-#pausaWrap>header>#desktop{
+#pausaWrap>header>#headerImgPausaD{
   position: relative;
   margin: 0 auto;
   display: none;
@@ -1170,19 +1169,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
   align-items: center;
 }
 
-#areatrabajoMobile>img{
-  height: 100%;
-}
+#areatrabajoMobile>img{ height: 100%; }
 
   @media (min-width: 960px){
     #pausaWrap>header{
       height: 130px;
       background-repeat: repeat-x;
       background-size: auto 109%;
-      background-image: url('../img/pausa/textura-wrd.jpg');
     }
-    #pausaWrap>header>#mobile{ display: none }
-    #pausaWrap>header>#desktop{ display: block }
     #pausaWrap>#areatrabajoWRD, #pausaWrap>#areatrabajoPPT,
     #pausaWrap>#areatrabajoEXC{
       top: 130px;
@@ -1190,3 +1184,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     }
     #pausaWrap>#areatrabajoPPT>#tools{ display: block; }
   }
+
+      /* background-image: url('../img/pausa/textura-wrd.jpg'); */
+        /* background-image: url('../img/pausa/textura-wrd.jpg'); */
