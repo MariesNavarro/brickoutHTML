@@ -139,6 +139,7 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Pausa</a></li>
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
