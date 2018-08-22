@@ -136,7 +136,7 @@ function CInterface() {
         _oButPause.block(true);
 
         _oFade = new createjs.Shape();
-        _oFade.graphics.beginFill("black").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        _oFade.graphics.beginFill("white").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         _oFade.alpha = 0;
         actparticipacion(iScore);
         s_oStage.addChild(_oFade);
@@ -144,19 +144,19 @@ function CInterface() {
         var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore; //"\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
         actValByClassName("displayBest",msjpuntospos);
         actValByClassName("displayPosition",msjposicion);
-        _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+        _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#263072");
        _oTextGameOver.textAlign = "center";
-        _oTextGameOver.textBaseline = "alphabetic";
+        // _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
         _oTextGameOver.y = -120;
         s_oStage.addChild(_oTextGameOver);
 
-        createjs.Tween.get(_oFade).to({alpha: 0.5}, 1000, createjs.Ease.backOut).call(function () {
+        createjs.Tween.get(_oFade).to({alpha: 0.8}, 1000, createjs.Ease.backOut).call(function () {
             createjs.Tween.get(_oTextGameOver).to({y: CANVAS_HEIGHT / 2 - 200}, 1000, createjs.Ease.bounceOut).call(function () {
                 var oSpriteRestart = s_oSpriteLibrary.getSprite("but_restart");
                 _oButReturnToMenu = new CGfxButton((CANVAS_WIDTH / 2), CANVAS_HEIGHT / 2 + 200, oSpriteRestart);
                 _oButReturnToMenu.addEventListener(ON_MOUSE_UP, s_oInterface._onButReturnToMenuRelease, this);
-            }); 
+            });
         });
 
         $(s_oMain).trigger("share_event", iScore);
@@ -337,7 +337,7 @@ function CInterface() {
 
         s_oStage.addChild(_oHelpPanel);
         if (!_oHelpText) {
-            _oHelpText = new createjs.Text(TEXT_HELP_PAGE_1_PC, "normal " + 60 + "px " + PRIMARY_FONT, "#ffff00");
+            _oHelpText = new createjs.Text(TEXT_HELP_PAGE_1_PC, "normal " + 32 + "px " + PRIMARY_FONT, "#263072");
             _oHelpText.textAlign = "center";
             _oHelpText.textBaseline = "alphabetic";
             _oHelpText.lineWidth = 500;

@@ -104,7 +104,7 @@
           <p>
             Documento de <span class="displayUserName">Itzel León</span>
           </p>
-          <a id="" role="button" class="flexDisplay">
+          <a id="" role="button" class="flexDisplay" onclick="buttonPausa()">
             <img src="img/mobile/pausamobile.svg" alt="">
             <p>Escóndete!</p>
           </a>
@@ -146,7 +146,6 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
-              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Pausa</a></li>
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
@@ -471,9 +470,9 @@
                 <img src="img/budlightdocs.png">
                 <h1>Bud Light Docs</h1>
                 <p>
-                  Para festejar al gamer que todos llevamos dentro
-                  te invitamos a celebrarlo jugando todo el día y ganando premios
-                  increibles.
+                  Festeja el día gamer jugando. No te preocupes entendemos que no siempre es el mejor momento para jugar, especialmente si estás en tu trabajo.
+                  <br><br>
+                  Pero Bud Light ha encontrado la solución: hackear las herramientas de trabajo. Juega sin ser descubierto y <span>gana la oportunidad de participar por una consola</span> y cupones de descuento en Rappi.
                 </p>
 
                 <a id="registro" class="registrocss flexDisplay" role="button" onclick="quitarregistrogetpermisions();">
