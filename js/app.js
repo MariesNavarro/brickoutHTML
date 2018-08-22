@@ -1,5 +1,5 @@
 class Settings {
-    
+
   constructor(data) {
     //data.split("&")[0];
     // (myValue == 'true');
@@ -47,18 +47,18 @@ var MetodoEnum = {
  function getPermitionsFB() {
   FB.login(function (response) {
     if (response.authResponse) {
-      FB.api('/me?fields=id,name,email,first_name,last_name,middle_name', function(response) { 
-        console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);  
+      FB.api('/me?fields=id,name,email,first_name,last_name,middle_name', function(response) {
+        console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);
         param1=response.name;
         param2=response.email;
         param3=response.id;
         param4=MetodoEnum.Registro;
         actualizadiv();
-      });      
+      });
     }
     else {
-      //document.getElementById('login').hidden=true; 
-      //document.getElementById('jugarsinregistro').hidden=false;    
+      //document.getElementById('login').hidden=true;
+      //document.getElementById('jugarsinregistro').hidden=false;
     }
   }, {
     scope: 'public_profile,email' ,
@@ -84,11 +84,11 @@ function but_jugar()
 function actualizadiv(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       console.log(data);
       var pagina=data.split("&")[0];
       data1=data.split("&")[1];
@@ -100,7 +100,7 @@ function actualizadiv(){
       if(anunciocupon!='')
       {
         alert(anunciocupon);
-        cuponUno.setAttribute("class", "flexDisplay");
+        cuponunojugar();
       }
       else
       {
@@ -108,13 +108,12 @@ function actualizadiv(){
       }
       console.log(data1);
       //$('#general').html(pagina).fadeIn();
-     
-    }  
-  });     
-} 
+
+    }
+  });
+}
 function cuponunojugar()
 {
-  cuponUnoOk();
   but_jugar();
 }
 function quitarregistrogetpermisions()
@@ -125,55 +124,55 @@ function quitarregistrogetpermisions()
 function actualizadivjug(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       sett=new Settings(data);
       var pagina=data.split("&")[0];
       console.log(data1);
       $('#general').html(pagina).fadeIn();
-    }  
-  });     
-} 
+    }
+  });
+}
 function regpart(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       data2=data;
       console.log(data2);
-    }  
-  });     
-} 
+    }
+  });
+}
 function regpartupd(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
-    async:false,    
-    cache:false, 
+  $.ajax({
+    async:false,
+    cache:false,
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       msjscore=data.split("&")[0];
       msjcupon=data.split("&")[1];
       msjposicion=data.split("&")[2];
       msjpuntospos=data.split("&")[3];
       alert(msjscore);
       if(msjcupon.split("=").length>1)
-      { 
+      {
         alert(msjcupon);
       }
       alert(msjposicion);
       console.log(data);
-    }  
-  });     
-} 
+    }
+  });
+}
 function registroparticipacion()
 {
   param1=data1;
@@ -203,25 +202,25 @@ function checkLoginState() {
       cookie     : true,
       xfbml      : true,
       version    : 'v3.0'
-    }); 
+    });
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
-       
+
        quitarMensajes();
        getPermitionsFB();
       //cuponUnoOk();
       }
       else if (response.status === "not_authorized") {
         //document.getElementById('login').hidden=false;
-        //document.getElementById('jugarsinregistro').hidden=false;  
+        //document.getElementById('jugarsinregistro').hidden=false;
       }
       else {
         //document.getElementById('login').hidden=false;
-        //document.getElementById('jugarsinregistro').hidden=false;  
+        //document.getElementById('jugarsinregistro').hidden=false;
       }
-    });        
+    });
   }
-  
+
  }
 function jugar()
 {
@@ -252,7 +251,7 @@ function jugar()
   $(oMain).on("save_score", function (evt, iScore) {
     if (getParamValue('ctl-arcade') === "true") {
       parent.__ctlArcadeSaveScore({score: iScore});
-      
+
     }
   });
   $(oMain).on("show_interlevel_ad", function (evt) {
@@ -296,11 +295,11 @@ function checkPopUp() {
 function ValidateDate() {
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       console.log(data);
       if(data=="SI")
       {
@@ -308,10 +307,11 @@ function ValidateDate() {
       }
       else
       {
-        alert('Fecha no valida');
+        checkLoginState();
+        // alert('Fecha no valida');
       }
-    }  
-  });     
+    }
+  });
 }
 function valido()
 {
@@ -322,15 +322,15 @@ function valido()
   ValidateDate();
 }
 
-function compartir(){  
-  FB.ui({                
-   method: "feed",                
-   link: 'https://budlightdocs.com/',    
+function compartir(){
+  FB.ui({
+   method: "feed",
+   link: 'https://budlightdocs.com/',
    picture:'https://budlightdocs.com/img/bugdoodle.JPG',
-   name: 'Cambia miles de vidas',                
-   caption: '¡Conoce, ayuda con un clic y comparte!',                
-   description: 'Por cada clic que des, Tupperware® donará dinero para ayudar a transformar positivamente la vida de miles de niños. ¡1.Conoce 2.Ayuda con un clic y 3.Comparte! #Tupperware123'            
-   }, function(response){});    
+   name: 'Cambia miles de vidas',
+   caption: '¡Conoce, ayuda con un clic y comparte!',
+   description: 'Por cada clic que des, Tupperware® donará dinero para ayudar a transformar positivamente la vida de miles de niños. ¡1.Conoce 2.Ayuda con un clic y 3.Comparte! #Tupperware123'
+   }, function(response){});
 }
 function compartir1(){
 FB.ui({
@@ -367,13 +367,13 @@ function cuponesobtenidos()
 function actualizadivcup(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
   console.log(dataString);
-  $.ajax({  
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       console.log(data);
       $('#general').html(data).fadeIn();
-    }  
-  });     
-} 
+    }
+  });
+}

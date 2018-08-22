@@ -3,7 +3,7 @@
   $htmlresult='';
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
-  } 
+  }
   elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
   }
@@ -70,14 +70,14 @@
             while($datos = mysql_fetch_array($result)) {
               if($datos['codigo']!='')
               {
-                echo '<img src="lib/barcode.php?text='.$datos['codigo'].'&size=150&orientation=horizontal&codetype=Code128&print=true&sizefactor=1"/><br/>'; 
+                echo '<img src="lib/barcode.php?text='.$datos['codigo'].'&size=150&orientation=horizontal&codetype=Code128&print=true&sizefactor=1"/><br/>';
                 update_codigos($datos['codigo'],$ip,$idClient);
               }
              else
              {
                 echo 'Ya has recibido un codigo,debes esperar un lapso de 24 horas para solicitar otro. Tiempo Transcurrido desde tu ultima solicitud '.$datos['TiempoTranscurrido'].' aun deves esperar '.$datos['TiempoRestante'].'<br/>';
              }
-            }            
+            }
           }
           else
           {
@@ -88,13 +88,13 @@
         {
           echo 'Esta promocion no es valida en tu ubicacion<br/>';
         }
-      } 
+      }
     }
     else
     {
      echo 'Ocurrio un error al solicitar el codigo<br/>';
     }
-  } 
+  }
   function registrar_php($nombre,$usuario,$idfb,$ip)
   {
     $reg=insertupdateregistro($nombre,$usuario,$idfb,$ip,$cuponinicial);
@@ -115,7 +115,7 @@
   function jugar_php()
   {
     $reg=jugar_db($life);
-     echo '<script>function createdatagame(){sett._life=(sett._life!='.$life.')?'.$life.':sett._life; return new CMain({ball_speed: sett._ball_speed,bricks_score: sett._bricks_score,bricks_resistance: sett._bricks_resistance,bricks_destructible: sett._bricks_destructible, bonus_speed: sett._bonus_speed, bonus_time: sett._bonus_time, bonus_score: sett._bonus_score, life: sett._life,bullet_speed: sett._bullet_speed, speed_down_ball: sett._speed_down_ball, speed_up_ball: sett._speed_up_ball, fullscreen:sett._fullscreen, check_orientation:sett._check_orientation,num_levels_for_ads: sett._num_levels_for_ads });} </script><div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div><canvas id="canvas" class="ani_hack" width="840" height="1024"> </canvas><div data-orientation="portrait" class="orientation-msg-container"><p class="orientation-msg-text">Favor de rotar tu dispositivo</p></div><div id="block_game" style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:block"></div><script>jugar();desbloqueo();var canvasFront = document.getElementById("canvas");</script><div id="div2"><button hidden id="salir">Salir</button></div><script>'.$reg;
+     echo '<script>function createdatagame(){sett._life=(sett._life!='.$life.')?'.$life.':sett._life; return new CMain({ball_speed: sett._ball_speed,bricks_score: sett._bricks_score,bricks_resistance: sett._bricks_resistance,bricks_destructible: sett._bricks_destructible, bonus_speed: sett._bonus_speed, bonus_time: sett._bonus_time, bonus_score: sett._bonus_score, life: sett._life,bullet_speed: sett._bullet_speed, speed_down_ball: sett._speed_down_ball, speed_up_ball: sett._speed_up_ball, fullscreen:sett._fullscreen, check_orientation:sett._check_orientation,num_levels_for_ads: sett._num_levels_for_ads });} </script><div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div><canvas id="canvas" class="ani_hack canvasWrd" width="840" height="1024"> </canvas><div data-orientation="portrait" class="orientation-msg-container"><p class="orientation-msg-text">Favor de rotar tu dispositivo</p></div><div id="block_game" style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:block"></div><script>jugar();desbloqueo();var canvasFront = document.getElementById("canvas");</script><div id="div2"><button hidden id="salir">Salir</button></div><script>'.$reg;
 
   }
   function participacion_php($idregistro,$ip)

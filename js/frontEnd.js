@@ -62,6 +62,8 @@ function changeLook(c){
 function changeColor(lvl){
   if(lvl === 0 || lvl === 3 || lvl === 6){
     canvasFront.setAttribute("class", "canvasWrd");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_word");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
@@ -71,6 +73,8 @@ function changeColor(lvl){
     changeLook("wrd");
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
     canvasFront.setAttribute("class", "canvasPpt");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_ppt");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_ppt");
     gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
@@ -80,6 +84,8 @@ function changeColor(lvl){
     changeLook("ppt");
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
     canvasFront.setAttribute("class", "canvasExc");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_excel");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_excel");
     gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
@@ -89,6 +95,8 @@ function changeColor(lvl){
     changeLook("exc");
   } else {
     canvasFront.setAttribute("class", "canvasWrd");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_word");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
@@ -270,37 +278,98 @@ function hideMenu(t, c){
   }
 }
 
+
+
+
+function getMenu(w){
+  if(w <= 960){
+    frontMenu.style.top = "-200px";
+    frontMenu.style.opacity = "0";
+    menumobile.style.top = "0";
+    menumobile.style.opacity = "1";
+  } else {
+    frontMenu.style.top = "0";
+    frontMenu.style.opacity = "1";
+    menumobile.style.top = "-60px";
+    menumobile.style.opacity = "0";
+  }
+}
+
+function menuDeployment(w){
+  if(menuInit && !menuFull){
+    if(w < 960){
+      menuDisplay("initMobile");
+    } else if(w > 960) {
+      menuDisplay("initDesktop");
+    }
+  }
+  else if(menuFull && menuInit){
+    if(w < 960){
+      menuDisplay("fullMobile");
+    } else if(w > 960) {
+      menuDisplay("fullDesktop");
+    }
+  }
+}
+
+
+function menuDisplay(c){
+  switch (c) {
+  case "initMobile":
+    menumobile.style.opacity = "1";
+    menumobile.style.top = "0";
+    frontBarMenu.style.opacity = "0";
+    frontBarMenu.style.top = "-200px";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "initDesktop":
+    menumobile.style.opacity = "0";
+    menumobile.style.top = "-60px";
+    frontBarMenu.style.opacity = "1";
+    frontBarMenu.style.top = "0";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "fullMobile":
+    menumobile.style.opacity = "1";
+    menumobile.style.top = "0";
+    frontBarMenu.style.opacity = "0";
+    frontBarMenu.style.top = "-200px";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "fullDesktop":
+    menumobile.style.opacity = "0";
+    menumobile.style.top = "-60px";
+    frontBarMenu.style.opacity = "1";
+    frontBarMenu.style.top = "0";
+    frontToolsBar.style.opacity = "1";
+    frontToolsBar.style.top = "60px";
+  break;
+  }
+}
+
+
 function checkAge(c){
   if(c === "true"){
-    disableEnableTabs("disable");
-    footerprovisional.style.display = "none";
+    menuInit = true;
+    menuDeployment(w);
     disclaimer.style.opacity = "0";
-    setTimeout(function(){
-      disclaimer.style.display = "none";
-      messagesGame.setAttribute("class", "flexDisplay");
-      frontMenu.style.opacity = "1";
-      frontBarMenu.style.top = "0";
-      mensajebienvenida.setAttribute("class", "flexDisplay");
-      setTimeout(function(){
-        footer.style.bottom = "0";
-        setTimeout(function(){
-          logotipobudlight.style.opacity = "1";
-          messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
-          mensajebienvenida.style.opacity = "1";
-        },700)
-      },700)
-    },700);
-  }else if(c === "false"){
+    disclaimer.style.display = "none";
+    footerprovisional.style.display = "none";
+    messagesGame.setAttribute("class", "flexDisplay");
+    mensajebienvenida.setAttribute("class", "flexDisplay");
+    footer.style.bottom = "0";
+    logotipobudlight.style.opacity = "1";
+    messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
+    mensajebienvenida.style.opacity = "1";
+  }else{
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     edadnovalida.setAttribute("class", "flexDisplay");
   }
 }
-
-
-
-
-
 
 function disableEnableTabs(c){
   if(c === "enable"){
@@ -318,19 +387,11 @@ function disableEnableTabs(c){
 
 function quitarRegistroFront(){
   messagesGame.setAttribute("class", "noneDisplay");
-  frontToolsBar.style.opacity = "1";
-  frontToolsBar.style.top = "60px";
+  menuFull = true;
+  menuDeployment(w);
   disableEnableTabs("enable");
 }
 
-
-function cuponUnoOk(){
-  cuponUno.style.opacity = "0";
-    setTimeout(function(){
-    canvasFront.setAttribute("class", "canvasWrd");
-    cuponUno.style.display = "none";
-  },800);
-}
 function quitarMensajes(){
   messagesGame.setAttribute("class", "noneDisplay");
 }

@@ -46,10 +46,26 @@
         <script type="text/javascript" src="js/app.js"></script>
     </head>
      <body ondragstart="return false;" ondrop="return false;" >
-        <!-- Menu -->
-        <div id="menu" class="trans7" style="opacity:0">
-          <div id="head" class="back_word">
-            <p>Documento de <span id="nivelDocumento">?</span></p>
+       <!-- Menu mobile -->
+       <div id="menumobile" class="trans7">
+        <div id="barmenumobile" class="flexDisplay back_word">
+          <a id="" role="button" class="flexDisplay">
+            <img src="img/mobile/bandeja.svg" alt="">
+            <p>Bandeja</p>
+          </a>
+          <p>
+            Documento de <span class="displayUserName">Itzel León</span>
+          </p>
+          <a id="" role="button" class="flexDisplay">
+            <img src="img/mobile/pausamobile.svg" alt="">
+            <p>Escóndete!</p>
+          </a>
+        </div>
+       </div>
+        <!-- Menu Desktop -->
+        <div id="menu" class="trans7">
+          <div id="head" class="back_word" style="opacity:0;top:-200px">
+            <p>Documento de <span class="displayUserName">Itzel León</span></p>
             <div id="top" class="flexDisplay">
               <!-- Parte Izq -->
               <div id="izq" class="flexDisplay">
@@ -73,17 +89,15 @@
               </div>
             </div>
             <ul class="flexDisplay">
-              <li class="tabButts"><a role="button">Partida</a></li>
-              <li class="tabButts"><a role="button">Cupones</a></li>
-              <li class="tabButts"><a role="button">Mis Cupones</a></li>
-              <li class="tabButts"><a role="button">Instrucciones</a></li>
-              <li class="tabButts"><a role="button">Créditos</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Partida</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
             </ul>
           </div>
-          <div id="bar" class="flexDisplay trans7">
+          <div id="bar" class="flexDisplay trans7" style="opacity:0;top:-200px">
             <!-- iconos -->
             <div>
             <a role="button" id="imgLevel" class="level_begin"></a>
@@ -94,28 +108,28 @@
 
             <div>
             <a role="button" id="imgLives" class="iconChange livesWrd" data-icon="lives"></a>
-            <p id="displayLives" class="textFuncional">23</p>
+            <p class="displayLives" class="textFuncional">23</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgScore" class="iconChange scoreWrd" data-icon="score"></a>
-            <p id="displayScore" class="textFuncional">233</p>
+            <p class="displayScore" class="textFuncional">233</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgBestScore" class="iconChange bestWrd" data-icon="best"></a>
-            <p id="displayBest" class="textFuncional">4723</p>
+            <p class="displayBest" class="textFuncional">4723</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgPosition" class="iconChange positionWrd" data-icon="position"></a>
-            <p id="displayPosition" class="textFuncional">74</p>
+            <p class="displayPosition" class="textFuncional">74</p>
             </div>
 
             <span></span>
@@ -407,24 +421,13 @@
                   <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
                 <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
-                  Quitar (FRONT)
+                  Quitar (botón demo)
                 </a>
               </section>
             </div>
           </div>
         </div>
 
-        <!-- Cupón primera vez -->
-        <div id="cuponUno" class="noneDisplay trans7">
-          <div>
-            <p>Felicidades ganaste tu primer cupón de descuento en <b>Rappi!</b></p>
-            <br>
-            <p>Sigue jugando para ganar más premios.</p>
-            <br>
-            <img src="img/cupon.svg"/>
-            <a role="button" class="trans7" onclick="cuponunojugar();">Listo</a>
-          </div>
-        </div>
         <script>
           $(document).ready(function () {
                function mostrarInformacionCaracter(evObject) {
@@ -469,6 +472,13 @@
         </script>
         <!-- Globales Front -->
         <script type="text/javascript">
+          /* Display Data */
+          var displayUserName = document.getElementsByClassName("displayUserName");
+          var displayLives = document.getElementsByClassName("displayLives");
+          var displayScore = document.getElementsByClassName("displayScore");
+          var displayBest = document.getElementsByClassName("displayBest");
+          var displayPosition = document.getElementsByClassName("displayPosition");
+          /* Custom */
           var _FRONTButExit = document.getElementById('imgQuit');
           var imgLevel = document.getElementById("imgLevel");
           var imgLives = document.getElementById("imgLives");
@@ -479,30 +489,37 @@
           var gamermood = document.getElementById("gamermood");
           var searchBar = document.getElementById("searchBar");
           var messagesGame = document.getElementById("messagesGame");
-          var nivelDocumento = document.getElementById("nivelDocumento");
           var lookLevelPpt = document.getElementById("lookLevelPpt");
           var lookLevelExc = document.getElementById("lookLevelExc");
           var footer = document.getElementById("footer");
           var logotipobudlight = document.getElementById("logotipobudlight");
           var lookLevelExcBool = false;
           var lookLevelPptBool = false;
-          var cuponUno = document.getElementById("cuponUno");
           var footerprovisional = document.getElementById("footerprovisional");
           /* mensajes */
           var disclaimer = document.getElementById("disclaimer");
           var edadnovalida = document.getElementById("edadnovalida");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
+          var frontMenu = document.getElementById("menu");
+          var barmenumobile = document.getElementById("barmenumobile");
+          var menuIsHidden = false;
+          var pauseIsOn = false;
+          var pauseIsOnPpt = false;
+          // Menu
+          var menuInit = false;
+          var menuFull = false;
           var frontBarMenu = document.getElementById("head");
           var frontToolsBar = document.getElementById("bar");
-          var frontMenu = document.getElementById("menu");
-          var menuIsHidden = false;
-          /* Menu Elementos */
-          var esconderTres = document.getElementsByClassName("esconderTres");
-          function quitarRegistroFrontsinRegistro()
-          {
+          var menumobile = document.getElementById("menumobile");
+          function quitarRegistroFrontsinRegistro(){
             quitarRegistroFront();
             sinregistro();
           }
+          var w = window.innerWidth;
+          window.onresize = function(){
+            w = window.innerWidth;
+            menuDeployment(w);
+          };
         </script>
     </body>
 </html>
