@@ -830,12 +830,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     width: 200px;
   }
   #mensajebienvenida>p{
-    font-size: 1.1rem;
+    font-size: 1rem;
     width: 600px;
     margin: 10px auto;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
   }
+    #mensajebienvenida>p>span{
+      font-weight: 400;
+    }
   #mensajebienvenida>.registrocss{
     position: relative;
     width: 230px;
@@ -1023,7 +1026,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
 
 /* QUITAR */
 #menulateral{
-  /*display: none !important;*/
+  display: none !important;
 }
 
 
