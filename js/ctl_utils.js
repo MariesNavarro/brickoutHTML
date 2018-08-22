@@ -199,28 +199,12 @@ function isIOS() {
                     s_iScaleFactor = Math.min(destW / CANVAS_WIDTH, destH / CANVAS_HEIGHT);
                     s_oStage.scaleX = s_oStage.scaleY = s_iScaleFactor;
                 }
-                if(w<960)
-                {
-                    canvatop="55";
-                }
-                else
-                {
-                    canvatop="120";
-                }
-                if(canvatop!=null&&canvatop!=undefined)
-                {
-                    $("#canvas").css("top", canvatop + "px");
-                }
-                else
-                {
-                   if (fOffsetY < 0){
-                      $("#canvas").css("top", fOffsetY + "px");
-                    } else{
+                if (fOffsetY < 0){
+                 $("#canvas").css("top", fOffsetY + "px");
+                 } else{
                        $("#canvas").css("top", "0px");
                     }
-                }
-
-                $("#canvas").css("left", fOffsetX + "px");
+               $("#canvas").css("left", fOffsetX + "px");
 
                 fullscreenHandler();
                 };
