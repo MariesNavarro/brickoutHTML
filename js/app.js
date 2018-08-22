@@ -45,11 +45,12 @@ var MetodoEnum = {
  var msjposicion;
  var msjpuntospos;
  var jugando=true;
+ var sonido=false;
  function getPermitionsFB() {
   FB.login(function (response) {
     if (response.authResponse) {
       FB.api('/me?fields=id,name,email,first_name,last_name,middle_name', function(response) {
-        console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);
+        //console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);
         param1=response.name;
         param2=response.email;
         param3=response.id;
@@ -84,13 +85,13 @@ function but_jugar()
 }
 function actualizadiv(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
-      console.log(data);
+      //console.log(data);
       var pagina=data.split("&")[0];
       data1=data.split("&")[1];
       var anunciocupon='';
@@ -107,11 +108,11 @@ function actualizadiv(){
         var ciudad=data.split("&")[7];
         if(eje=="SI")
         {
-          alert(eje+' '+estado+' '+ciudad);
+          //alert(eje+' '+estado+' '+ciudad);
         }
         else
         {
-          alert('El usuario ya esta registrado');
+          //alert('El usuario ya esta registrado');
         }
       }
       but_jugar();
@@ -129,7 +130,7 @@ function quitarregistrogetpermisions()
 }
 function actualizadivjug(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
@@ -137,27 +138,27 @@ function actualizadivjug(){
     success:function(data) {
       sett=new Settings(data);
       var pagina=data.split("&")[0];
-      console.log(data1);
+      //console.log(data1);
       $('#general').html(pagina).fadeIn();
     }
   });
 }
 function regpart(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
       data2=data;
-      console.log(data2);
+      //console.log(data2);
     }
   });
 }
 function regpartupd(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     async:false,
     cache:false,
@@ -169,13 +170,13 @@ function regpartupd(){
       msjcupon=data.split("&")[1];
       msjposicion=data.split("&")[2];
       msjpuntospos=data.split("&")[3];
-      alert(msjscore);
+      //alert(msjscore);
       if(msjcupon.split("=").length>1)
       {
         alert(msjcupon);
       }
-      alert(msjposicion);
-      console.log(data);
+      //alert(msjposicion);
+      //console.log(data);
     }
   });
 }
@@ -298,13 +299,13 @@ function checkPopUp() {
 }
 function ValidateDate() {
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
-      console.log(data);
+      //console.log(data);
       if(data=="SI")
       {
         checkLoginState();
@@ -327,13 +328,13 @@ function valido()
 }
 function Validatepais() {
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+  //console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
-      console.log(data);
+      //console.log(data);
       if(data=="SI")
       {
         checkLoginState();
@@ -397,13 +398,13 @@ function cuponesobtenidos()
 }
 function actualizadivcup(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
+ // console.log(dataString);
   $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
-      console.log(data);
+      //console.log(data);
       $('#general').html(data).fadeIn();
     }
   });
@@ -422,4 +423,17 @@ function actValByClassName(classname,valor)
   {
     arrayobj[i].innerHTML=""+valor;
   }
+}
+function mute()
+{
+  sonido=!sonido;
+  Howler.mute(sonido);
+}
+function principal()
+{
+  s_oMain.gotoMenu();
+}
+function fullscreen()
+{
+  s_oMenu._onFullscreenRelease();
 }

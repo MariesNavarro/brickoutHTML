@@ -139,7 +139,7 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
-              <a id="facebookShare" href="#" class="trans7">
+              <a id="facebookShare" onclick="compartir1();" ="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
             </ul>
@@ -242,7 +242,7 @@
             <span class="esconderUnoSpan"></span>
 
             <div>
-            <a role="button" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
+            <a role="button" onclick="mute();" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
             <p class="textFuncional">Audio</p>
             </div>
 
@@ -256,14 +256,14 @@
             <span></span>
 
             <div>
-            <a role="button" id="imgFull" class="iconChange fullWrd" data-icon="full"></a>
+            <a role="button" id="imgFull" onclick="fullscreen();" class="iconChange fullWrd" data-icon="full"></a>
             <p class="textFuncional">Pantalla Completa</p>
             </div>
 
             <span></span>
 
             <div>
-            <a role="button" id="imgQuit" class="iconChange quitWrd" data-icon="quit"></a>
+            <a role="button" id="imgQuit" onclick="principal();" class="iconChange quitWrd" data-icon="quit"></a>
             <p class="textFuncional">Menú Principal</p>
             </div>
           </div>
@@ -533,6 +533,7 @@
           var displayPosition = document.getElementsByClassName("displayPosition");
           /* Custom */
           var _FRONTButExit = document.getElementById('imgQuit');
+
           var imgLevel = document.getElementById("imgLevel");
           var imgLives = document.getElementById("imgLives");
           var iconChange = document.getElementsByClassName("iconChange");

@@ -1023,7 +1023,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
 
 /* QUITAR */
 #menulateral{
-  display: none !important;
+  /*display: none !important;*/
 }
 
 
