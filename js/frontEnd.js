@@ -488,3 +488,11 @@ function checkPais(c){
     paisnovalido.setAttribute("class", "flexDisplay");
   }
 }
+
+function cuponOpacity(t){
+  var parent = t.parentNode;
+  parent.style.opacity = "0";
+  setTimeout(function(){
+    parent.style.display = "none";
+  },700);
+}

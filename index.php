@@ -145,7 +145,7 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Mi Cupón</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
-              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li>
+              <!-- <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li> -->
               <a id="facebookShare" href="#" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
@@ -425,7 +425,7 @@
             <p id="cgenerado">BL9302KLOSAZ3</p>
             <h5>Sigue jugando para poder ganar una consola.</h5>
           </div>
-          <a role="button" class="trans7" onclick="cuponUnoOk()"><p>Listo</p> <span class="trans7"></span></a>
+          <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>
         </div>
 
         <!-- Logotipo Bud Light -->

@@ -1236,6 +1236,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     height: 100vh;
     background:rgba(255,255,255,0.95);
     z-index: 5800;
+    /* display: none; */
   }
   .cupon>div{
     position: relative;
