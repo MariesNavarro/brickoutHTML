@@ -18,12 +18,12 @@ function CLevelMenu(oData) {
         _oBg = createBitmap(s_oSpriteLibrary.getSprite('bg_menu'));
         _oBg.x = 0;
         _oBg.y = 0;
-        s_oStage.addChild(_oBg);
+        // s_oStage.addChild(_oBg);
 
         _bNumActive = false;
 
         _oBg = createBitmap(s_oSpriteLibrary.getSprite('msg_box'));
-        s_oStage.addChild(_oBg);
+        // s_oStage.addChild(_oBg);
 
         _oLevelText = new createjs.Text(TEXT_LEVES, " 50px " + PRIMARY_FONT, "#263270");
         _oLevelText.x = CANVAS_WIDTH / 2;
