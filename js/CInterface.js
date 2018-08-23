@@ -185,7 +185,7 @@ function CInterface() {
             s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
             _oButPause.block(true);
 
-            _oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 80 + "px " + PRIMARY_FONT, "#263072");
             //_oTextLevelComplete = new createjs.Text("");
             _oTextLevelComplete.textAlign = "center";
             _oTextLevelComplete.textBaseline = "alphabetic";
@@ -193,7 +193,7 @@ function CInterface() {
             _oTextLevelComplete.y = -140;
             s_oStage.addChild(_oTextLevelComplete);
 
-            _oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "#263072");
             //_oTextScoreLevelComplete= new createjs.Text("");
             _oTextScoreLevelComplete.textAlign = "center";
             _oTextScoreLevelComplete.textBaseline = "alphabetic";
@@ -226,7 +226,7 @@ function CInterface() {
         s_oStage.addChild(_oFade);
         s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
 
-        _oTextCongrat = new createjs.Text(TEXT_CONGRATULATIONS, "normal " + 70 + "px " + PRIMARY_FONT, "#ffff00");
+        _oTextCongrat = new createjs.Text(TEXT_CONGRATULATIONS, "normal " + 70 + "px " + PRIMARY_FONT, "##263072");
         _oTextCongrat.textAlign = "center";
         _oTextCongrat.textBaseline = "alphabetic";
         _oTextCongrat.lineWidth = 500;
@@ -235,7 +235,7 @@ function CInterface() {
         _oTextCongrat.y = -120;
         s_oStage.addChild(_oTextCongrat);
 
-        _oTextGameOver = new createjs.Text(TEXT_SCORE_GAMEOVER + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "#ffff00");
+        _oTextGameOver = new createjs.Text(TEXT_SCORE_GAMEOVER + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "##263072");
         _oTextGameOver.textAlign = "center";
         _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
