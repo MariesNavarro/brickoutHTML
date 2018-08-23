@@ -173,9 +173,15 @@ function regpartupd(){
       msjposicion=data.split("&")[2];
       msjpuntospos=data.split("&")[3];
       //alert(msjscore);
-      if(msjcupon.split("=").length>1)
+      if(msjcupon.split("@").length>1)
       {
-        alert(msjcupon);
+        //alert(msjcupon);
+        var cupon=msjcupon.split("@")[0];
+        var codigo=msjcupon.split("@")[1];
+        var descripcion=msjcupon.split("@")[2];
+        $('#combo').text(descripcion);
+        $('#cgenerado').text(codigo);
+        $("#cuponUno").css("display", "block");
       }
       //alert(msjposicion);
       //console.log(data);
@@ -367,7 +373,7 @@ function compartir(){
    description: 'Por cada clic que des, Tupperware® donará dinero para ayudar a transformar positivamente la vida de miles de niños. ¡1.Conoce 2.Ayuda con un clic y 3.Comparte! #Tupperware123'
    }, function(response){});
 }
-function compartir1(){
+function compartirfb(){
 FB.ui({
   method: 'share_open_graph',
   action_type: 'og.shares',

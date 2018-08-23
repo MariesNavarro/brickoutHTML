@@ -145,8 +145,8 @@ function CInterface() {
         actValByClassName("displayBest",msjpuntospos);
         actValByClassName("displayPosition",msjposicion);
         _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#263072");
-       _oTextGameOver.textAlign = "center";
-        // _oTextGameOver.textBaseline = "alphabetic";
+        _oTextGameOver.textAlign = "center";
+        _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
         _oTextGameOver.y = -120;
         s_oStage.addChild(_oTextGameOver);
@@ -155,7 +155,7 @@ function CInterface() {
             createjs.Tween.get(_oTextGameOver).to({y: CANVAS_HEIGHT / 2 - 200}, 1000, createjs.Ease.bounceOut).call(function () {
                 var oSpriteRestart = s_oSpriteLibrary.getSprite("but_restart");
                 _oButReturnToMenu = new CGfxButton((CANVAS_WIDTH / 2), CANVAS_HEIGHT / 2 + 200, oSpriteRestart);
-                //_oButReturnToMenu.addEventListener(ON_MOUSE_UP, s_oInterface._onButReturnToMenuRelease, this);
+                _oButReturnToMenu.addEventListener(ON_MOUSE_UP, s_oInterface._onButReturnToMenuRelease, this);
             });
         });
 

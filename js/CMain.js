@@ -246,7 +246,7 @@ var s_iPrevTime = 0;
 var s_iCntFps = 0;
 var s_iCurFps = 0;
 
-var s_iLevelReached = 10;
+var s_iLevelReached = 1;
 
 var s_oDrawLayer;
 var s_oStage;

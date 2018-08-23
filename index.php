@@ -146,7 +146,7 @@
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
               <!-- <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Créditos</a></li> -->
-              <a id="facebookShare" href="#" class="trans7">
+              <a id="facebookShare" onclick="compartirfb();" class="trans7">
                 <img src="img/head/facebookShare.svg">
               </a>
             </ul>
@@ -420,9 +420,9 @@
           <div>
             <h2>¡Felicidades!</h2>
             <h3>Ganaste un cupón de descuento en Rappi.</h3>
-            <h4>Este cupón cuenta por: <span id="combo">50% de descuento en un six.</span> </h4>
+            <h4>Este cupón cuenta por: <span id="combo"></span> </h4>
             <img src="img/cupon.svg"/>
-            <p id="cgenerado">BL9302KLOSAZ3</p>
+            <p id="cgenerado"></p>
             <h5>Sigue jugando para poder ganar una consola.</h5>
           </div>
           <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>

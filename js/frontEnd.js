@@ -488,9 +488,7 @@ function checkPais(c){
     paisnovalido.setAttribute("class", "flexDisplay");
   }
 }
-
 //Aqui esta
-
 function cuponOpacity(t){
   var parent = t.parentNode;
   parent.style.opacity = "0";
