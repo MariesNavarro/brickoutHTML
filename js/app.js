@@ -349,8 +349,8 @@ function Validatepais() {
       }
       else
       {
-          // checkPais(data);
-         checkLoginState();
+          checkPais(data);
+         //checkLoginState();
       }
     }
   });
@@ -381,9 +381,9 @@ FB.ui({
   action_properties: JSON.stringify({
     object: {
       'og:url': 'https://budlightdocs.com',
-      'og:title': 'Juega con budlight',
-      'og:description': 'Disfrutando del dia de Gamer con budlight',
-      'og:image': 'https://budlightdocs.com/fun/img/bugdoodle.JPG'
+      'og:title': 'Juega con Bud Light',
+      'og:description': 'Disfrutando el dia del Gamer con Bud Light',
+      'og:image': 'https://budlightdocs.com/img/redes/post.jpg'
     }
   })
 }, function(response) {
