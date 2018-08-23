@@ -653,7 +653,6 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
             pausaEvent(nivelInterno, w);
             menuDeployment(w);
             changeLook(nivelInterno+1);
-            console.log(w);
           };
         </script>
     </body>

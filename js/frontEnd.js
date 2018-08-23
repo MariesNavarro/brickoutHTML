@@ -31,7 +31,6 @@ function changeFrontLevel(lvl){
 
 
 function changeLook(c){
-  console.log("Nivel: " + c);
   switch (c) {
     case 1:
     lookNone();
@@ -61,6 +60,7 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
+    lookLevelExcCeldas.style.opacity = "0";
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
     changeLook(2);
     canvasFront.setAttribute("class", "canvasPpt");
@@ -70,6 +70,7 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_ppt");
     gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
     searchBar.setAttribute("src", "img/head/search-ppt.svg");
+    lookLevelExcCeldas.style.opacity = "0";
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
     changeLook(3);
     canvasFront.setAttribute("class", "canvasExc");
@@ -79,6 +80,7 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_excel");
     gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
     searchBar.setAttribute("src", "img/head/search-exc.svg");
+    lookLevelExcCeldas.style.opacity = "1";
   } else {
     changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
@@ -88,6 +90,7 @@ function changeColor(lvl){
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
+    lookLevelExcCeldas.style.opacity = "0";
   }
 }
 
