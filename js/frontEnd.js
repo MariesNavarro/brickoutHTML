@@ -354,11 +354,42 @@ function checkAge(c){
   }
 }
 
+function tabsDisplay(n){
+  switch (n) {
+    case 0:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 1:
+      tabsContent[0].style.left = "0";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 2:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "0";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 3:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "0";
+    break;
+  }
+}
+
 function disableEnableTabs(c){
   if(c === "enable"){
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", "tabSelectChange(this)"); }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "pointer"; }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", " ")}
+    /* new */
+    // tabButts[0].children[0].setAttribute("onclick", "tabsDisplay(0)"); //Partida
+    // tabButts[1].children[0].setAttribute("onclick", "tabsDisplay(1)"); //Mi cupon
+    // tabButts[2].children[0].setAttribute("onclick", "tabsDisplay(2)"); //Cupones
+    // tabButts[3].children[0].setAttribute("onclick", "tabsDisplay(3)"); //Instrucciones
+
     tabButts[0].setAttribute("class", "tabButts tabSelect tabSelectWord");
   } else{
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", " "); }

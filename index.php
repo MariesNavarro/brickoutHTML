@@ -162,28 +162,28 @@
 
             <div>
             <a role="button" id="imgLives" class="iconChange livesWrd" data-icon="lives"></a>
-            <p class="displayLives" class="textFuncional">?</p>
+            <p class="displayLives textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgScore" class="iconChange scoreWrd" data-icon="score"></a>
-            <p class="displayScore" class="textFuncional">?</p>
+            <p class="displayScore textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgBestScore" class="iconChange bestWrd" data-icon="best"></a>
-            <p class="displayBest" class="textFuncional">?</p>
+            <p class="displayBest textFuncional">?</p>
             </div>
 
             <span></span>
 
             <div>
             <a role="button" id="imgPosition" class="iconChange positionWrd" data-icon="position"></a>
-            <p class="displayPosition" class="textFuncional">?</p>
+            <p class="displayPosition textFuncional">?</p>
             </div>
 
             <span></span>
@@ -283,7 +283,7 @@
               <img src="img/footer/zoom.svg">
               <p>100%</p>
               <img src="img/footer/text1.svg">
-              <a href="#">Términos y condiciones</a>
+              <a href="assets/terminos_condiciones_dia_gamer.pdf" target="_blank">Términos y condiciones</a>
               <img src="img/footer/text2.svg">
               <a href="#">Política de privacidad</a>
             </div>
@@ -448,7 +448,7 @@
                 </div>
                 <p>
                   Al confirmar ser mayor de edad manifiestas
-                  tu conformidad con nuestros <a href="#" class="trans7">Términos y Condiciones</a>.
+                  tu conformidad con nuestros <a href="assets/terminos_condiciones_dia_gamer.pdf" class="trans7" target="_blank">Términos y Condiciones</a>.
                 </p>
                 <br>
                 <p>
@@ -502,6 +502,22 @@
             </div>
           </div>
         </div>
+
+        <!-- Tabs -->
+        <!-- Mi Cupón -->
+      <div class="tabsContent">
+
+      </div>
+      <!-- Cupones -->
+      <div class="tabsContent">
+        <p>Falta definir combos</p>
+      </div>
+      <!-- Instrucciones -->
+      <div class="tabsContent">
+        <h2>Instrucciones</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
 
         <div id="pausaWrap">
           <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
@@ -564,6 +580,8 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+          /* Tabs */
+          var tabsContent = document.getElementsByClassName("tabsContent");
           /* Display Data */
           var displayUserName = document.getElementsByClassName("displayUserName");
           var displayLives = document.getElementsByClassName("displayLives");
