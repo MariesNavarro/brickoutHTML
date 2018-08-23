@@ -199,11 +199,13 @@ function isIOS() {
                     s_iScaleFactor = Math.min(destW / CANVAS_WIDTH, destH / CANVAS_HEIGHT);
                     s_oStage.scaleX = s_oStage.scaleY = s_iScaleFactor;
                 }
+                
+                
                 if (fOffsetY < 0){
                  $("#canvas").css("top", fOffsetY + "px");
                  } else{
                        $("#canvas").css("top", "0px");
-                    }
+                 }
                $("#canvas").css("left", fOffsetX + "px");
 
                 fullscreenHandler();

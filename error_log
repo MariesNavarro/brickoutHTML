@@ -1,0 +1,43 @@
+[22-Aug-2018 00:35:42 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 57
+[22-Aug-2018 00:35:42 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 57
+[22-Aug-2018 00:35:42 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 62
+[22-Aug-2018 00:51:17 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 57
+[22-Aug-2018 00:51:17 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 57
+[22-Aug-2018 00:51:17 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 62
+[22-Aug-2018 00:54:51 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 60
+[22-Aug-2018 00:54:51 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 60
+[22-Aug-2018 00:54:51 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 67
+[22-Aug-2018 00:58:14 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 55
+[22-Aug-2018 00:58:14 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 55
+[22-Aug-2018 00:58:14 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 72
+[22-Aug-2018 08:10:04 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/respuesta.php on line 154
+[22-Aug-2018 12:17:46 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 12:36:21 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 12:55:45 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 12:57:08 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 18:12:07 UTC] PHP Warning:  require_once(lib/db.php): failed to open stream: No such file or directory in /home/gamer65/public_html/budlightdocs.com/respuesta.php on line 2
+[22-Aug-2018 18:12:07 UTC] PHP Fatal error:  require_once(): Failed opening required 'lib/db.php' (include_path='.:/opt/cpanel/ea-php71/root/usr/share/pear') in /home/gamer65/public_html/budlightdocs.com/respuesta.php on line 2
+[22-Aug-2018 13:17:22 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 13:24:16 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 70
+[22-Aug-2018 18:36:46 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:36:51 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:37:01 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:37:15 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:39:09 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:40:58 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 18:43:16 UTC] PHP Parse error:  syntax error, unexpected '$cuponinicial' (T_VARIABLE), expecting ',' or ';' in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 58
+[22-Aug-2018 13:45:06 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 75
+[22-Aug-2018 13:45:53 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 75
+[22-Aug-2018 13:49:16 America/Mexico_City] PHP Warning:  A non-numeric value encountered in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 75
+[23-Aug-2018 00:23:28 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:23:33 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:24:23 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:26:10 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:26:45 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:27:07 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:29:51 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:30:29 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:30:46 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:31:03 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:33:23 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355
+[23-Aug-2018 00:33:30 UTC] PHP Parse error:  syntax error, unexpected ''@'' (T_CONSTANT_ENCAPSED_STRING) in /home/gamer65/public_html/budlightdocs.com/lib/db.php on line 355

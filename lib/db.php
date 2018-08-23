@@ -176,11 +176,11 @@ function participacion($idregistro,$ip)
     
 }
 
-function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup) {
+function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup,&$descripcion) {
    $reg=0;
    $transaction_start="start transaction";
    if (mysqli_query($link, $transaction_start)) {
-      $consulta = "select min(b.id),a.id,a.cupon,b.codigo from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where id_cupon=(select Id from bdlt_cupones where score<=".$score." and id not in (select distinct b.id_cupon  from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id where a.id_registro=".$idreg." and a.id_codigo is not null) order by score desc LIMIT 1) and entregado=0 FOR UPDATE;";
+      $consulta = "select min(b.id),a.id,a.cupon,b.codigo,a.descripcion from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where id_cupon=(select Id from bdlt_cupones where score<=".$score." and id not in (select distinct b.id_cupon  from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id where a.id_registro=".$idreg." and a.id_codigo is not null) order by score desc LIMIT 1) and entregado=0 FOR UPDATE;";
      if ($resultado = mysqli_query($link, $consulta)) {
         while ($fila = mysqli_fetch_row($resultado)) {
 
@@ -188,6 +188,7 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup) {
          $idcup=$fila[1];
          $cup=$fila[2];
          $url=$fila[3];
+         $descripcion=$fila[4];
          if($reg!='')
          {
            $update="update bdlt_codigos set entregado=1 where id=".$reg.";";
@@ -314,7 +315,7 @@ function updateparticipacion($score,$idreg,$idpart)
       $obtenido=cuponunicoobtenido($idreg,$link);
       if($obtenido==0)
       {
-        $reg=cuponobtenido($maxscore,$idreg,$link,$cup,$url,$idcup);
+        $reg=cuponobtenido($maxscore,$idreg,$link,$cup,$url,$idcup,$descripcion);
       }
       
     }
@@ -351,7 +352,7 @@ function updateparticipacion($score,$idreg,$idpart)
     {
     	if($reg>0)
     	{
-    	  $cadena=$cadena.'&Felicidades has obtenido el cupon='.$cup.' link='.$url;
+    	  $cadena=$cadena.'&'.$cup.'@'.$url.'@'.$descripcion;
     	}
     	else
     	{
