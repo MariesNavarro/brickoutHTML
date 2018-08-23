@@ -46,7 +46,7 @@ body{
 /* canvas */
 #canvas{
   position: fixed;
-  top: 120px;
+  top: 20px !important;
 }
 canvas {
   image-rendering: optimizeSpeed;
@@ -151,6 +151,9 @@ canvas {
   border:1px solid #000;
   height: 95%;
   width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 /* LOOK LEVEL EXC */
 #lookLevelExc{
@@ -472,7 +475,7 @@ canvas {
 .level_7{ background-image: url('../img/level/7.svg') }
 .level_8{ background-image: url('../img/level/8.svg') }
 .level_9{ background-image: url('../img/level/9.svg') }
-.level_10{ background-image: url('../img/level/9.svg') }
+.level_10{ background-image: url('../img/level/10.svg') }
 
 .livesWrd{ background-image: url('../img/bar/lives-wrd.svg') }
 .livesExc{ background-image: url('../img/bar/lives-exc.svg') }
@@ -1284,3 +1287,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
   }
   .cupon>a:hover>p{ color: #fff; }
   .cupon>a:hover>span{ width: 146px; }
+
+
+  .tabsContent{
+    position: absolute;
+    top: 130px;
+    left: -100vw;
+    width: 100vw;
+    height: calc(100vh - 155px);
+    z-index: 4900;
+    display: none;
+    background: #F7F7F7;
+  }
+
+  @media (min-width: 960px){
+    .tabsContent{ display: block; }
+  }
