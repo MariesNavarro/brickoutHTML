@@ -123,7 +123,7 @@
               <div id="izq" class="flexDisplay">
                 <div id="closewindow"></div>
                 <p id="pipe">|</p>
-                <p id="gamertit">Gamer mood</p>
+                <p id="gamertit">Gamer mode</p>
                  <img id="gamermood" src="img/head/gamermood-wrd.svg">
                 <ul class="flexDisplay">
                   <li><img src="img/head/disk.svg"></li>
