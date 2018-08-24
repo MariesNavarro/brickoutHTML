@@ -285,7 +285,7 @@
               <img src="img/footer/text1.svg">
               <a href="assets/terminos_condiciones_dia_gamer.pdf" target="_blank">Términos y condiciones</a>
               <img src="img/footer/text2.svg">
-              <a href="politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
+              <a href="assets/politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
             </div>
         </footer>
 
@@ -452,7 +452,7 @@
                 </p>
                 <br>
                 <p>
-                  También puedes ver nuestra <a href="politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
+                  También puedes ver nuestra <a href="assets/politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
                   privacidad</a>.
                 </p>
 
