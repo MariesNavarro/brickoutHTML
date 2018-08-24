@@ -745,12 +745,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     text-decoration: underline;
   }
   /* EDADNOVALIDA */
-  #edadnovalida, #paisnovalido, #emergentes{
+  #edadnovalida, #paisnovalido, #emergentes,#registrocancel{
     position: relative;
     width: 100%;
     height: 100%;
   }
-  #edadnovalida>#back, #paisnovalido>#back, #emergentes>#back{
+  #edadnovalida>#back, #paisnovalido>#back, #emergentes>#back, #registrocancel>#back{
     position: fixed;
     top: 0;
     left: 0;
@@ -761,7 +761,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     background-size: cover;
     opacity: 0.8;
   }
-  #edadnovalida>div, #paisnovalido>div, #emergentes>div{
+  #edadnovalida>div, #paisnovalido>div, #emergentes>div, #registrocancel>div{
     position: absolute;
     top:calc(50% - 250px);
     left: calc(50% - 150px);
@@ -769,10 +769,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     height: 250px;
     text-align: center;
   }
-  #edadnovalida>div>img, #paisnovalido>div>img, #emergentes>div>img{
+  #edadnovalida>div>img, #paisnovalido>div>img, #emergentes>div>img, #registrocancel>div>img{
     width: 80px;
   }
-  #edadnovalida>div>p, #paisnovalido>div>p, #emergentes>div>p{
+  #edadnovalida>div>p, #paisnovalido>div>p, #emergentes>div>p, #registrocancel>div>p{
     position: relative;
     margin: 10px auto;
     font-weight: 300;

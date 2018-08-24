@@ -60,8 +60,7 @@ var MetodoEnum = {
       });
     }
     else {
-      var disclaimerIndex1 = document.getElementById("disclaimerIndex");
-      disclaimerIndex1.setAttribute("class", "flexDisplay"); 
+      messagesGame.setAttribute("class", "flexDisplay");
       //document.getElementById('login').hidden=true;
       //document.getElementById('jugarsinregistro').hidden=false;
     }
@@ -390,8 +389,8 @@ FB.ui({
     object: {
       'og:url': 'https://budlightdocs.com',
       'og:title': 'Juega con budlight',
-      'og:description': 'Disfrutando del dia de Gamer con budlight',
-      'og:image': 'https://budlightdocs.com/fun/img/bugdoodle.JPG'
+      'og:description': 'Disfrutando el dia del Gamer con Bud Light',
+      'og:image': 'https://budlightdocs.com/img/redes/post.jpg'
     }
   })
 }, function(response) {

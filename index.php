@@ -489,7 +489,13 @@
                   <p> Lo sentimos, esta promocion <b>no es valida</b> para tu pais. </p>
                 </div>
               </section>
-
+              <section id="registrocancel" class="noneDisplay">
+                <div id="back"></div>
+                <div>
+                  <img src="img/404.svg">
+                  <p> Lo sentimos, <b>es necesario registrarte </b> para ingresar al juego. </p>
+                </div>
+              </section>
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">
                 <img src="img/budlightdocs.png">
                 <h1>Bud Light Docs</h1>
@@ -628,6 +634,7 @@ Presiona ENTER de nuevo para regresar a jugar.
           var edadnovalida = document.getElementById("edadnovalida");
           var paisnovalido=document.getElementById("paisnovalido");
           var emergentes=document.getElementById("emergentes");
+          var registrocancel=document.getElementById("registrocancel");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
           var frontMenu = document.getElementById("menu");
           var barmenumobile = document.getElementById("barmenumobile");
