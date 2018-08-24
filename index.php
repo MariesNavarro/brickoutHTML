@@ -285,7 +285,7 @@
               <img src="img/footer/text1.svg">
               <a href="assets/terminos_condiciones_dia_gamer.pdf" target="_blank">Términos y condiciones</a>
               <img src="img/footer/text2.svg">
-              <a href="#">Política de privacidad</a>
+              <a href="politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
             </div>
         </footer>
 
@@ -452,7 +452,7 @@
                 </p>
                 <br>
                 <p>
-                  También puedes ver nuestra <a href="#" class="trans7">política de
+                  También puedes ver nuestra <a href="politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
                   privacidad</a>.
                 </p>
 
@@ -478,7 +478,7 @@
                   <img src="img/404.svg">
                   <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del Juego se requiere que las habilites.</p>
                   <p>Puedes ver el proceso como habilitarlas:</p></br>
-                  <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a> 
+                  <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a>
                    </br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a>
                 </div>
               </section>
