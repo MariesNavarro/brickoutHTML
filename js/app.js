@@ -60,6 +60,8 @@ var MetodoEnum = {
       });
     }
     else {
+      var disclaimerIndex1 = document.getElementById("disclaimerIndex");
+      disclaimerIndex1.setAttribute("class", "flexDisplay"); 
       //document.getElementById('login').hidden=true;
       //document.getElementById('jugarsinregistro').hidden=false;
     }
@@ -224,10 +226,14 @@ function checkLoginState() {
        getPermitionsFB();
       }
       else if (response.status === "not_authorized") {
+        var disclaimerIndex1 = document.getElementById("disclaimerIndex");
+        disclaimerIndex1.setAttribute("class", "flexDisplay"); 
         //document.getElementById('login').hidden=false;
         //document.getElementById('jugarsinregistro').hidden=false;
       }
       else {
+        var disclaimerIndex1 = document.getElementById("disclaimerIndex");
+        disclaimerIndex1.setAttribute("class", "flexDisplay"); 
         //document.getElementById('login').hidden=false;
         //document.getElementById('jugarsinregistro').hidden=false;
       }
