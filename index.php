@@ -452,7 +452,7 @@
                 </p>
                 <br>
                 <p>
-                  También puedes ver nuestra <a href="politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
+                  También puedes ver nuestra <a href="assets/politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
                   privacidad</a>.
                 </p>
 
