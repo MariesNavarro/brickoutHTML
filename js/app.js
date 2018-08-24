@@ -352,7 +352,7 @@ function Validatepais() {
       else
       {
           checkPais(data);
-         //checkLoginState();
+         // checkLoginState();
       }
     }
   });
@@ -459,6 +459,6 @@ function mostrarcupon()
 {
    if($('#cgenerado')[0].innerText!="")
    {
-        $("#cuponUno").css("display", "block");    
+        $("#cuponUno").css("display", "block");
    }
 }

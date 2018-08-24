@@ -560,6 +560,8 @@ Tranquilo, aquí te dejamos un área de texto para que puedas escribir
 hasta que dejen de rondar detrás de ti.
 
 Después quita la pausa y sigue jugando Bud Light Docs ©.
+
+Presiona ENTER de nuevo para regresar a jugar.
             </textarea>
           </div>
           <!-- PAUSA PPT -->

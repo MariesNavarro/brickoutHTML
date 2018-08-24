@@ -39,10 +39,6 @@ body{
   overflow-y: scroll;
   overflow-x: hidden;
 }
-@media (min-width: 520px){
-  body{ overflow: hidden; }
-}
-
 /* canvas */
 #canvas{
   position: fixed;
@@ -72,7 +68,7 @@ canvas {
 
 /* LOGOTIPO */
 #logotipobudlight{
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 10px;
   height: 20px;
