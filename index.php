@@ -435,7 +435,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div class="noneDisplay"><!-- alto -->
+          <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
@@ -591,6 +591,7 @@ Presiona ENTER de nuevo para regresar a jugar.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+          var disclaimerIndex = document.getElementById("disclaimerIndex");
           /* Tabs */
           var tabsContent = document.getElementsByClassName("tabsContent");
           /* Display Data */
