@@ -435,7 +435,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div class="flexDisplay"><!-- alto -->
+          <div class="noneDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
