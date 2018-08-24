@@ -285,7 +285,7 @@
               <img src="img/footer/text1.svg">
               <a href="assets/terminos_condiciones_dia_gamer.pdf" target="_blank">Términos y condiciones</a>
               <img src="img/footer/text2.svg">
-              <a href="politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
+              <a href="assets/politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
             </div>
         </footer>
 
@@ -435,7 +435,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div class="noneDisplay"><!-- alto -->
+          <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
@@ -591,6 +591,7 @@ Presiona ENTER de nuevo para regresar a jugar.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+          var disclaimerIndex = document.getElementById("disclaimerIndex");
           /* Tabs */
           var tabsContent = document.getElementsByClassName("tabsContent");
           /* Display Data */
