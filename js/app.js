@@ -100,7 +100,7 @@ function actualizadiv(){
       {
         actValByClassName("displayBest",data.split("&")[2]);
         actValByClassName("displayPosition",data.split("&")[3]);
-        actValByClassName("displayUserName",data.split("&")[4]);
+        actValByClassName("displayUserName","de "+data.split("&")[4]);
       }
       if(data.split("&").length>5)
       {
@@ -110,7 +110,7 @@ function actualizadiv(){
         if(eje=="SI")
         {
           //alert(eje+' '+estado+' '+ciudad);
-          //enviardata(param2,param1,ciudad,estado);
+          enviardata(param2,param1,ciudad,estado);
         }
         else
         {
@@ -297,7 +297,9 @@ function desbloqueo() {
 function checkPopUp() {
     var bloq = window.open('https://google.com')
     if (!bloq) {
-        alert("Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el buen funcionamiento del Juego se requiere que las habilites.");
+        // $("#dialog").dialog();
+        //alert("Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el buen funcionamiento del Juego se requiere que las habilites.");
+        showPopUp("NO");
         return false;
     }
     else {
@@ -349,8 +351,8 @@ function Validatepais() {
       }
       else
       {
-          // checkPais(data);
-         checkLoginState();
+          checkPais(data);
+         //checkLoginState();
       }
     }
   });
@@ -452,4 +454,11 @@ function fullscreen()
   {
     s_oInterface._onFullscreenRelease();
   }
+}
+function mostrarcupon()
+{
+   if($('#cgenerado')[0].innerText!="")
+   {
+        $("#cuponUno").css("display", "block");    
+   }
 }

@@ -222,6 +222,20 @@ function maxscoreobtenido($idreg,$link,&$part) {
     }
     return $score;
 }
+function maxscoreobtenidonocdmxedomex($idreg,$link,&$part) {
+  /* recuperar todas las filas de myCity */
+   $score=0;
+   $consulta = "select * from bdlt_participacion where id_registro=".$idreg." and Estado not in('Mexico City','Estado de Mexico') order by score desc LIMIT 1;";
+   if ($resultado = mysqli_query($link, $consulta)) {
+     while ($fila = mysqli_fetch_row($resultado)) {
+         $part=$fila[0];
+         $score=$fila[3];
+      }
+      /* liberar el conjunto de resultados */
+      mysqli_free_result($resultado);
+    }
+    return $score;
+}
 function cuponyaobtenido($idreg,$idcupon,$link) {
 	/* recuperar todas las filas de myCity */
    $obten=0;
@@ -250,7 +264,7 @@ function cuponunicoobtenido($idreg,$link) {
 }
 function numparticipacionesalacanzado($idreg,$link)
 {
-  $consulta = "select COUNT(*) NumeroParticipaciones,(select CONVERT(value,UNSIGNED INTEGER) AS num from bdlt_settings where Module='Participaciones' and setting='MinimoRequerido') NumeroNecesario from bdlt_participacion where id_registro=".$idreg." and score>0;";
+  $consulta = "select COUNT(*) NumeroParticipaciones,(select CONVERT(value,UNSIGNED INTEGER) AS num from bdlt_settings where Module='Participaciones' and setting='MinimoRequerido') NumeroNecesario from bdlt_participacion where id_registro=".$idreg." and score>0 and Estado not in('Mexico City','Estado de Mexico');";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $part=$fila[0];
@@ -310,12 +324,13 @@ function updateparticipacion($score,$idreg,$idpart)
      //exit();
     }
     $maxscore=maxscoreobtenido($idreg,$link,$parti);
+    $maxscoreparacupon=maxscoreobtenidonocdmxedomex($idreg,$link,$parti);
     if(numparticipacionesalacanzado($idreg,$link))
     {
       $obtenido=cuponunicoobtenido($idreg,$link);
       if($obtenido==0)
       {
-        $reg=cuponobtenido($maxscore,$idreg,$link,$cup,$url,$idcup,$descripcion);
+        $reg=cuponobtenido($maxscoreparacupon,$idreg,$link,$cup,$url,$idcup,$descripcion);
       }
       
     }

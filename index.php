@@ -102,7 +102,7 @@
             <p>Bandeja</p>
           </a>
           <p>
-            <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
+            <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
           </p>
           <a id="" role="button" class="flexDisplay">
             <img src="img/mobile/corcholata.svg" alt="">
@@ -117,7 +117,7 @@
         <!-- Menu Desktop -->
         <div id="menu" class="trans7">
           <div id="head" class="back_word" style="opacity:0;top:-200px">
-            <p>Documento de <span class="displayUserName">Itzel León</span></p>
+            <p>Documento <span class="displayUserName">sin titulo</span></p>
             <div id="top" class="flexDisplay">
               <!-- Parte Izq -->
               <div id="izq" class="flexDisplay">
@@ -419,11 +419,11 @@
         <div id="cuponUno" class="cupon trans7">
           <div>
             <h2>¡Felicidades!</h2>
-            <h3>Ganaste un cupón de descuento en Rappi.</h3>
-            <h4>Este cupón cuenta por: <span id="combo"></span> </h4>
+            <h3>Ganaste un cupón de <span id="combo"></span>.</h3>
+            <!-- <h4>Este cupón es valido por: </h4> -->
             <img src="img/cupon.svg"/>
             <p id="cgenerado"></p>
-            <h5>Sigue jugando para poder ganar una consola.</h5>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
           </div>
           <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>
         </div>
@@ -472,7 +472,16 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
-
+              <section id="emergentes" class="noneDisplay">
+                <div id="back"></div>
+                <div>
+                  <img src="img/404.svg">
+                  <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del Juego se requiere que las habilites.</p>
+                  <p>Puedes ver el proceso como habilitarlas:</p></br>
+                  <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a> 
+                   </br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a>
+                </div>
+              </section>
                <section id="paisnovalido" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -528,7 +537,7 @@
                     <p>Bandeja</p>
                   </a>
                   <p>
-                    <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
+                    <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
                   </p>
                   <a id="" role="button" class="flexDisplay">
                     <img src="img/mobile/corcholata.svg" alt="">
@@ -570,7 +579,7 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
           </div>
         </div>
        <script>
-          $(document).ready(function () {
+              $(document).ready(function () {
               if(checkPopUp())
                {
                  paisvalido();
@@ -615,6 +624,7 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
           var disclaimer = document.getElementById("disclaimer");
           var edadnovalida = document.getElementById("edadnovalida");
           var paisnovalido=document.getElementById("paisnovalido");
+          var emergentes=document.getElementById("emergentes");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
           var frontMenu = document.getElementById("menu");
           var barmenumobile = document.getElementById("barmenumobile");

@@ -423,7 +423,7 @@ function pausaEvent(l, w){
 
 function toggleGame(){
   if(s_oMain!=undefined){
-    console.log("s_oMain esta definido");
+    //console.log("s_oMain esta definido");
     if(isPausePressed){
       s_oMain.stopUpdate();
     } else {
@@ -520,6 +520,14 @@ function checkPais(c){
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     paisnovalido.setAttribute("class", "flexDisplay");
+  }
+}
+function showPopUp(c){
+  if(c === "NO"){
+    nivelInterno = "no";
+    messagesGame.setAttribute("class", "flexDisplay");
+    disclaimer.style.display = "none";
+    emergentes.setAttribute("class", "flexDisplay");
   }
 }
 //Aqui esta
