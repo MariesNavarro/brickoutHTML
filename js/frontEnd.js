@@ -600,6 +600,7 @@ function generaCeldas(){
 function checkPais(c){
   if(c === "NO"){
     nivelInterno = "no";
+    disclaimerIndex.setAttribute("class","flexDisplay");
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     paisnovalido.setAttribute("class", "flexDisplay");
@@ -608,6 +609,7 @@ function checkPais(c){
 function showPopUp(c){
   if(c === "NO"){
     nivelInterno = "no";
+    disclaimerIndex.setAttribute("class","flexDisplay");
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     emergentes.setAttribute("class", "flexDisplay");

@@ -388,7 +388,7 @@ FB.ui({
   action_properties: JSON.stringify({
     object: {
       'og:url': 'https://budlightdocs.com',
-      'og:title': 'Juega con budlight',
+      'og:title': 'Juega con Bud Light',
       'og:description': 'Disfrutando el dia del Gamer con Bud Light',
       'og:image': 'https://budlightdocs.com/img/redes/post.jpg'
     }
