@@ -580,7 +580,7 @@ function switchPausa(n){
 }
 
 function generaCeldas(){
-  var r = Math.random();
+  var r, count = 0;
   var celdas = document.getElementById("celdas");
   for (var i = 0; i < 20; i++) {
     var ul = document.createElement("UL");
@@ -591,13 +591,18 @@ function generaCeldas(){
       var li = document.createElement("LI");
       li.appendChild(textarea);
       ul.appendChild(li)
+      r = Math.floor(Math.random() * 12) + 1;
+      if(j == r){
+        count++;
+        if(count === 9) count = 0;
+        textarea.value = formulasExcel[count];
+      }
     }
-  }
-  function rellenarCeldas(){
-
   }
 }
 
+
+var formulasExcel = [ "TOTAL=SUMA(A1:A50)", "A3 * A5 * A8", "A2 - A3", "(A1 + C2) * C7 / 10", "PROMEDIO (A2:B2)", "MAX(celdas) / =MIN(celdas)", "MIN(A2,B4,C3,29)", "(MAX(A2:A3)", "CONTARA(A:A)", "{=SUMA ( A1:C20)}"];
 
 
 
