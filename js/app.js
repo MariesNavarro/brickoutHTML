@@ -226,13 +226,13 @@ function checkLoginState() {
       }
       else if (response.status === "not_authorized") {
         var disclaimerIndex1 = document.getElementById("disclaimerIndex");
-        disclaimerIndex1.setAttribute("class", "flexDisplay"); 
+        disclaimerIndex1.setAttribute("class", "flexDisplay");
         //document.getElementById('login').hidden=false;
         //document.getElementById('jugarsinregistro').hidden=false;
       }
       else {
         var disclaimerIndex1 = document.getElementById("disclaimerIndex");
-        disclaimerIndex1.setAttribute("class", "flexDisplay"); 
+        disclaimerIndex1.setAttribute("class", "flexDisplay");
         //document.getElementById('login').hidden=false;
         //document.getElementById('jugarsinregistro').hidden=false;
       }
@@ -356,8 +356,8 @@ function Validatepais() {
       }
       else
       {
-          checkPais(data);
-         // checkLoginState();
+          // checkPais(data);
+         checkLoginState();
       }
     }
   });
@@ -439,11 +439,6 @@ function actValByClassName(classname,valor)
   {
     arrayobj[i].innerHTML=""+valor;
   }
-}
-function mute()
-{
-  sonido=!sonido;
-  Howler.mute(sonido);
 }
 function principal()
 {
