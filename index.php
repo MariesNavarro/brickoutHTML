@@ -476,8 +476,8 @@
                 <div id="back"></div>
                 <div>
                   <img src="img/404.svg">
-                  <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del Juego se requiere que las habilites.</p>
-                  <p>Puedes ver el proceso como habilitarlas:</p></br>
+                  <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del juego se requiere que las habilites.</p>
+                  <p>Puedes ver el proceso para habilitarlas aqui:</p></br>
                   <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a>
                    </br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a>
                 </div>
