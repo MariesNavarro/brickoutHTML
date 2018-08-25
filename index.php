@@ -98,8 +98,8 @@
        <div id="menumobile" class="trans7">
         <div id="barmenumobile" class="flexDisplay back_word">
           <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
-            <img src="img/mobile/bandeja.svg" alt="">
-            <p>Bandeja</p>
+            <img src="img/mobile/pausa.svg" alt="">
+            <p>Pausa</p>
           </a>
           <p>
             <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
@@ -141,7 +141,7 @@
               </div>
             </div>
             <ul class="flexDisplay">
-              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Partida</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado"> <span id="partidaTab">Partida</span> </a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Mi Cupón</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
@@ -249,7 +249,7 @@
             <span class="esconderUnoSpan"></span>
 
             <div>
-            <a role="button" onclick="mute();" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
+            <a role="button" onclick="mute();" id="audioButton" class="iconChange audioWrd" data-icon="audio"></a>
             <p class="textFuncional">Audio</p>
             </div>
 
@@ -415,7 +415,7 @@
           </ul>
         </div>
 
-        <!-- -->
+        <!-- CUPON -->
         <div id="cuponUno" class="cupon trans7">
           <div>
             <h2>¡Felicidades!</h2>
@@ -435,7 +435,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
+          <div id="disclaimerIndex" class="flexDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
@@ -510,9 +510,9 @@
                   <p>Regístrate con Facebook</p>
                   <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
-                <!-- <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
+                <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (botón demo)
-                </a> -->
+                </a>
               </section>
             </div>
           </div>
@@ -521,29 +521,47 @@
         <!-- Tabs -->
         <!-- Mi Cupón -->
       <div class="tabsContent">
-
+        <div id="sincupon" class="sincupon trans7" style="display:block">
+          <h2>Sigue jugando</h2>
+          <p>Aún no has generado ningun cupón.</p>
+          <img src="img/cupon.svg"/>
+          <p id="reglaCuponFront">Necesitas jugar 5 partidas y haber generado al menos 1500 puntos</p>
+        </div>
+        <div id="cuponyagenerado" class="cuponGenerado trans7" style="display:none">
+          <div>
+            <h2>¡Felicidades!</h2>
+            <h3>Ganaste un cupón de <span id="comboTabs"></span>.</h3>
+            <h4>Este cupón es valido por: </h4>
+            <img src="img/cupon.svg"/>
+            <p id="cgeneradoTabs"></p>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
+          </div>
+        </div>
       </div>
       <!-- Cupones -->
-      <div class="tabsContent">
-        <p>Falta definir combos</p>
+      <div id="cuponesInfo" class="tabsContent">
+        <div class="flexDisplay">
+          <img src="img/cuponesInfo.svg">
+        </div>
       </div>
       <!-- Instrucciones -->
-      <div class="tabsContent">
-        <h2>Instrucciones</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div id="InstruccionesInfo" class="tabsContent">
+        <div class="flexDisplay">
+          <img src="img/instruccionesTab.svg">
+        </div>
       </div>
 
 
         <div id="pausaWrap">
-          <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
+          <!-- <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
             <div id="headerImgPausaM">
                 <div class="flexDisplay">
                   <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
-                    <img src="img/mobile/bandeja.svg" alt="">
-                    <p>Bandeja</p>
+                    <img src="img/mobile/pausa.svg" alt="">
+                    <p>Pausa</p>
                   </a>
                   <p>
-                    <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
+                    <span id="hidedocumobile">Documento <span id="tituloDe">de</span> </span> <span class="displayUserName">sin titulo</span>
                   </p>
                   <a id="" role="button" class="flexDisplay">
                     <img src="img/mobile/corcholata.svg" alt="">
@@ -552,7 +570,7 @@
                 </div>
             </div>
             <img id="headerImgPausaD" src="img/pausa/barra-pausa-wrd.jpg">
-          </header>
+          </header> -->
           <!-- PAUSA MOBILE -->
           <div id="areatrabajoMobile" class="pausaArea noneDisplay">
             <img src="img/pausa/pausa-mobile.svg">
@@ -598,8 +616,14 @@ Presiona ENTER de nuevo para regresar a jugar.
         <!-- Globales Front -->
         <script type="text/javascript">
           var disclaimerIndex = document.getElementById("disclaimerIndex");
+          var tituloDe = document.getElementById("tituloDe");
+          var audioButton = document.getElementById("audioButton");
           /* Tabs */
+          var bodyFront = document.getElementsByTagName("BODY")[0];
           var tabsContent = document.getElementsByClassName("tabsContent");
+          var partidaTab = document.getElementById("partidaTab");
+          var sincupon = document.getElementById("sincupon");
+          var cuponyagenerado = document.getElementById("cuponyagenerado");
           /* Display Data */
           var displayUserName = document.getElementsByClassName("displayUserName");
           var displayLives = document.getElementsByClassName("displayLives");

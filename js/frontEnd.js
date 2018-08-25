@@ -50,6 +50,7 @@ function lookExcRegla(){lookLevelPpt.style.opacity = "0"; lookLevelExc.style.opa
 function lookPpt(){ lookLevelPpt.style.opacity = "1"; lookLevelExcRegla.style.opacity = "0"; }
 function lookNone(){ lookLevelPpt.style.opacity = "0"; lookLevelExcRegla.style.opacity = "0"; }
 
+
 function changeColor(lvl){
   if(lvl === 0 || lvl === 3 || lvl === 6){
     changeLook(1);
@@ -61,6 +62,7 @@ function changeColor(lvl){
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
     lookLevelExcCeldas.style.opacity = "0";
+    partidaTab.style.color = "#263270"; //word
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
     changeLook(2);
     canvasFront.setAttribute("class", "canvasPpt");
@@ -71,6 +73,7 @@ function changeColor(lvl){
     gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
     searchBar.setAttribute("src", "img/head/search-ppt.svg");
     lookLevelExcCeldas.style.opacity = "0";
+    partidaTab.style.color = "#f45a2a"; //exc
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
     changeLook(3);
     canvasFront.setAttribute("class", "canvasExc");
@@ -81,6 +84,7 @@ function changeColor(lvl){
     gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
     searchBar.setAttribute("src", "img/head/search-exc.svg");
     lookLevelExcCeldas.style.opacity = "1";
+    partidaTab.style.color = "#1f7448"; //ppt
   } else {
     changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
@@ -91,14 +95,13 @@ function changeColor(lvl){
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
     lookLevelExcCeldas.style.opacity = "0";
+    partidaTab.style.color = "#263270"; //word
   }
 }
 
 function displayLevel(lvl){
   switch (lvl) {
   case 0: //1 Wrd
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_1");
   //iconos que cambian de color
@@ -110,8 +113,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 1: //2 Ppt
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_2");
   //iconos que cambian de color
@@ -123,8 +124,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 2: //3 Exc
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_3");
   //iconos que cambian de color
@@ -136,8 +135,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 3: //4 Wrd
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_4");
   //iconos que cambian de color
@@ -149,8 +146,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 4: //5 Ppt
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_5");
   //iconos que cambian de color
@@ -162,8 +157,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 5: //6 Exc
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_6");
   //iconos que cambian de color
@@ -175,8 +168,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 6: //7 Wrd
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectWord");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_7");
   //iconos que cambian de color
@@ -188,8 +179,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#263270"; }
   break;
   case 7: //8 Ppt
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectPpt");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_8");
   //iconos que cambian de color
@@ -201,8 +190,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#f45a2a"; }
   break;
   case 8: //9 Exc
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_9");
   //iconos que cambian de color
@@ -214,8 +201,6 @@ function displayLevel(lvl){
   for (var i = 0; i < textFuncional.length; i++) { textFuncional[i].style.color = "#1f7448"; }
   break;
   case 9: //10 Exc
-  tabSelect[0].setAttribute("class", "tabSelect ");
-  tabSelect[0].setAttribute("class", "tabSelect tabSelectExcel");
   imgLevel.setAttribute("class", " ");
   imgLevel.setAttribute("class", "level_10");
   //iconos que cambian de color
@@ -357,47 +342,119 @@ function checkAge(c){
   }
 }
 
-function tabsDisplay(n){
-  switch (n) {
-    case 0:
-      tabsContent[0].style.left = "-100vw";
-      tabsContent[1].style.left = "-100vw";
-      tabsContent[2].style.left = "-100vw";
-    break;
-    case 1:
-      tabsContent[0].style.left = "0";
-      tabsContent[1].style.left = "-100vw";
-      tabsContent[2].style.left = "-100vw";
-    break;
-    case 2:
-      tabsContent[0].style.left = "-100vw";
-      tabsContent[1].style.left = "0";
-      tabsContent[2].style.left = "-100vw";
-    break;
-    case 3:
-      tabsContent[0].style.left = "-100vw";
-      tabsContent[1].style.left = "-100vw";
-      tabsContent[2].style.left = "0";
-    break;
-  }
-}
-
 function disableEnableTabs(c){
   if(c === "enable"){
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", "tabSelectChange(this)"); }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "pointer"; }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", " ")}
     /* new */
-    // tabButts[0].children[0].setAttribute("onclick", "tabsDisplay(0)"); //Partida
-    // tabButts[1].children[0].setAttribute("onclick", "tabsDisplay(1)"); //Mi cupon
-    // tabButts[2].children[0].setAttribute("onclick", "tabsDisplay(2)"); //Cupones
-    // tabButts[3].children[0].setAttribute("onclick", "tabsDisplay(3)"); //Instrucciones
+    tabButts[0].children[0].setAttribute("onclick", "tabsDisplay(0)"); //Partida
+    tabButts[1].children[0].setAttribute("onclick", "tabsDisplay(1)"); //Mi cupon
+    tabButts[2].children[0].setAttribute("onclick", "tabsDisplay(2)"); //Cupones
+    tabButts[3].children[0].setAttribute("onclick", "tabsDisplay(3)"); //Instrucciones
 
     tabButts[0].setAttribute("class", "tabButts tabSelect tabSelectWord");
   } else{
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", " "); }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "not-allowed"; }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", "Necesitas estar registrado")}
+  }
+}
+
+function changePartida(c) {
+  if(c === 0 || c === 3 || c === 6){
+    partidaTab.style.color = "#263270";
+  } else if(nivelInterno === 1 || nivelInterno === 4 || c === 7){
+    partidaTab.style.color = "#f45a2a";
+  } else if(c === 2 || c === 5 || c === 8 || c === 9){
+    partidaTab.style.color = "#1f7448";
+  } else {
+    partidaTab.style.color = "#263270";
+  }
+}
+
+
+function tabsDisplay(n){
+  switch (n) {
+    case 0:
+      bodyFront.style.overflowY = "scroll";
+      if(nivelInterno != undefined){
+        s_oMain.startUpdate();
+      }
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+      changePartida(nivelInterno);
+    break;
+    case 1:
+      bodyFront.style.overflowY = "hidden";
+      if(nivelInterno != undefined){
+        s_oMain.stopUpdate();
+      }
+      tabsContent[0].style.left = "0";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+      partidaTab.style.color = "#ffffff";
+    break;
+    case 2:
+      bodyFront.style.overflowY = "hidden";
+      if(nivelInterno != undefined){
+        s_oMain.stopUpdate();
+      }
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "0";
+      tabsContent[2].style.left = "-100vw";
+      partidaTab.style.color = "#ffffff";
+    break;
+    case 3:
+          bodyFront.style.overflowY = "hidden";
+      if(nivelInterno != undefined){
+        s_oMain.stopUpdate();
+      }
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "0";
+      partidaTab.style.color = "#ffffff";
+    break;
+  }
+}
+
+function mute(){
+  sonido=!sonido;
+  Howler.mute(sonido);
+  if(sonido){
+    if(nivelInterno === 0 || nivelInterno === 3 || nivelInterno === 6){
+      audioButton.setAttribute("class", "iconChange audioWrdMute");
+    } else if(nivelInterno === 1 || nivelInterno === 4 || nivelInterno === 7){
+      audioButton.setAttribute("class", "iconChange audioPptMute");
+    } else if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9){
+      audioButton.setAttribute("class", "iconChange audioExcMute");
+    } else {
+      audioButton.setAttribute("class", "iconChange audioWrdMute");
+    }
+  }else{
+    if(nivelInterno === 0 || nivelInterno === 3 || nivelInterno === 6){
+      audioButton.setAttribute("class", "iconChange audioWrd");
+    } else if(nivelInterno === 1 || nivelInterno === 4 || nivelInterno === 7){
+      audioButton.setAttribute("class", "iconChange audioPpt");
+    } else if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9){
+      audioButton.setAttribute("class", "iconChange audioExc");
+    } else {
+      audioButton.setAttribute("class", "iconChange audioWrd");
+    }
+  }
+}
+
+
+
+
+function cuponTabs(c){
+  if(c === "show"){
+    sincupon.style.display = "none";
+    cuponyagenerado.style.display = "block";
+  } else {
+    sincupon.style.display = "block";
+    cuponyagenerado.style.display = "none";
   }
 }
 
@@ -418,6 +475,20 @@ function pausaEvent(l, w){
   } else {
     if(level != undefined)toggleGame("play");
     pausaWrap.style.display = "none";
+  }
+  rebotaIconoAudio();
+}
+
+
+function rebotaIconoAudio(){
+  if(nivelInterno === 0 || nivelInterno === 3 || nivelInterno === 6){
+    audioButton.setAttribute("class", "iconChange audioWrd");
+  } else if(nivelInterno === 1 || nivelInterno === 4 || nivelInterno === 7){
+    audioButton.setAttribute("class", "iconChange audioPpt");
+  } else if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9){
+    audioButton.setAttribute("class", "iconChange audioExc");
+  } else {
+    audioButton.setAttribute("class", "iconChange audioWrd");
   }
 }
 
@@ -470,28 +541,30 @@ function displayPausaDesktop(l){
   if(level === 1 || level === 4 || level === 7) changeHeadDesktopPausa(2);
   if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9) changeHeadDesktopPausa(3);
   function changeHeadDesktopPausa(c){
-    headerImgPausaM.style.display = "none";
-    headerImgPausaD.style.display = "block";
+    // headerImgPausaM.style.display = "none";
+    // headerImgPausaD.style.display = "block";
     switch (c) {
       case 1:
         switchPausa(1);
-        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-wrd.jpg");
-        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-wrd.jpg')";
+        // headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-wrd.jpg");
+        // headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-wrd.jpg')";
       break;
       case 2:
         switchPausa(2);
-        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-ppt.jpg");
-        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-ppt.jpg')";
+        // headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-ppt.jpg");
+        // headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-ppt.jpg')";
       break;
       case 3:
         switchPausa(3);
         generaCeldas();
-        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-exc.jpg");
-        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-exc.jpg')";
+        // headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-exc.jpg");
+        // headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-exc.jpg')";
       break;
     }
   }
 }
+
+
 
 function switchPausa(n){
   for (var i = 0; i < pausaArea.length; i++) {
@@ -501,6 +574,7 @@ function switchPausa(n){
 }
 
 function generaCeldas(){
+  var r = Math.random();
   var celdas = document.getElementById("celdas");
   for (var i = 0; i < 20; i++) {
     var ul = document.createElement("UL");
@@ -513,7 +587,16 @@ function generaCeldas(){
       ul.appendChild(li)
     }
   }
+  function rellenarCeldas(){
+
+  }
 }
+
+
+
+
+
+
 function checkPais(c){
   if(c === "NO"){
     nivelInterno = "no";
