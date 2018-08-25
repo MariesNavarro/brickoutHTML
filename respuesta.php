@@ -145,7 +145,7 @@
   function validapais_php($ip)
   {
     $pais=validapaisint($ip,$estado);
-    if($pais=="Mexico")
+    if(true)//if($pais=="Mexico")
     {
       echo "SI";
     }
