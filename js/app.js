@@ -47,6 +47,8 @@ var MetodoEnum = {
  var jugando=true;
  var sonido=false;
  var canvatop="130";
+ var cupgan='';
+ var promgan='';
  function getPermitionsFB() {
   FB.login(function (response) {
     if (response.authResponse) {
@@ -118,6 +120,11 @@ function actualizadiv(){
           //alert('El usuario ya esta registrado');
         }
       }
+      if(data.split("&").length>9)
+      {
+        cupgan=data.split("&")[8];
+        promgan=data.split("&")[9];
+      }
       but_jugar();
 
       //$('#general').html(pagina).fadeIn();
@@ -180,6 +187,8 @@ function regpartupd(){
         var cupon=msjcupon.split("@")[0];
         var codigo=msjcupon.split("@")[1];
         var descripcion=msjcupon.split("@")[2];
+        cupgan=codigo;
+        promgan=descripcion;
         $('#combo').text(descripcion);
         $('#cgenerado').text(codigo);
         $("#cuponUno").css("display", "block");
@@ -356,8 +365,8 @@ function Validatepais() {
       }
       else
       {
-          // checkPais(data);
-         checkLoginState();
+           checkPais(data);
+         //checkLoginState();
       }
     }
   });

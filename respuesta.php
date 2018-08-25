@@ -101,9 +101,10 @@
   function registrar_php($nombre,$usuario,$idfb,$ip)
   {
     $reg=insertupdateregistro($nombre,$usuario,$idfb,$ip,$cuponinicial,$ejecutar,$codstado,$city);
+    $obtenido=cuponesus($reg);
     if($reg>0)
     {
-      echo '<p>Bienvenido las reglas '.$nombre.' son</p><p>1.-Regla1</p><p>2.-Regla2</p><button id="btnjugar" onclick="but_jugar();">Jugar</button></br><button id="btnvercuponespromo" onclick="cuponesenpromocion();">Cupones en la promocion</button></br><button id="btncuponesobtenidos" onclick="cuponesobtenidos();">Mis cupones</button>&'.$reg.$cuponinicial.'&'.$nombre.'&'.$ejecutar.'&'.$codstado.'&'.$city;
+      echo '<p>Bienvenido las reglas '.$nombre.' son</p><p>1.-Regla1</p><p>2.-Regla2</p><button id="btnjugar" onclick="but_jugar();">Jugar</button></br><button id="btnvercuponespromo" onclick="cuponesenpromocion();">Cupones en la promocion</button></br><button id="btncuponesobtenidos" onclick="cuponesobtenidos();">Mis cupones</button>&'.$reg.$cuponinicial.'&'.$nombre.'&'.$ejecutar.'&'.$codstado.'&'.$city.$obtenido;
     }
     else
     {

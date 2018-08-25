@@ -437,18 +437,17 @@ function validafechas(&$cad)
 // }
 function cuponesus($idreg)
 {
-  $strhtml='<table><TR><TH>Cupon</TH><TH>Score Requerido</TH><TH>Score Obtenido</TH><TH>Codigo del Cupon</TH></TR>';
+  $strhtml='';
   $link=connect();
-  $consulta = "select c.cupon,c.score requerido,a.score obtenido,b.url codigo from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id  inner join bdlt_cupones c on b.id_cupon=c.id where a.id_registro=".$idreg.";";
+  $consulta = "select c.cupon,c.score requerido,a.score obtenido,b.codigo codigo, c.descripcion from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id  inner join bdlt_cupones c on b.id_cupon=c.id where a.id_registro=".$idreg." LIMIT 1;";
   if ($resultado = mysqli_query($link, $consulta)) {
    while ($fila = mysqli_fetch_row($resultado)) {
-     $strhtml=$strhtml.'<TR><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD>'.$fila[2].'</TD><TD>'.$fila[3].'</TD></TR>';
+     $strhtml='&'.$fila[3].'&'.$fila[4];
     }
    /* liberar el conjunto de resultados */
     mysqli_free_result($resultado);
   }
   Close($link);
-  $strhtml=$strhtml.'</table></br><button id="btnvercuponespromo" onclick="location.reload();">Regresar</button>';
   return $strhtml;       
 }
 function cuponesprom()

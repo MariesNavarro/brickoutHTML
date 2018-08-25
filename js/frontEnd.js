@@ -395,6 +395,12 @@ function tabsDisplay(n){
       tabsContent[1].style.left = "-100vw";
       tabsContent[2].style.left = "-100vw";
       partidaTab.style.color = "#ffffff";
+      if(cupgan!=''&&promgan!='')
+      { 
+        $('#comboTabs').text(promgan);
+        $('#cgeneradoTabs').text(cupgan);
+        cuponTabs("show");
+      }
     break;
     case 2:
       bodyFront.style.overflowY = "hidden";
