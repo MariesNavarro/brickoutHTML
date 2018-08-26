@@ -15,7 +15,7 @@ function CLevelMenu(oData) {
     var _pStartPosAudio;
 
     this._init = function () {
-        _oBg = createBitmap(s_oSpriteLibrary.getSprite('bg_menu'));
+        _oBg = createBitmap(s_oSpriteLibrary.getSprite('msg_box'));
         _oBg.x = 0;
         _oBg.y = 0;
         s_oStage.addChild(_oBg);

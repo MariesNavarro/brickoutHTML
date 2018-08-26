@@ -1,5 +1,5 @@
 class Settings {
-    
+
   constructor(data) {
     //data.split("&")[0];
     // (myValue == 'true');
@@ -30,7 +30,8 @@ var MetodoEnum = {
   ActualizaParticipacion:5,
   Validar_Fecha:6,
   Obtener_cupones:7,
-  Cupones_obtenidos:8
+  Cupones_obtenidos:8,
+  Validar_Pais:9
  };
  var sett;
  var param1;
@@ -44,21 +45,23 @@ var MetodoEnum = {
  var msjposicion;
  var msjpuntospos;
  var jugando=true;
+ var sonido=false;
+ var canvatop="130";
  function getPermitionsFB() {
   FB.login(function (response) {
     if (response.authResponse) {
-      FB.api('/me?fields=id,name,email,first_name,last_name,middle_name', function(response) { 
-        console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);  
+      FB.api('/me?fields=id,name,email,first_name,last_name,middle_name', function(response) {
+        //console.log('Good to see you, ' + response.name+ ' '+response.email+' '+response.id);
         param1=response.name;
         param2=response.email;
         param3=response.id;
         param4=MetodoEnum.Registro;
         actualizadiv();
-      });      
+      });
     }
     else {
-      //document.getElementById('login').hidden=true; 
-      //document.getElementById('jugarsinregistro').hidden=false;    
+      //document.getElementById('login').hidden=true;
+      //document.getElementById('jugarsinregistro').hidden=false;
     }
   }, {
     scope: 'public_profile,email' ,
@@ -83,87 +86,108 @@ function but_jugar()
 }
 function actualizadiv(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
+  //console.log(dataString);
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
-      console.log(data);
+    data:  dataString,
+    success:function(data) {
+      //console.log(data);
       var pagina=data.split("&")[0];
       data1=data.split("&")[1];
       var anunciocupon='';
       if(data.split("&").length>2)
       {
-        anunciocupon=data.split("&")[2];
+        actValByClassName("displayBest",data.split("&")[2]);
+        actValByClassName("displayPosition",data.split("&")[3]);
+        actValByClassName("displayUserName",data.split("&")[4]);
       }
-      if(anunciocupon!='')
+      if(data.split("&").length>5)
       {
-        alert(anunciocupon);
+        var eje=data.split("&")[5];
+        var estado=data.split("&")[6];
+        var ciudad=data.split("&")[7];
+        if(eje=="SI")
+        {
+          //alert(eje+' '+estado+' '+ciudad);
+          //enviardata(param2,param1,ciudad,estado);
+        }
+        else
+        {
+          //alert('El usuario ya esta registrado');
+        }
       }
-      else
-      {
-        quitarRegistroFront();
-        cuponUnoOk();
-      }
-      console.log(data1);
-      $('#general').html(pagina).fadeIn();
-     
-    }  
-  });     
-} 
+      but_jugar();
+
+      //$('#general').html(pagina).fadeIn();
+
+    }
+  });
+}
+
+function quitarregistrogetpermisions()
+{
+   quitarRegistroFront();
+   getPermitionsFB();
+}
 function actualizadivjug(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
+  //console.log(dataString);
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       sett=new Settings(data);
       var pagina=data.split("&")[0];
-      console.log(data1);
+      //console.log(data1);
       $('#general').html(pagina).fadeIn();
-    }  
-  });     
-} 
+    }
+  });
+}
 function regpart(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
+  //console.log(dataString);
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       data2=data;
-      console.log(data2);
-    }  
-  });     
-} 
+      //console.log(data2);
+    }
+  });
+}
 function regpartupd(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
-    async:false,    
-    cache:false, 
+  //console.log(dataString);
+  $.ajax({
+    async:false,
+    cache:false,
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
+    data:  dataString,
+    success:function(data) {
       msjscore=data.split("&")[0];
       msjcupon=data.split("&")[1];
       msjposicion=data.split("&")[2];
       msjpuntospos=data.split("&")[3];
-      alert(msjscore);
-      if(msjcupon.split("=").length>1)
-      { 
-        alert(msjcupon);
+      //alert(msjscore);
+      if(msjcupon.split("@").length>1)
+      {
+        //alert(msjcupon);
+        var cupon=msjcupon.split("@")[0];
+        var codigo=msjcupon.split("@")[1];
+        var descripcion=msjcupon.split("@")[2];
+        $('#combo').text(descripcion);
+        $('#cgenerado').text(codigo);
+        $("#cuponUno").css("display", "block");
       }
-      alert(msjposicion);
-      console.log(data);
-    }  
-  });     
-} 
+      //alert(msjposicion);
+      //console.log(data);
+    }
+  });
+}
 function registroparticipacion()
 {
   param1=data1;
@@ -193,25 +217,23 @@ function checkLoginState() {
       cookie     : true,
       xfbml      : true,
       version    : 'v3.0'
-    }); 
+    });
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
-       quitarRegistroFront();
-       checkAge('true');
-       cuponUnoOk();
+
        getPermitionsFB();
       }
       else if (response.status === "not_authorized") {
         //document.getElementById('login').hidden=false;
-        //document.getElementById('jugarsinregistro').hidden=false;  
+        //document.getElementById('jugarsinregistro').hidden=false;
       }
       else {
         //document.getElementById('login').hidden=false;
-        //document.getElementById('jugarsinregistro').hidden=false;  
+        //document.getElementById('jugarsinregistro').hidden=false;
       }
-    });        
+    });
   }
-  
+
  }
 function jugar()
 {
@@ -242,7 +264,7 @@ function jugar()
   $(oMain).on("save_score", function (evt, iScore) {
     if (getParamValue('ctl-arcade') === "true") {
       parent.__ctlArcadeSaveScore({score: iScore});
-      
+
     }
   });
   $(oMain).on("show_interlevel_ad", function (evt) {
@@ -285,23 +307,24 @@ function checkPopUp() {
 }
 function ValidateDate() {
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
+  //console.log(dataString);
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
-      console.log(data);
+    data:  dataString,
+    success:function(data) {
+      //console.log(data);
       if(data=="SI")
       {
         checkLoginState();
       }
       else
       {
-        alert('Fecha no valida');
+        checkLoginState();
+        // alert('Fecha no valida');
       }
-    }  
-  });     
+    }
+  });
 }
 function valido()
 {
@@ -311,25 +334,53 @@ function valido()
   param4=MetodoEnum.Validar_Fecha;
   ValidateDate();
 }
-
-function compartir(){  
-  FB.ui({                
-   method: "feed",                
-   link: 'https://budlightdocs.com/',    
-   picture:'https://budlightdocs.com/img/bugdoodle.JPG',
-   name: 'Cambia miles de vidas',                
-   caption: '¡Conoce, ayuda con un clic y comparte!',                
-   description: 'Por cada clic que des, Tupperware® donará dinero para ayudar a transformar positivamente la vida de miles de niños. ¡1.Conoce 2.Ayuda con un clic y 3.Comparte! #Tupperware123'            
-   }, function(response){});    
+function Validatepais() {
+  var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
+  //console.log(dataString);
+  $.ajax({
+    type : 'POST',
+    url  : 'respuesta.php',
+    data:  dataString,
+    success:function(data) {
+      //console.log(data);
+      if(data=="SI")
+      {
+        checkLoginState();
+      }
+      else
+      {
+          // checkPais(data);
+         checkLoginState();
+      }
+    }
+  });
 }
-function compartir1(){
+function paisvalido()
+{
+  param1='';
+  param2='';
+  param3='';
+  param4=MetodoEnum.Validar_Pais;
+  Validatepais();
+}
+function compartir(){
+  FB.ui({
+   method: "feed",
+   link: 'https://budlightdocs.com/',
+   picture:'https://budlightdocs.com/img/bugdoodle.JPG',
+   name: 'Cambia miles de vidas',
+   caption: '¡Conoce, ayuda con un clic y comparte!',
+   description: 'Por cada clic que des, Tupperware® donará dinero para ayudar a transformar positivamente la vida de miles de niños. ¡1.Conoce 2.Ayuda con un clic y 3.Comparte! #Tupperware123'
+   }, function(response){});
+}
+function compartirfb(){
 FB.ui({
   method: 'share_open_graph',
   action_type: 'og.shares',
   display: 'popup',
   action_properties: JSON.stringify({
     object: {
-      'og:url': 'https://budlightdocs.com/fun/',
+      'og:url': 'https://budlightdocs.com',
       'og:title': 'Juega con budlight',
       'og:description': 'Disfrutando del dia de Gamer con budlight',
       'og:image': 'https://budlightdocs.com/fun/img/bugdoodle.JPG'
@@ -356,14 +407,49 @@ function cuponesobtenidos()
 }
 function actualizadivcup(){
   var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
-  console.log(dataString);
-  $.ajax({  
+ // console.log(dataString);
+  $.ajax({
     type : 'POST',
     url  : 'respuesta.php',
-    data:  dataString, 
-    success:function(data) {  
-      console.log(data);
+    data:  dataString,
+    success:function(data) {
+      //console.log(data);
       $('#general').html(data).fadeIn();
-    }  
-  });     
-} 
+    }
+  });
+}
+function registrado()
+{
+  if(disclaimer.style.opacity!=="0"){
+    checkAge("true");
+    quitarRegistroFront();
+  }
+}
+function actValByClassName(classname,valor)
+{
+  var arrayobj=document.getElementsByClassName(classname);
+  for(var i=0;i<arrayobj.length;i++)
+  {
+    arrayobj[i].innerHTML=""+valor;
+  }
+}
+function mute()
+{
+  sonido=!sonido;
+  Howler.mute(sonido);
+}
+function principal()
+{
+  s_oMain.gotoMenu();
+}
+function fullscreen()
+{
+  if(s_oMenu!=null)
+  {
+    s_oMenu._onFullscreenRelease();
+  }
+  if(s_oInterface!=null)
+  {
+    s_oInterface._onFullscreenRelease();
+  }
+}

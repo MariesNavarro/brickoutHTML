@@ -26,29 +26,29 @@ function CMenu() {
             _oAudioToggle = new CToggle(_pStartPosAudio.x, _pStartPosAudio.y, oSprite, s_bAudioActive);
             _oAudioToggle.addEventListener(ON_MOUSE_UP, this._onAudioToggle, this);
         }
-        
+
         var oSprite = s_oSpriteLibrary.getSprite('but_credits');
-        _pStartPosCredits = {x: (oSprite.width/2) + 20, y: (oSprite.height/2) + 20};        
+        _pStartPosCredits = {x: (oSprite.width/2) + 20, y: (oSprite.height/2) + 20};
         _oCreditsBut = new CGfxButton(_pStartPosCredits.x,_pStartPosCredits.y,oSprite, s_oStage);
         _oCreditsBut.addEventListener(ON_MOUSE_UP, this._onCreditsBut, this);
-        
+
         var doc = window.document;
         var docEl = doc.documentElement;
         _fRequestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
         _fCancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-        
+
         if(ENABLE_FULLSCREEN === false){
             _fRequestFullScreen = false;
         }
 
         if (_fRequestFullScreen && inIframe() === false){
             oSprite = s_oSpriteLibrary.getSprite('but_fullscreen');
-            
+
             _pStartPosFullscreen = {x:_pStartPosCredits.x + oSprite.width/2 + 10,y:_pStartPosCredits.y};
             _oButFullscreen = new CToggle(_pStartPosFullscreen.x,_pStartPosFullscreen.y,oSprite,s_bFullscreen,true);
             _oButFullscreen.addEventListener(ON_MOUSE_UP, this._onFullscreenRelease, this);
         }
-        
+
         _oFade = new createjs.Shape();
         _oFade.graphics.beginFill("black").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -75,9 +75,9 @@ function CMenu() {
         if (_fRequestFullScreen && inIframe() === false){
             _oButFullscreen.unload();
         }
-        
+
         _oCreditsBut.unload();
-        
+
         s_oMenu = null;
     };
 
@@ -98,21 +98,21 @@ function CMenu() {
 
     this._onButPlayRelease = function () {
         this.unload();
-        
+
         if (isIOS() && s_oSoundTrack === null) {
             s_oSoundTrack = playSound("soundtrack", 1,true);
         }else{
             playSound("click", 1, false);
         }
-        
-        
+
+
         s_oMain.gotoLevelMenu();
     };
-    
+
     this._onCreditsBut = function(){
         new CCreditsPanel();
     };
-    
+
     this.resetFullscreenBut = function(){
 	if (_fRequestFullScreen && inIframe() === false){
 		_oButFullscreen.setActive(s_bFullscreen);
@@ -120,15 +120,15 @@ function CMenu() {
     };
 
     this._onFullscreenRelease = function(){
-        if(s_bFullscreen) { 
+        if(s_bFullscreen) {
 		_fCancelFullScreen.call(window.document);
 	}else{
 		_fRequestFullScreen.call(window.document.documentElement);
 	}
-	
+
 	sizeHandler();
     };
-    
+
     s_oMenu = this;
 
     this._init();

@@ -64,14 +64,16 @@ function CInterface() {
             _oButFullscreen.addEventListener(ON_MOUSE_UP, this._onFullscreenRelease, this);
         }
 
-        _oScoreText = new createjs.Text(TEXT_SCORE + "\n0", "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        //_oScoreText = new createjs.Text(TEXT_SCORE + "\n0", "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        _oScoreText = new createjs.Text("", "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
         _oScoreText.textAlign = "center";
         _oScoreText.textBaseline = "alphabetic";
         _oScoreText.x = CANVAS_WIDTH / 2 - 70;
         _oScoreText.y = CANVAS_HEIGHT / 2 - 400;
         s_oStage.addChild(_oScoreText);
-
-        _oLevelText = new createjs.Text(TEXT_LEVEL_UPPERCASE, "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        actValByClassName("displayScore",0);
+        //_oLevelText = new createjs.Text(TEXT_LEVEL_UPPERCASE, "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        _oLevelText = new createjs.Text("", "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
         _oLevelText.textAlign = "center";
         _oLevelText.textBaseline = "alphabetic";
         _oLevelText.x = CANVAS_WIDTH / 2 - 240;
@@ -99,13 +101,14 @@ function CInterface() {
         _oLife.regY = oSpriteLife.width * 0.5;
         s_oStage.addChild(_oLife);
 
-        _oLifeText = new createjs.Text("x" + LIFE, "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        _oLifeText = new createjs.Text("", "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
+        //_oLifeText = new createjs.Text("x" + LIFE, "normal " + 40 + "px " + PRIMARY_FONT, "#ffffff");
         _oLifeText.textAlign = "center";
         _oLifeText.textBaseline = "alphabetic";
         _oLifeText.x = CANVAS_WIDTH * 0.5 + 100;
         _oLifeText.y = 125;
         s_oStage.addChild(_oLifeText);
-        displayLives.innerHtml=""+LIFE+"";
+        actValByClassName("displayLives",LIFE);
         s_oGame.setPause(true);
         this.refreshButtonPos(s_iOffsetX, s_iOffsetY);
     };
@@ -127,7 +130,7 @@ function CInterface() {
 
     this.refreshBallLife = function (iValue) {
         _oLifeText.text = "x" + +iValue;
-        displayLives.innerHtml=""+iValue+"";
+        actValByClassName("displayLives",iValue);
     };
 
     this.gameOver = function (iScore) {
@@ -136,20 +139,22 @@ function CInterface() {
         _oButPause.block(true);
 
         _oFade = new createjs.Shape();
-        _oFade.graphics.beginFill("black").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        _oFade.graphics.beginFill("white").drawRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         _oFade.alpha = 0;
         actparticipacion(iScore);
         s_oStage.addChild(_oFade);
 
-        var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore+ "\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
-        _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
-       _oTextGameOver.textAlign = "center";
+        var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore; //"\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
+        actValByClassName("displayBest",msjpuntospos);
+        actValByClassName("displayPosition",msjposicion);
+        _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#263072");
+        _oTextGameOver.textAlign = "center";
         _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
         _oTextGameOver.y = -120;
         s_oStage.addChild(_oTextGameOver);
 
-        createjs.Tween.get(_oFade).to({alpha: 0.5}, 1000, createjs.Ease.backOut).call(function () {
+        createjs.Tween.get(_oFade).to({alpha: 0.8}, 1000, createjs.Ease.backOut).call(function () {
             createjs.Tween.get(_oTextGameOver).to({y: CANVAS_HEIGHT / 2 - 200}, 1000, createjs.Ease.bounceOut).call(function () {
                 var oSpriteRestart = s_oSpriteLibrary.getSprite("but_restart");
                 _oButReturnToMenu = new CGfxButton((CANVAS_WIDTH / 2), CANVAS_HEIGHT / 2 + 200, oSpriteRestart);
@@ -180,14 +185,16 @@ function CInterface() {
             s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
             _oButPause.block(true);
 
-            _oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextLevelComplete = new createjs.Text(TEXT_LEVEL + " " + iLv + " " + TEXT_COMPLETE, "normal " + 80 + "px " + PRIMARY_FONT, "#263072");
+            //_oTextLevelComplete = new createjs.Text("");
             _oTextLevelComplete.textAlign = "center";
             _oTextLevelComplete.textBaseline = "alphabetic";
             _oTextLevelComplete.x = CANVAS_WIDTH / 2;
             _oTextLevelComplete.y = -140;
             s_oStage.addChild(_oTextLevelComplete);
 
-            _oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 90 + "px " + PRIMARY_FONT, "#ffff00");
+            _oTextScoreLevelComplete = new createjs.Text(TEXT_SCORE + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "#263072");
+            //_oTextScoreLevelComplete= new createjs.Text("");
             _oTextScoreLevelComplete.textAlign = "center";
             _oTextScoreLevelComplete.textBaseline = "alphabetic";
             _oTextScoreLevelComplete.x = CANVAS_WIDTH / 2;
@@ -219,7 +226,7 @@ function CInterface() {
         s_oStage.addChild(_oFade);
         s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
 
-        _oTextCongrat = new createjs.Text(TEXT_CONGRATULATIONS, "normal " + 70 + "px " + PRIMARY_FONT, "#ffff00");
+        _oTextCongrat = new createjs.Text(TEXT_CONGRATULATIONS, "normal " + 70 + "px " + PRIMARY_FONT, "##263072");
         _oTextCongrat.textAlign = "center";
         _oTextCongrat.textBaseline = "alphabetic";
         _oTextCongrat.lineWidth = 500;
@@ -228,7 +235,7 @@ function CInterface() {
         _oTextCongrat.y = -120;
         s_oStage.addChild(_oTextCongrat);
 
-        _oTextGameOver = new createjs.Text(TEXT_SCORE_GAMEOVER + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "#ffff00");
+        _oTextGameOver = new createjs.Text(TEXT_SCORE_GAMEOVER + "\n\n" + iScore, "normal " + 80 + "px " + PRIMARY_FONT, "##263072");
         _oTextGameOver.textAlign = "center";
         _oTextGameOver.textBaseline = "alphabetic";
         _oTextGameOver.x = CANVAS_WIDTH / 2;
@@ -272,7 +279,8 @@ function CInterface() {
     };
 
     this.refreshScore = function (iScore) {
-        _oScoreText.text = "SCORE\n" + iScore;
+        //_oScoreText.text = "SCORE\n" + iScore;
+        actValByClassName("displayScore",iScore);
     };
 
     this._onButPauseRelease = function () {
@@ -332,7 +340,7 @@ function CInterface() {
 
         s_oStage.addChild(_oHelpPanel);
         if (!_oHelpText) {
-            _oHelpText = new createjs.Text(TEXT_HELP_PAGE_1_PC, "normal " + 60 + "px " + PRIMARY_FONT, "#ffff00");
+            _oHelpText = new createjs.Text(TEXT_HELP_PAGE_1_PC, "normal " + 32 + "px " + PRIMARY_FONT, "#263072");
             _oHelpText.textAlign = "center";
             _oHelpText.textBaseline = "alphabetic";
             _oHelpText.lineWidth = 500;
@@ -360,7 +368,7 @@ function CInterface() {
 
     this.numLevel = function (iLevel) {
         var iLv = iLevel + 1;
-        _oLevelText.text = TEXT_LEVEL_UPPERCASE + "\n" + iLv;
+       // _oLevelText.text = TEXT_LEVEL_UPPERCASE + "\n" + iLv;
     };
 
     this.showNumLevel = function (iLevel) {
@@ -368,13 +376,14 @@ function CInterface() {
         var oCurLevelCont;
         var oCurLevelContainer;
         var iRand = Math.floor(Math.random() * 4);
-        oCurLevel = new createjs.Text(TEXT_LEVEL_UPPERCASE + " " + iLevel, "normal " + 100 + "px " + PRIMARY_FONT, COLOR_TEXT_LEVEL[iRand]);
+        //oCurLevel = new createjs.Text(TEXT_LEVEL_UPPERCASE + " " + iLevel, "normal " + 100 + "px " + PRIMARY_FONT, COLOR_TEXT_LEVEL[iRand]);
+        oCurLevel = new createjs.Text("", "normal " + 100 + "px " + PRIMARY_FONT, COLOR_TEXT_LEVEL[iRand]);
         oCurLevel.textAlign = "center";
         oCurLevel.textBaseline = "alphabetic";
         oCurLevel.x = 0;
         oCurLevel.y = 0;
-
-        oCurLevelCont = new createjs.Text(TEXT_LEVEL_UPPERCASE + " " + iLevel, "normal " + 100 + "px " + PRIMARY_FONT, "#000000");
+        //oCurLevelCont = new createjs.Text(TEXT_LEVEL_UPPERCASE + " " + iLevel, "normal " + 100 + "px " + PRIMARY_FONT, "#000000");
+        oCurLevelCont = new createjs.Text("", "normal " + 100 + "px " + PRIMARY_FONT, "#000000");
         oCurLevelCont.textAlign = "center";
         oCurLevelCont.textBaseline = "alphabetic";
         oCurLevelCont.x = 0;

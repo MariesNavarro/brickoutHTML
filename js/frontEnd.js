@@ -30,72 +30,67 @@ function changeFrontLevel(lvl){
 }
 
 
-
 function changeLook(c){
-  if(c === "wrd"){
-    lookLevelPpt.style.opacity = "0";
-    lookLevelExc.style.opacity = "0";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
-  } else if (c === "ppt") {
-    lookLevelPpt.style.opacity = "1";
-    lookLevelExc.style.opacity = "0";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
-  } else if (c === "exc") {
-    lookLevelPpt.style.opacity = "0";
-    lookLevelExc.style.opacity = "1";
-    if(menuIsHidden){
-      //cerrado
-    } else {
-      //abierto
-    }
+  switch (c) {
+    case 1:
+    lookNone();
+    break;
+    case 2:
+      if(w<1300)lookNone();
+      if(w>1300)lookPpt();
+    break;
+    case 3:
+      if(w<1300)lookExcNoRegla();
+      if(w>1300)lookExcRegla();
+    break;
   }
 }
+function lookExcNoRegla(){lookLevelPpt.style.opacity = "0"; lookLevelExc.style.opacity = "1"; lookLevelExcRegla.style.opacity = "0"; lookLevelExcCeldas.style.opacity = "1"; }
+function lookExcRegla(){lookLevelPpt.style.opacity = "0"; lookLevelExc.style.opacity = "1"; lookLevelExcRegla.style.opacity = "1"; lookLevelExcCeldas.style.opacity = "1"; }
+function lookPpt(){ lookLevelPpt.style.opacity = "1"; lookLevelExcRegla.style.opacity = "0"; }
+function lookNone(){ lookLevelPpt.style.opacity = "0"; lookLevelExcRegla.style.opacity = "0"; }
 
 function changeColor(lvl){
   if(lvl === 0 || lvl === 3 || lvl === 6){
+    changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_word");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = false;
-    changeLook("wrd");
+    lookLevelExcCeldas.style.opacity = "0";
   } else if(lvl === 1 || lvl === 4 || lvl === 7){
+    changeLook(2);
     canvasFront.setAttribute("class", "canvasPpt");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_ppt");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_ppt");
     gamermood.setAttribute("src", "img/head/gamermood-ppt.svg");
     searchBar.setAttribute("src", "img/head/search-ppt.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = true;
-    changeLook("ppt");
+    lookLevelExcCeldas.style.opacity = "0";
   } else if(lvl === 2 || lvl === 5 || lvl === 8 || lvl === 9){
+    changeLook(3);
     canvasFront.setAttribute("class", "canvasExc");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_excel");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_excel");
     gamermood.setAttribute("src", "img/head/gamermood-exc.svg");
     searchBar.setAttribute("src", "img/head/search-exc.svg");
-    lookLevelExcBool = true;
-    lookLevelPptBool = false;
-    changeLook("exc");
+    lookLevelExcCeldas.style.opacity = "1";
   } else {
+    changeLook(1);
     canvasFront.setAttribute("class", "canvasWrd");
+    barmenumobile.setAttribute("class", "flexDisplay");
+    barmenumobile.setAttribute("class", "flexDisplay back_word");
     frontBarMenu.setAttribute("class", " ");
     frontBarMenu.setAttribute("class", "back_word");
     gamermood.setAttribute("src", "img/head/gamermood-wrd.svg");
     searchBar.setAttribute("src", "img/head/search-wrd.svg");
-    lookLevelExcBool = false;
-    lookLevelPptBool = false;
-    changeLook("wrd");
+    lookLevelExcCeldas.style.opacity = "0";
   }
 }
 
@@ -251,8 +246,6 @@ function tabSelectChange(t){
 }
 
 
-
-
 function hideMenu(t, c){
   var img = t.children[0].children[1];
   var p = t.children[0].children[0];
@@ -270,43 +263,136 @@ function hideMenu(t, c){
   }
 }
 
+
+
+
+function getMenu(w){
+  if(w <= 960){
+    frontMenu.style.top = "-200px";
+    frontMenu.style.opacity = "0";
+    menumobile.style.top = "0";
+    menumobile.style.opacity = "1";
+  } else {
+    frontMenu.style.top = "0";
+    frontMenu.style.opacity = "1";
+    menumobile.style.top = "-60px";
+    menumobile.style.opacity = "0";
+  }
+}
+
+function menuDeployment(w){
+  if(menuInit && !menuFull){
+    if(w < 960){
+      menuDisplay("initMobile");
+    } else if(w > 960) {
+      menuDisplay("initDesktop");
+    }
+  }
+  else if(menuFull && menuInit){
+    if(w < 960){
+      menuDisplay("fullMobile");
+    } else if(w > 960) {
+      menuDisplay("fullDesktop");
+    }
+  }
+}
+
+
+function menuDisplay(c){
+  switch (c) {
+  case "initMobile":
+    menumobile.style.opacity = "1";
+    menumobile.style.top = "0";
+    frontBarMenu.style.opacity = "0";
+    frontBarMenu.style.top = "-200px";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "initDesktop":
+    menumobile.style.opacity = "0";
+    menumobile.style.top = "-60px";
+    frontBarMenu.style.opacity = "1";
+    frontBarMenu.style.top = "0";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "fullMobile":
+    menumobile.style.opacity = "1";
+    menumobile.style.top = "0";
+    frontBarMenu.style.opacity = "0";
+    frontBarMenu.style.top = "-200px";
+    frontToolsBar.style.opacity = "0";
+    frontToolsBar.style.top = "-200px";
+  break;
+  case "fullDesktop":
+    menumobile.style.opacity = "0";
+    menumobile.style.top = "-60px";
+    frontBarMenu.style.opacity = "1";
+    frontBarMenu.style.top = "0";
+    frontToolsBar.style.opacity = "1";
+    frontToolsBar.style.top = "60px";
+  break;
+  }
+}
+
+
 function checkAge(c){
   if(c === "true"){
-    disableEnableTabs("disable");
-    footerprovisional.style.display = "none";
+    menuInit = true;
+    menuDeployment(w);
     disclaimer.style.opacity = "0";
-    setTimeout(function(){
-      disclaimer.style.display = "none";
-      messagesGame.setAttribute("class", "flexDisplay");
-      frontMenu.style.opacity = "1";
-      frontBarMenu.style.top = "0";
-      mensajebienvenida.setAttribute("class", "flexDisplay");
-      setTimeout(function(){
-        footer.style.bottom = "0";
-        setTimeout(function(){
-          logotipobudlight.style.opacity = "1";
-          messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
-          mensajebienvenida.style.opacity = "1";
-        },700)
-      },700)
-    },700);
-  }else if(c === "false"){
+    disclaimer.style.display = "none";
+    footerprovisional.style.display = "none";
+    messagesGame.setAttribute("class", "flexDisplay");
+    mensajebienvenida.setAttribute("class", "flexDisplay");
+    footer.style.bottom = "0";
+    logotipobudlight.style.opacity = "1";
+    mensajebienvenida.style.opacity = "1";
+    // messagesGame.children[0].setAttribute("class", "flexDisplay canvasWrd");
+  }else{
+    nivelInterno = "no";
     messagesGame.setAttribute("class", "flexDisplay");
     disclaimer.style.display = "none";
     edadnovalida.setAttribute("class", "flexDisplay");
   }
 }
 
-
-
-
-
+function tabsDisplay(n){
+  switch (n) {
+    case 0:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 1:
+      tabsContent[0].style.left = "0";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 2:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "0";
+      tabsContent[2].style.left = "-100vw";
+    break;
+    case 3:
+      tabsContent[0].style.left = "-100vw";
+      tabsContent[1].style.left = "-100vw";
+      tabsContent[2].style.left = "0";
+    break;
+  }
+}
 
 function disableEnableTabs(c){
   if(c === "enable"){
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", "tabSelectChange(this)"); }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].style.cursor = "pointer"; }
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].children[0].setAttribute("title", " ")}
+    /* new */
+    // tabButts[0].children[0].setAttribute("onclick", "tabsDisplay(0)"); //Partida
+    // tabButts[1].children[0].setAttribute("onclick", "tabsDisplay(1)"); //Mi cupon
+    // tabButts[2].children[0].setAttribute("onclick", "tabsDisplay(2)"); //Cupones
+    // tabButts[3].children[0].setAttribute("onclick", "tabsDisplay(3)"); //Instrucciones
+
     tabButts[0].setAttribute("class", "tabButts tabSelect tabSelectWord");
   } else{
     for (var i = 0; i < tabButts.length; i++) { tabButts[i].setAttribute("onclick", " "); }
@@ -318,17 +404,129 @@ function disableEnableTabs(c){
 
 function quitarRegistroFront(){
   messagesGame.setAttribute("class", "noneDisplay");
-  frontToolsBar.style.opacity = "1";
-  frontToolsBar.style.top = "60px";
+  menuFull = true;
+  menuDeployment(w);
   disableEnableTabs("enable");
 }
 
+function pausaEvent(l, w){
+  var level = l;
+  if(isPausePressed){
+    if(level != undefined)toggleGame("pausa");
+    if(w < 960)displayPausaMobile(level);
+    if(w > 960)displayPausaDesktop(level);
+  } else {
+    if(level != undefined)toggleGame("play");
+    pausaWrap.style.display = "none";
+  }
+}
 
-function cuponUnoOk(){
-  cuponUno.style.opacity = "0";
-   but_jugar();
+function toggleGame(){
+  if(s_oMain!=undefined){
+    console.log("s_oMain esta definido");
+    if(isPausePressed){
+      s_oMain.stopUpdate();
+    } else {
+      s_oMain.startUpdate();
+    }
+  }
+}
+
+function buttonPausa(){
+  isPausePressed = !isPausePressed;
+  pausaEvent(nivelInterno, w);
+}
+
+
+function displayPausaMobile(l){
+  var level = l;
+  pausaWrap.style.display = "block";
+  switchPausa(0);
+  if(level ==  undefined || level == 0) changeHeadMobilePausa(1);
+  if(level === 1 || level === 4 || level === 7) changeHeadMobilePausa(2);
+  if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9) changeHeadMobilePausa(3);
+  function changeHeadMobilePausa(c){
+    headerImgPausaM.style.display = "block";
+    headerImgPausaD.style.display = "none";
+    switch (c) {
+    case 1:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-wrd.jpg')";
+    break;
+    case 2:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-ppt.jpg')";
+    break;
+    case 3:
+      headerPausa.style.backgroundImage = "url('img/pausa/textura-mob-exc.jpg')";
+    break;
+    }
+  }
+}
+
+function displayPausaDesktop(l){
+  if(l == undefined) l = 0;
+  var level = l;
+  pausaWrap.style.display = "block";
+  if(level ==  undefined || level == 0) changeHeadDesktopPausa(1);
+  if(level === 1 || level === 4 || level === 7) changeHeadDesktopPausa(2);
+  if(nivelInterno === 2 || nivelInterno === 5 || nivelInterno === 8 || nivelInterno === 9) changeHeadDesktopPausa(3);
+  function changeHeadDesktopPausa(c){
+    headerImgPausaM.style.display = "none";
+    headerImgPausaD.style.display = "block";
+    switch (c) {
+      case 1:
+        switchPausa(1);
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-wrd.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-wrd.jpg')";
+      break;
+      case 2:
+        switchPausa(2);
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-ppt.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-ppt.jpg')";
+      break;
+      case 3:
+        switchPausa(3);
+        generaCeldas();
+        headerImgPausaD.setAttribute("src", "img/pausa/barra-pausa-exc.jpg");
+        headerPausa.style.backgroundImage = "url('img/pausa/textura-desk-exc.jpg')";
+      break;
+    }
+  }
+}
+
+function switchPausa(n){
+  for (var i = 0; i < pausaArea.length; i++) {
+    pausaArea[i].setAttribute("class", "pausaArea noneDisplay");
+  }
+  pausaArea[n].setAttribute("class", "pausaArea flexDisplay");
+}
+
+function generaCeldas(){
+  var celdas = document.getElementById("celdas");
+  for (var i = 0; i < 20; i++) {
+    var ul = document.createElement("UL");
+    ul.setAttribute("class", "flexDisplay");
+    celdas.appendChild(ul);
+    for (var j = 0; j < 12; j++) {
+      var textarea = document.createElement("TEXTAREA");
+      var li = document.createElement("LI");
+      li.appendChild(textarea);
+      ul.appendChild(li)
+    }
+  }
+}
+function checkPais(c){
+  if(c === "NO"){
+    nivelInterno = "no";
+    messagesGame.setAttribute("class", "flexDisplay");
+    disclaimer.style.display = "none";
+    paisnovalido.setAttribute("class", "flexDisplay");
+  }
+}
+//Aqui esta
+function cuponOpacity(t){
+  var parent = t.parentNode;
+  parent.style.opacity = "0";
   setTimeout(function(){
-    canvasFront.setAttribute("class", "canvasWrd");
-    cuponUno.style.display = "none";
-  },800);
+    parent.style.display = "none";
+  },700);
 }
