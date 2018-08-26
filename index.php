@@ -98,11 +98,11 @@
        <div id="menumobile" class="trans7">
         <div id="barmenumobile" class="flexDisplay back_word">
           <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
-            <img src="img/mobile/bandeja.svg" alt="">
-            <p>Bandeja</p>
+            <img src="img/mobile/pausa.svg" alt="">
+            <p>Pausa</p>
           </a>
           <p>
-            <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
+            <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
           </p>
           <a id="" role="button" class="flexDisplay">
             <img src="img/mobile/corcholata.svg" alt="">
@@ -117,13 +117,13 @@
         <!-- Menu Desktop -->
         <div id="menu" class="trans7">
           <div id="head" class="back_word" style="opacity:0;top:-200px">
-            <p>Documento de <span class="displayUserName">Itzel León</span></p>
+            <p>Documento <span class="displayUserName">sin titulo</span></p>
             <div id="top" class="flexDisplay">
               <!-- Parte Izq -->
               <div id="izq" class="flexDisplay">
                 <div id="closewindow"></div>
                 <p id="pipe">|</p>
-                <p id="gamertit">Gamer mood</p>
+                <p id="gamertit">Gamer mode</p>
                  <img id="gamermood" src="img/head/gamermood-wrd.svg">
                 <ul class="flexDisplay">
                   <li><img src="img/head/disk.svg"></li>
@@ -141,7 +141,7 @@
               </div>
             </div>
             <ul class="flexDisplay">
-              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Partida</a></li>
+              <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado"> <span id="partidaTab">Partida</span> </a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Mi Cupón</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Cupones</a></li>
               <li class="tabButts"><a role="button" style="cursor:not-allowed" title="Necesitas estar registrado">Instrucciones</a></li>
@@ -249,7 +249,7 @@
             <span class="esconderUnoSpan"></span>
 
             <div>
-            <a role="button" onclick="mute();" id="imgInstructions" class="iconChange audioWrd" data-icon="audio"></a>
+            <a role="button" onclick="mute();" id="audioButton" class="iconChange audioWrd" data-icon="audio"></a>
             <p class="textFuncional">Audio</p>
             </div>
 
@@ -285,7 +285,7 @@
               <img src="img/footer/text1.svg">
               <a href="assets/terminos_condiciones_dia_gamer.pdf" target="_blank">Términos y condiciones</a>
               <img src="img/footer/text2.svg">
-              <a href="#">Política de privacidad</a>
+              <a href="assets/politica_privacidad_budlight.pdf" target="_blank">Política de privacidad</a>
             </div>
         </footer>
 
@@ -415,15 +415,15 @@
           </ul>
         </div>
 
-        <!-- -->
+        <!-- CUPON -->
         <div id="cuponUno" class="cupon trans7">
           <div>
             <h2>¡Felicidades!</h2>
-            <h3>Ganaste un cupón de descuento en Rappi.</h3>
-            <h4>Este cupón cuenta por: <span id="combo"></span> </h4>
+            <h3>Ganaste un cupón de <span id="combo"></span>.</h3>
+            <!-- <h4>Este cupón es valido por: </h4> -->
             <img src="img/cupon.svg"/>
             <p id="cgenerado"></p>
-            <h5>Sigue jugando para poder ganar una consola.</h5>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
           </div>
           <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>
         </div>
@@ -435,7 +435,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div class="flexDisplay"><!-- alto -->
+          <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
             <div id="content">
               <!-- DISCLAIMER -->
               <section id="disclaimer">
@@ -452,7 +452,7 @@
                 </p>
                 <br>
                 <p>
-                  También puedes ver nuestra <a href="#" class="trans7">política de
+                  También puedes ver nuestra <a href="assets/politica_privacidad_budlight.pdf" target="_blank" class="trans7">política de
                   privacidad</a>.
                 </p>
 
@@ -472,7 +472,16 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
-
+              <section id="emergentes" class="noneDisplay">
+                <div id="back"></div>
+                <div>
+                  <img src="img/404.svg">
+                  <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del juego se requiere que las habilites.</p>
+                  <p>Puedes ver el proceso para habilitarlas aqui:</p></br>
+                  <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a>
+                   </br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a>
+                </div>
+              </section>
                <section id="paisnovalido" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -480,7 +489,13 @@
                   <p> Lo sentimos, esta promocion <b>no es valida</b> para tu pais. </p>
                 </div>
               </section>
-
+              <section id="registrocancel" class="noneDisplay">
+                <div id="back"></div>
+                <div>
+                  <img src="img/404.svg">
+                  <p> Lo sentimos, <b>es necesario registrarte </b> para ingresar al juego. </p>
+                </div>
+              </section>
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">
                 <img src="img/budlightdocs.png">
                 <h1>Bud Light Docs</h1>
@@ -506,29 +521,47 @@
         <!-- Tabs -->
         <!-- Mi Cupón -->
       <div class="tabsContent">
-
+        <div id="sincupon" class="sincupon trans7" style="display:block">
+          <h2>Sigue jugando</h2>
+          <p>Aún no has generado ningun cupón.</p>
+          <img src="img/cupon.svg"/>
+          <p id="reglaCuponFront">Necesitas jugar 5 partidas y haber generado al menos 1500 puntos</p>
+        </div>
+        <div id="cuponyagenerado" class="cuponGenerado trans7" style="display:none">
+          <div>
+            <h2>¡Felicidades!</h2>
+            <h3>Ganaste un cupón de <span id="comboTabs"></span>.</h3>
+            <h4>Este cupón es valido por: </h4>
+            <img src="img/cupon.svg"/>
+            <p id="cgeneradoTabs"></p>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
+          </div>
+        </div>
       </div>
       <!-- Cupones -->
-      <div class="tabsContent">
-        <p>Falta definir combos</p>
+      <div id="cuponesInfo" class="tabsContent">
+        <div class="flexDisplay">
+          <img src="img/cuponesInfo.svg">
+        </div>
       </div>
       <!-- Instrucciones -->
-      <div class="tabsContent">
-        <h2>Instrucciones</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div id="InstruccionesInfo" class="tabsContent">
+        <div class="flexDisplay">
+          <img src="img/instruccionesTab.svg">
+        </div>
       </div>
 
 
         <div id="pausaWrap">
-          <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
+          <!-- <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
             <div id="headerImgPausaM">
                 <div class="flexDisplay">
                   <a id="" role="button" class="flexDisplay" ontouchstart="buttonPausa()">
-                    <img src="img/mobile/bandeja.svg" alt="">
-                    <p>Bandeja</p>
+                    <img src="img/mobile/pausa.svg" alt="">
+                    <p>Pausa</p>
                   </a>
                   <p>
-                    <span id="hidedocumobile">Documento de</span> <span class="displayUserName">Itzel León</span>
+                    <span id="hidedocumobile">Documento <span id="tituloDe">de</span> </span> <span class="displayUserName">sin titulo</span>
                   </p>
                   <a id="" role="button" class="flexDisplay">
                     <img src="img/mobile/corcholata.svg" alt="">
@@ -537,7 +570,7 @@
                 </div>
             </div>
             <img id="headerImgPausaD" src="img/pausa/barra-pausa-wrd.jpg">
-          </header>
+          </header> -->
           <!-- PAUSA MOBILE -->
           <div id="areatrabajoMobile" class="pausaArea noneDisplay">
             <img src="img/pausa/pausa-mobile.svg">
@@ -551,6 +584,8 @@ Tranquilo, aquí te dejamos un área de texto para que puedas escribir
 hasta que dejen de rondar detrás de ti.
 
 Después quita la pausa y sigue jugando Bud Light Docs ©.
+
+Presiona ENTER de nuevo para regresar a jugar.
             </textarea>
           </div>
           <!-- PAUSA PPT -->
@@ -570,7 +605,7 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
           </div>
         </div>
        <script>
-          $(document).ready(function () {
+              $(document).ready(function () {
               if(checkPopUp())
                {
                  paisvalido();
@@ -580,8 +615,15 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+          var disclaimerIndex = document.getElementById("disclaimerIndex");
+          var tituloDe = document.getElementById("tituloDe");
+          var audioButton = document.getElementById("audioButton");
           /* Tabs */
+          var bodyFront = document.getElementsByTagName("BODY")[0];
           var tabsContent = document.getElementsByClassName("tabsContent");
+          var partidaTab = document.getElementById("partidaTab");
+          var sincupon = document.getElementById("sincupon");
+          var cuponyagenerado = document.getElementById("cuponyagenerado");
           /* Display Data */
           var displayUserName = document.getElementsByClassName("displayUserName");
           var displayLives = document.getElementsByClassName("displayLives");
@@ -615,6 +657,8 @@ Después quita la pausa y sigue jugando Bud Light Docs ©.
           var disclaimer = document.getElementById("disclaimer");
           var edadnovalida = document.getElementById("edadnovalida");
           var paisnovalido=document.getElementById("paisnovalido");
+          var emergentes=document.getElementById("emergentes");
+          var registrocancel=document.getElementById("registrocancel");
           var mensajebienvenida = document.getElementById("mensajebienvenida");
           var frontMenu = document.getElementById("menu");
           var barmenumobile = document.getElementById("barmenumobile");

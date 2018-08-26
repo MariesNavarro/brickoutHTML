@@ -222,6 +222,20 @@ function maxscoreobtenido($idreg,$link,&$part) {
     }
     return $score;
 }
+function maxscoreobtenidonocdmxedomex($idreg,$link,&$part) {
+  /* recuperar todas las filas de myCity */
+   $score=0;
+   $consulta = "select * from bdlt_participacion where id_registro=".$idreg." and Estado not in('Mexico City','Estado de Mexico') order by score desc LIMIT 1;";
+   if ($resultado = mysqli_query($link, $consulta)) {
+     while ($fila = mysqli_fetch_row($resultado)) {
+         $part=$fila[0];
+         $score=$fila[3];
+      }
+      /* liberar el conjunto de resultados */
+      mysqli_free_result($resultado);
+    }
+    return $score;
+}
 function cuponyaobtenido($idreg,$idcupon,$link) {
 	/* recuperar todas las filas de myCity */
    $obten=0;
@@ -250,7 +264,7 @@ function cuponunicoobtenido($idreg,$link) {
 }
 function numparticipacionesalacanzado($idreg,$link)
 {
-  $consulta = "select COUNT(*) NumeroParticipaciones,(select CONVERT(value,UNSIGNED INTEGER) AS num from bdlt_settings where Module='Participaciones' and setting='MinimoRequerido') NumeroNecesario from bdlt_participacion where id_registro=".$idreg." and score>0;";
+  $consulta = "select COUNT(*) NumeroParticipaciones,(select CONVERT(value,UNSIGNED INTEGER) AS num from bdlt_settings where Module='Participaciones' and setting='MinimoRequerido') NumeroNecesario from bdlt_participacion where id_registro=".$idreg." and score>0 and Estado not in('Mexico City','Estado de Mexico');";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $part=$fila[0];
@@ -310,12 +324,13 @@ function updateparticipacion($score,$idreg,$idpart)
      //exit();
     }
     $maxscore=maxscoreobtenido($idreg,$link,$parti);
+    $maxscoreparacupon=maxscoreobtenidonocdmxedomex($idreg,$link,$parti);
     if(numparticipacionesalacanzado($idreg,$link))
     {
       $obtenido=cuponunicoobtenido($idreg,$link);
       if($obtenido==0)
       {
-        $reg=cuponobtenido($maxscore,$idreg,$link,$cup,$url,$idcup,$descripcion);
+        $reg=cuponobtenido($maxscoreparacupon,$idreg,$link,$cup,$url,$idcup,$descripcion);
       }
       
     }
@@ -422,18 +437,17 @@ function validafechas(&$cad)
 // }
 function cuponesus($idreg)
 {
-  $strhtml='<table><TR><TH>Cupon</TH><TH>Score Requerido</TH><TH>Score Obtenido</TH><TH>Codigo del Cupon</TH></TR>';
+  $strhtml='';
   $link=connect();
-  $consulta = "select c.cupon,c.score requerido,a.score obtenido,b.url codigo from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id  inner join bdlt_cupones c on b.id_cupon=c.id where a.id_registro=".$idreg.";";
+  $consulta = "select c.cupon,c.score requerido,a.score obtenido,b.codigo codigo, c.descripcion from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id  inner join bdlt_cupones c on b.id_cupon=c.id where a.id_registro=".$idreg." LIMIT 1;";
   if ($resultado = mysqli_query($link, $consulta)) {
    while ($fila = mysqli_fetch_row($resultado)) {
-     $strhtml=$strhtml.'<TR><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD>'.$fila[2].'</TD><TD>'.$fila[3].'</TD></TR>';
+     $strhtml='&'.$fila[3].'&'.$fila[4];
     }
    /* liberar el conjunto de resultados */
     mysqli_free_result($resultado);
   }
   Close($link);
-  $strhtml=$strhtml.'</table></br><button id="btnvercuponespromo" onclick="location.reload();">Regresar</button>';
   return $strhtml;       
 }
 function cuponesprom()
