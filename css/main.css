@@ -22,7 +22,11 @@ root { display: block }
 input, input:before, input:after { -webkit-user-select: initial; -khtml-user-select: initial; -moz-user-select: initial; -ms-user-select: initial; user-select: initial; }
 ::selection { background: transparent;color:inherit; }
 ::-moz-selection { background: transparent;color:inherit; }
-
+/*
+Colores Principales:
+azul oscuro: #263270
+azul claro:
+*/
 
 body{
   position: relative;
@@ -752,7 +756,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     text-decoration: underline;
   }
   /* EDADNOVALIDA */
-  #edadnovalida, #paisnovalido, #emergentes,#registrocancel{
+  #edadnovalida, #paisnovalido, #registrocancel{
     position: relative;
     width: 100%;
     height: 100%;
@@ -768,7 +772,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     background-size: cover;
     opacity: 0.8;
   }
-  #edadnovalida>div, #paisnovalido>div, #emergentes>div, #registrocancel>div{
+  #edadnovalida>div, #paisnovalido>div, #registrocancel>div{
     position: absolute;
     top:calc(50% - 250px);
     left: calc(50% - 150px);
@@ -776,10 +780,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     height: 250px;
     text-align: center;
   }
-  #edadnovalida>div>img, #paisnovalido>div>img, #emergentes>div>img, #registrocancel>div>img{
+  #edadnovalida>div>img, #paisnovalido>div>img, #registrocancel>div>img{
     width: 80px;
   }
-  #edadnovalida>div>p, #paisnovalido>div>p, #emergentes>div>p, #registrocancel>div>p{
+  #edadnovalida>div>p, #paisnovalido>div>p, #registrocancel>div>p{
     position: relative;
     margin: 10px auto;
     font-weight: 300;
@@ -804,7 +808,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
-    z-index: 4900;
+    z-index: 5900;
   }
   #messagesGame>div{
     width: 100%;
@@ -1365,3 +1369,132 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
   @media (min-width: 960px){
     .tabsContent{ display: block; }
   }
+  #emergentes{
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    min-width: 250px;
+    background: transparent;
+    color: #fff;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  #emergentes> #fondotextura{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 1;
+  }
+  #emergentes>h2{
+    margin: 15px auto 10px auto;
+    font-size: 1rem;
+    text-align: center;
+  }
+  #emergentes>#sectionMobile{
+    margin: 10px auto;
+    width: 300px;
+    height: 500px;
+    text-align: center;
+    z-index: 3;
+  }
+    #emergentes>#sectionMobile>h3{
+      cursor: pointer;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      background: #fff;
+      color: #263270;
+      text-align: center;
+    }
+    #emergentes>#sectionMobile>h3:hover{ color: #196d9d; }
+    #emergentes>#sectionMobile>#subSectionMobile{
+      width: 100%;
+      height: auto;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>h4{
+      background: #fff;
+      color: #263270;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+
+      margin: 2px auto;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>h4:hover{
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>h4>span{
+      font-weight: 300;
+      font-size: 0.8rem;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>div{
+      background: #fff;
+      color: #263270;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      -o-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>div>p{
+      margin: 5px auto;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>div>img{
+      position: relative;
+      margin: 10px auto;
+    }
+    #emergentes>#sectionMobile>#subSectionMobile>div>img.mob{ height: 400px }
+    #emergentes>#sectionMobile>#subSectionMobile>div>img.desk{ width: 100% }
+    #popAndroid{
+      height: 0;
+    }
+    #popChrome{
+      height: 0;
+    }
+    #popSafari{
+      height: 0;
+    }
+    #popFacebook{
+      height: 0;
+    }
+    #popChromeDesk{
+      height: 0;
+    }
+    #popSafariDesk{
+      height: 0;
+    }
+    #popFirefoxDesk{
+      height: 0;
+    }
+    @media (min-width: 960px){
+      #emergentes>#sectionMobile{
+        width: 800px;
+      }
+      #emergentes>h2{
+        margin: 30px auto 20px auto;
+        font-size: 2rem;
+      }
+    }
