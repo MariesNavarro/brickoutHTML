@@ -441,7 +441,7 @@
             <div id="content">
 
               <!-- DISCLAIMER -->
-              <section id="disclaimer">
+              <section id="disclaimer" class="flexDisplay">
                 <section id="back"></section>
                 <img src="img/budlight-logo-white.svg">
                 <h3>¿Eres mayor de edad?</h3>
