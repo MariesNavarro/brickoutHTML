@@ -396,7 +396,7 @@ function tabsDisplay(n){
       tabsContent[2].style.left = "-100vw";
       partidaTab.style.color = "#ffffff";
       if(cupgan!=''&&promgan!='')
-      { 
+      {
         $('#comboTabs').text(promgan);
         $('#cgeneradoTabs').text(cupgan);
         cuponTabs("show");
@@ -604,10 +604,6 @@ function generaCeldas(){
 
 var formulasExcel = [ "TOTAL=SUMA(A1:A50)", "A3 * A5 * A8", "A2 - A3", "(A1 + C2) * C7 / 10", "PROMEDIO (A2:B2)", "MAX(celdas) / =MIN(celdas)", "MIN(A2,B4,C3,29)", "(MAX(A2:A3)", "CONTARA(A:A)", "{=SUMA ( A1:C20)}"];
 
-
-
-
-
 function checkPais(c){
   if(c === "NO"){
     nivelInterno = "no";
@@ -626,11 +622,68 @@ function showPopUp(c){
     emergentes.setAttribute("class", "flexDisplay");
   }
 }
-//Aqui esta
+
+
 function cuponOpacity(t){
   var parent = t.parentNode;
   parent.style.opacity = "0";
   setTimeout(function(){
     parent.style.display = "none";
   },700);
+}
+
+var divsInsDeskt = ['popChromeDesk', 'popSafariDesk', 'popFirefoxDesk'];
+var divsInsMob = ['popAndroid', 'popChrome', 'popSafari', 'popFacebook'];
+function displayInstructions(){
+  if(checkMobile){
+    for (var i = 0; i < mobileIns.length; i++) {
+      mobileIns[i].style.display = "block";
+      mobileIns[i].setAttribute("ontouchstart", "toggleInstructions('"+divsInsMob[i]+"')");
+    }
+  } else {
+    for (var i = 0; i < escritorioIns.length; i++) {
+      escritorioIns[i].style.display = "block";
+      escritorioIns[i].setAttribute("onclick", "toggleInstructions('"+divsInsDeskt[i]+"')");
+    }
+  }
+}
+var count = 0;
+var namePopInstruction;
+var instructionOpen = false;
+function toggleInstructions(el){
+  if(namePopInstruction === undefined){
+    instructionOpen = !instructionOpen;
+  } else {
+    if(namePopInstruction != el){
+      if(!instructionOpen){
+        instructionOpen = true;
+      } else {
+        instructionOpen = false;
+      }
+    } else {
+      count++;
+      if(count == 1)instructionOpen = false;
+      if(count > 1){
+        instructionOpen = true;
+        count = 0;
+      }
+    }
+  }
+  namePopInstruction = el;
+  if(instructionOpen){
+    for (var i = 0; i < instructionDiv.length; i++) {
+      instructionDiv[i].style.height = "0";
+    }
+    var el = document.getElementById(el),
+    len = el.children.length-1,
+    img = el.children[len];
+    el.style.height = "auto";
+    img.setAttribute("src", "img/pop/"+namePopInstruction+".gif");
+  }
+
+  if(!instructionOpen){
+    for (var i = 0; i < instructionDiv.length; i++) {
+      instructionDiv[i].style.height = "0";
+    }
+  }
 }

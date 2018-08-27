@@ -15,8 +15,10 @@
         <link rel="mask-icon" href="css/fav/safari-pinned-tab.svg" color="#263270">
         <meta name="msapplication-TileColor" content="#000000">
         <meta name="theme-color" content="#ffffff">
+
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/createjs-2015.11.26.min.js"></script>
+        <script type="text/javascript" src="js/bowser.min.js"></script>
         <script type="text/javascript" src="js/howler.min.js"></script>
         <script type="text/javascript" src="js/screenfull.js"></script>
         <script type="text/javascript" src="js/ctl_utils.js"></script>
@@ -437,6 +439,7 @@
           <!-- flexDisplay -->
           <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
             <div id="content">
+
               <!-- DISCLAIMER -->
               <section id="disclaimer">
                 <section id="back"></section>
@@ -465,6 +468,70 @@
                   Siguenos en: <a href="https://www.facebook.com/BudLightMX/?ref=br_rs" target="_blank"> Facebook </a> y <a href="https://twitter.com/budlightmex" target="_blank"> Twitter </a>
                 </div>
               </div>
+
+              <section id="emergentes" class="noneDisplay">
+                <section id="back"></section>
+                <!-- INSTRUCCIONES PARA HABILITAR VENTANAS EMERGENTES -->
+                  <h2>¿Cómo habilitar las ventanas emergentes?</h2>
+                  <section id="sectionMobile">
+                    <div id="subSectionMobile">
+                      <h4 class="trans7 mobileIns" style="display:none">Android Nativo <span>(Móvil)</span></h4>
+                      <div id="popAndroid" class="flexDisplay trans7 instructionDiv">
+                          <p>1. Saldra el mensaje de: <b>Se bloqueó una ventana emergente</b>.</p>
+                          <p>2. Hacer click en <b>Mostrar Siempre</b>.</p>
+                          <img class="mob" src="">
+                      </div>
+                      <h4 class="trans7 mobileIns" style="display:none">Chrome <span>(Móvil)</span></h4>
+                      <div id="popChrome" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Haz clic en botón de configuración <img src="img/pop/morebutton.svg" width="20">.</p>
+                        <p>2. Clic en <b>Configuración</b>.</p>
+                        <p>3. Clic sobre <b>Confuguración del sitio</b>.</p>
+                        <p>4. Scroll hasta encontrar <b>Permitir Pop-ups</b>.</p>
+                        <img class="mob" src="">
+                      </div>
+                      <h4 class="trans7 mobileIns" style="display:none">Safari <span>(Móvil)</span></h4>
+                      <div id="popSafari" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Ir a <b>Ajustes</b>.</p>
+                        <p>2. Haz scroll hasta encontar  <b>Safari</b>.</p>
+                        <p>3. Scroll a <b>Bloqueo Ventanas Emergentes</b>.</p>
+                        <img class="mob" src="">
+                      </div>
+                      <h4 class="trans7 mobileIns" style="display:none">Navegador en Facebook</h4>
+                      <div id="popFacebook" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Haz clic en el botón de configuración <img src="img/pop/morebutton.svg" width="20">.</p>
+                        <p>2. Clic en <b>Abrir en Safari/Chrome</b>.</p>
+                        <p>3. Permitir todas las ventanas emergentes.</p>
+                        <img class="mob" src="">
+                      </div>
+
+                      <h4 class="trans7 escritorioIns" style="display:none">Chrome <span>(Escritorio)</span></h4>
+                      <div id="popChromeDesk" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Hacer clic en <b>botón más</b>.</p>
+                        <p>2. Clic en <b>Configuración</b>.</p>
+                        <p>3. Haz scroll hasta encontrar <b>Avanzado</b> y hacer clic.</p>
+                        <p>4. Scroll hasta <b>Configuración de Contenido</b>.</p>
+                        <p>5. Habilitar pop-ups y redirecciones</p>
+                        <img class="desk" src="">
+                      </div>
+                      <h4 class="trans7 escritorioIns" style="display:none">Safari <span>(Escritorio)</span></h4>
+                      <div id="popSafariDesk" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Ir a <b>Preferencias de Safari</b>.</p>
+                        <p>2. Bajo la pestaña de <b>Seguridad</b></p>
+                        <p>3. Quitar selección en <b>Bloquear Pop-ups</b></p>
+                        <img class="desk" src="">
+                      </div>
+                      <h4 class="trans7 escritorioIns" style="display:none">Firefox <span>(Escritorio)</span></h4>
+                      <div id="popFirefoxDesk" class="flexDisplay trans7 instructionDiv">
+                        <p>1. Hacer clic en <b>botón de ajustes</b>.</p>
+                        <p>2. Hacer clic en <b>Privcidad y Seguridad</b>.</p>
+                        <p>3. Scroll hasta encontrar el apartado de <b>Permisos</b>.</p>
+                        <p>4. Quitar selección en <b>Bloquear ventanas emergentes</b>.</p>
+                        <img class="desk" src="">
+                      </div>
+                    </div>
+                  </section>
+              </section>
+
               <section id="edadnovalida" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -472,6 +539,7 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
+<<<<<<< HEAD
               <section id="emergentes" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -483,6 +551,8 @@
                    <!-- <a id="ventanassinregistro" role="button" onclick="quitarRegistroFrontsinRegistro()">Jugar sin Registro</a> -->
                 </div>
               </section>
+=======
+>>>>>>> ff5fc3085ff12edfab5df9bed3cbdf29497c5573
                <section id="paisnovalido" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -551,8 +621,6 @@
           <img src="img/instruccionesTab.svg">
         </div>
       </div>
-
-
         <div id="pausaWrap">
           <!-- <header id="headerPausa" style="background-image:url('img/pausa/textura-mob-wrd.jpg')">
             <div id="headerImgPausaM">
@@ -616,6 +684,15 @@ Presiona ENTER de nuevo para regresar a jugar.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+          /* BOWSER */
+          var checkMobile = false;
+          if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) checkMobile = true;
+          /* Instrucciones */
+          var mobileIns = document.getElementsByClassName("mobileIns");
+          var escritorioIns = document.getElementsByClassName("escritorioIns");
+          var instructionDiv = document.getElementsByClassName("instructionDiv");
+
+
           var disclaimerIndex = document.getElementById("disclaimerIndex");
           var tituloDe = document.getElementById("tituloDe");
           var audioButton = document.getElementById("audioButton");
@@ -678,6 +755,8 @@ Presiona ENTER de nuevo para regresar a jugar.
           var frontBarMenu = document.getElementById("head");
           var frontToolsBar = document.getElementById("bar");
           var menumobile = document.getElementById("menumobile");
+
+          displayInstructions();
           function quitarRegistroFrontsinRegistro(){
             quitarRegistroFront();
             sinregistro();
