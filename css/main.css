@@ -1423,8 +1423,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
       height: auto;
     }
     #emergentes>#sectionMobile>#subSectionMobile>h4{
-      background: #fff;
-      color: #263270;
+      background: #263270;
+      color: #fff;
       cursor: pointer;
       height: 30px;
       line-height: 30px;
@@ -1432,9 +1432,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
       margin: 2px auto;
     }
     #emergentes>#sectionMobile>#subSectionMobile>h4:hover{
-      border: 1px solid #fff;
+      border: 1px solid #263270;
       background: transparent;
-      color: #fff;
+      color: #263270;
     }
     #emergentes>#sectionMobile>#subSectionMobile>h4>span{
       font-weight: 300;
