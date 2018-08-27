@@ -112,5 +112,24 @@ function get_country_api(&$country_code,&$ip_address,&$country_region,&$codpais)
     if ($country_code!='') {  $salida = 1;}
     return $salida;
 }
+function writelog($string)
+{
+  $ban=0;
+  do{
+   $fichero = fopen("log/logquerys.txt", "a+");
+    if (flock($fichero, LOCK_EX)) {
+        fwrite($fichero,$string.PHP_EOL); 
+        flock($fichero, LOCK_UN);
+        fclose($fichero);
+        $ban=1;
+    }
+    else
+    {
+      sleep(1);
+       $ban=1;
+    }
+    $ban=1;
+  }while($ban==0);
+}
 
 ?>

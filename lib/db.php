@@ -11,6 +11,11 @@ function registrar($nombre,$usuario,$idfb,$link)
 {
 	$reg=0;
     $consulta = "insert into bdlt_registro(nombre,usuario,idfb,fecha_registro,fecha_update) values('".$nombre."','".$usuario."','".$idfb."',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
+    $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+    $date= date("Y-m-d H:i:s");
+    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
+    writelog($comple);
+  
     if (mysqli_query($link, $consulta)) {
       $reg=mysqli_insert_id($link);
     }
@@ -20,6 +25,10 @@ function registrar($nombre,$usuario,$idfb,$link)
 function update_registro($usuario,$idfb,$link)
 {
 	$query ="UPDATE  bdlt_registro SET fecha_update =CURRENT_TIMESTAMP WHERE usuario = '".$usuario."' or idfb='".$idfb."'";
+  $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+    $date= date("Y-m-d H:i:s");
+    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.']';
+    writelog($comple);
     if (mysqli_query($link, $query)) {
       //echo "Updated record successfully<br>";
     } 
@@ -28,6 +37,10 @@ function checkregistro($usuario,$idfb,$link) {
 	/* recuperar todas las filas de myCity */
    $reg=0;
    $consulta = "SELECT * FROM bdlt_registro where usuario='".$usuario."' or idfb='".$idfb."'";
+    $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+    $date= date("Y-m-d H:i:s");
+    writelog($comple);
+    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $reg=$fila[0];
@@ -164,6 +177,10 @@ function participacion($idregistro,$ip)
 	  mysqli_autocommit($link, FALSE);
     $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
     $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado) values(".$idregistro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."')";
+     $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+    $date= date("Y-m-d H:i:s");
+    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
+    writelog($comple);
     if (mysqli_query($link, $consulta)) {
       $reg=mysqli_insert_id($link);
     }
@@ -181,6 +198,10 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup,&$descripcion) {
    $transaction_start="start transaction";
    if (mysqli_query($link, $transaction_start)) {
       $consulta = "select min(b.id),a.id,a.cupon,b.codigo,a.descripcion from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where id_cupon=(select Id from bdlt_cupones where score<=".$score." and id not in (select distinct b.id_cupon  from bdlt_participacion a inner join bdlt_codigos b on a.id_codigo=b.id where a.id_registro=".$idreg." and a.id_codigo is not null) order by score desc LIMIT 1) and entregado=0 FOR UPDATE;";
+        $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+        $date= date("Y-m-d H:i:s");
+        $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
+        writelog($comple);
      if ($resultado = mysqli_query($link, $consulta)) {
         while ($fila = mysqli_fetch_row($resultado)) {
 
@@ -192,6 +213,10 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup,&$descripcion) {
          if($reg!='')
          {
            $update="update bdlt_codigos set entregado=1 where id=".$reg.";";
+            $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+            $date= date("Y-m-d H:i:s");
+            $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$update.']';
+            writelog($comple);
            if (mysqli_query($link, $update)) {
            } 
            else
@@ -203,15 +228,33 @@ function cuponobtenido($score,$idreg,$link,&$cup,&$url,&$idcup,&$descripcion) {
         /* liberar el conjunto de resultados */
         mysqli_free_result($resultado);
         $transaction_start="commit";
-     if (mysqli_query($link, $transaction_start)) {}
+        if (mysqli_query($link, $transaction_start)) {}
+          else
+          {
+            $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+            $date= date("Y-m-d H:i:s");
+            $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$transaction_start.' Id Registro:'.$idreg.' Score:'.$score.']';
+            writelog($comple);
+          }
       }
     } 
+    else
+    {
+      $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+        $date= date("Y-m-d H:i:s");
+        $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$transaction_start.' Id Registro:'.$idreg.' Score:'.$score.']';
+        writelog($comple);
+    }
     return $reg;
 }
 function maxscoreobtenido($idreg,$link,&$part) {
 	/* recuperar todas las filas de myCity */
    $score=0;
    $consulta = "select * from bdlt_participacion where id_registro=".$idreg." order by score desc LIMIT 1;";
+   $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+   $date= date("Y-m-d H:i:s");
+   $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
+   writelog($comple);
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $part=$fila[0];
@@ -226,6 +269,10 @@ function maxscoreobtenidonocdmxedomex($idreg,$link,&$part) {
   /* recuperar todas las filas de myCity */
    $score=0;
    $consulta = "select * from bdlt_participacion where id_registro=".$idreg." and Estado not in('Mexico City','Estado de Mexico') order by score desc LIMIT 1;";
+   $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+   $date= date("Y-m-d H:i:s");
+   $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
+   writelog($comple);
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $part=$fila[0];
@@ -318,30 +365,40 @@ function updateparticipacion($score,$idreg,$idpart)
     $parti=0;
     mysqli_autocommit($link, FALSE);
     $query ="UPDATE  bdlt_participacion SET score =".$score." WHERE id =".$idpart.";";
+    $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+    $date= date("Y-m-d H:i:s");
+    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.']';
+    writelog($comple);
     if (mysqli_query($link, $query)) {
     } 
     if (!mysqli_commit($link)) {
      //exit();
+      $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+      $date= date("Y-m-d H:i:s");
+      $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.' Fallo commit puntaje]';
     }
     $maxscore=maxscoreobtenido($idreg,$link,$parti);
     $maxscoreparacupon=maxscoreobtenidonocdmxedomex($idreg,$link,$parti);
-    if(numparticipacionesalacanzado($idreg,$link))
+    if($idreg!='2028')
     {
-      $obtenido=cuponunicoobtenido($idreg,$link);
-      if($obtenido==0)
-      {
-        $reg=cuponobtenido($maxscoreparacupon,$idreg,$link,$cup,$url,$idcup,$descripcion);
+      if(numparticipacionesalacanzado($idreg,$link))
+       {
+       $obtenido=cuponunicoobtenido($idreg,$link);
+       if($obtenido==0)
+        {
+         $reg=cuponobtenido($maxscoreparacupon,$idreg,$link,$cup,$url,$idcup,$descripcion);
+        }
       }
-      
     }
-
-
-   
     if($obtenido==0)
     {
     	if($reg>0)
     	{
     	  $query ="UPDATE  bdlt_participacion SET id_codigo=".$reg." WHERE id =".$parti.";";
+        $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+        $date= date("Y-m-d H:i:s");
+        $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.']';
+        writelog($comple);
     	}
     	
     }
@@ -349,6 +406,10 @@ function updateparticipacion($score,$idreg,$idpart)
     } 
     if (!mysqli_commit($link)) {
      //exit();
+      $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+        $date= date("Y-m-d H:i:s");
+        $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.' Fallo commit asignar cupon]';
+        writelog($comple);
     }
     $posicion=posicionactual($idreg,$link,$contador);
     Close($link);
@@ -379,7 +440,14 @@ function updateparticipacion($score,$idreg,$idpart)
     {
       $cadena=$cadena.'&No ganaste cupon sigue participando';
     }
-    $cadena=$cadena.'&'.$posicion.'&'.$maxscore ;  
+    if($idreg!='2028')
+    {
+      $cadena=$cadena.'&'.$posicion.'&'.$maxscore ;  
+    }
+    else
+    {
+      $cadena=$cadena.'&?&?';
+    }
     return $cadena;
 
 }
@@ -463,7 +531,7 @@ function cuponesprom()
     mysqli_free_result($resultado);
   }
   Close($link);
-  $strhtml=$strhtml.'</table></br><button id="btnvercuponespromo" onclick="location.reload();">Regresar</button>';
+  $strhtml=$strhtml.'</table><br><button id="btnvercuponespromo" onclick="location.reload();">Regresar</button>';
   return $strhtml;    
 }
 function validapaisint($ip,&$estado)

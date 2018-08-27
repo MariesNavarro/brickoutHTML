@@ -123,69 +123,85 @@ function login($user,$pass)
   $passdecode=base64_decode($passbd);
   if($passdecode==$pass&&$passbd!='')
   {
-    $salida='<input type="button" name="actualizar" onclick="actualizadiv();" value="Actualizar"><input type="button" name="exit" onclick="salir();" value="Salir">'.createhtml($link).'<script>
-document.getElementById("defaultOpen").click();
-</script> ';
+    $salida=' 
+        <div class="flexDisplay">
+            <a role="button"onclick="actualizadiv();"><center>Actualizar</center><span class="trans7"></span> </a>
+            <a role="button"onclick="salir();"><center>Salir</center><span class="trans7"></span> </a>
+        </div>'.createhtml($link).'<script>
+      document.getElementById("defaultOpen").click();
+      </script> ';
   }
   else {
-    $salida='<label>Error intentar de nuevo</label><br><label>Nombre Usuario:</label><br>
-<input name="username" type="text" id="username" required>
-<br><br>
-<label>Password:</label><br>
-<input name="password" type="password" id="password" required>
-<br><br>
-<input type="button" name="Submit" onclick="ingresar();" value="LOGIN">';
+    $salida=loginhtml(true);
   }
   Close($link);
   return $salida;
     
 }
+function loginhtml($error) {
+     $salida='<div id="disclaimerIndex" class="flexDisplay back_word">
+    <div id="content">
+      <section id="disclaimer">
+        <img src="img/budlight-logo-white.svg">
+        <h3>Usuario:</h3>
+        <input name="username" type="text" id="username" required>
+        <h3>Password:</h3>
+        <input name="password" type="password" id="password" required>                
+        <div class="flexDisplay">
+                    <a role="button"onclick="ingresar();"><p class="trans7">Login</p><span class="trans7"></span> </a>
+        </div>';
+        if($error)
+       {
+          $salida=$salida.'<span class="error">Usuario o conraseña incorrecta, vuelva a intentarlo.<span>';
+       }
+
+       $salida=$salida.'</section>
+    </div>
+  </div>';
+  return $salida;
+}
+
 function salir()
 {
-   $salida='<label>Nombre Usuario:</label><br>
-<input name="username" type="text" id="username" required>
-<br><br>
-<label>Password:</label><br>
-<input name="password" type="password" id="password" required>
-<br><br>
-<input type="button" name="Submit" onclick="ingresar();" value="LOGIN">';
-return $salida;
+   $salida=loginhtml(false);
+  return $salida;
 }
 function createhtml($link)
 {
   echo '
   <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="opentab(event, \'General\')" id="defaultOpen">General</button>
+  <button class="tablinks" onclick="opentab(event, \'Consolidados\')" id="defaultOpen">General</button>
   <button class="tablinks" onclick="opentab(event, \'Posiciones\')">Posiciones</button>
   <button class="tablinks" onclick="opentab(event, \'Registros\')">Registros</button>
   <button class="tablinks" onclick="opentab(event, \'Cupones\')">Cupones</button>
 </div>
 
 <!-- Tab content -->
-<div id="General" class="tabcontent">
-  <h2>General</h2>
-  <h3>Registros generados</h3>
-  <p>'.registrosgenerados($link).'</p>
-  <h3>Numero de veces que se ha jugado</h3>
-  <p>'.participaciones($link) .'</p>
-  <h3>Cupones que se han entregado</h3>
-  <p>'.cuponesentregados($link).'</p>
-  <h3>Mejor posicion</h3>
-  <p>'.maxscoreobtenido($link).'</p>
+<div id="Consolidados" class="tabcontent">
+  <h2><center>General</center></h2>
+  <br /><br />
+  <h3><center>Registros generados</center></h3>
+  <h2><center>'.registrosgenerados($link).'</center></h2>
+  <h3><center>Numero de veces que se ha jugado</center></h3>
+  <h2><center>'.participaciones($link) .'</center></h2>
+  <h3><center>Cupones que se han entregado</center></h3>
+  <h2><center>'.cuponesentregados($link).'</center></h2>
+  <h3><center>Mejor posición</h3>
+  <h2><center>'.maxscoreobtenido($link).'</center></h2>
 </div>
 
 <div id="Posiciones" class="tabcontent">
-  <h2>Mejores 15 Posiciones</h2>
+  <h2><center>Mejores 15 Posiciones</center></h2>
   <table><TR><TH>#</TH><TH>Nombre</TH><TH>Usuario</TH><TH>Juegos Realizados</TH><TH>MaximoScore</TH><TH>Fecha Registro</TH><TH>Fecha MaximoScore</TH><TH>Promo Obtenida</TH><TH>Score RequeridoPromo</TH><TH>Score ObtenidoPromo</TH></TR>'.posicionactual($link).'</table>
 </div>
 
 <div id="Registros" class="tabcontent">
-  <h2>Registros</h2>
+  <h2><center>Registros</center></h2>
   <table><TR><TH>Nombre</TH><TH>Usuario</TH><TH>Id Facebook</TH><TH>Fecha Registro</TH><TH>Fecha Update</TH>'.registrosdetalle($link).'</table>
 </div>
 <div id="Cupones" class="tabcontent">
-  <h2>Cupones por promocion</h2>
+  <h2><center>Cupones por promoción</center></h2>
   <table><TR><TH>Cupon</TH><TH>Promocion</TH><TH>Score Requerido</TH><TH>Cupones Entregados</TH>'.cuponesdetalle($link).'</table>
  
 </div> ';

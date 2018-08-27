@@ -423,7 +423,7 @@
             <!-- <h4>Este cupón es valido por: </h4> -->
             <img src="img/cupon.svg"/>
             <p id="cgenerado"></p>
-            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.<br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018<br>Sigue jugando para poder ganar una consola.</h5>
           </div>
           <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>
         </div>
@@ -477,9 +477,10 @@
                 <div>
                   <img src="img/404.svg">
                   <p>Se detectó que tienes las ventanas emergentes de tu navegador bloqueadas, para el funcionamiento del juego se requiere que las habilites.</p>
-                  <p>Puedes ver el proceso para habilitarlas aqui:</p></br>
+                  <p>Puedes ver el proceso para habilitarlas aqui:</p><br>
                   <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a>
-                   </br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a>
+                   <br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a><br>
+                   <!-- <a id="ventanassinregistro" role="button" onclick="quitarRegistroFrontsinRegistro()">Jugar sin Registro</a> -->
                 </div>
               </section>
                <section id="paisnovalido" class="noneDisplay">
@@ -510,9 +511,9 @@
                   <p>Regístrate con Facebook</p>
                   <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
-                <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
+                <!-- <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (botón demo)
-                </a>
+                </a> -->
               </section>
             </div>
           </div>
@@ -534,7 +535,7 @@
             <h4>Este cupón es valido por: </h4>
             <img src="img/cupon.svg"/>
             <p id="cgeneradoTabs"></p>
-            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.</br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018</br>Sigue jugando para poder ganar una consola.</h5>
+            <h5>Solo tienes que entrar a Rappi, ingresar tu codigo de cupón; te aparecerá en ese momento la promoción para que la pidas y llegue en minutos a tu casa.<br>*Cupón válido solo para un uso, vigencia del 24 al 30 de Agosto del 2018<br>Sigue jugando para poder ganar una consola.</h5>
           </div>
         </div>
       </div>

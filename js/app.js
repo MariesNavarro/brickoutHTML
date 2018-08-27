@@ -176,6 +176,7 @@ function regpartupd(){
     url  : 'respuesta.php',
     data:  dataString,
     success:function(data) {
+      console.log(data);
       msjscore=data.split("&")[0];
       msjcupon=data.split("&")[1];
       msjposicion=data.split("&")[2];

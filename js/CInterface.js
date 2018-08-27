@@ -225,7 +225,7 @@ function CInterface() {
         _oFade.alpha = 0;
         s_oStage.addChild(_oFade);
         s_oStage.setChildIndex(_oFade, s_oStage.numChildren - 1);
-
+        actparticipacion(iScore);
         _oTextCongrat = new createjs.Text(TEXT_CONGRATULATIONS, "normal " + 70 + "px " + PRIMARY_FONT, "##263072");
         _oTextCongrat.textAlign = "center";
         _oTextCongrat.textBaseline = "alphabetic";
@@ -242,7 +242,8 @@ function CInterface() {
         _oTextGameOver.y = CANVAS_HEIGHT / 2 - 50;
         _oTextGameOver.alpha = 0;
         s_oStage.addChild(_oTextGameOver);
-
+        actValByClassName("displayBest",msjpuntospos);
+        actValByClassName("displayPosition",msjposicion);
         createjs.Tween.get(_oFade).to({alpha: 1}, 1000, createjs.Ease.backOut);
         createjs.Tween.get(_oTextCongrat).to({y: CANVAS_HEIGHT / 2 - 310}, 1200, createjs.Ease.bounceOut);
         createjs.Tween.get(_oTextGameOver).to({alpha: 1}, 1000, createjs.Ease.bounceOut).call(function () {
