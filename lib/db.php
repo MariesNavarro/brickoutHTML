@@ -546,6 +546,13 @@ function validapaisint($ip,&$estado)
     return $country_code;
     
 }
+function compartiodb($compartio)
+{
+  $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
+        $date= date("Y-m-d H:i:s");
+        $comple='IP:['.$ip.'] Fecha['.$date.']Se ha realizado un compartir'.$compartio;
+     writelog($comple);
+}
 
 
 ?>

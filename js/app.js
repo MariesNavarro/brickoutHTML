@@ -31,7 +31,8 @@ var MetodoEnum = {
   Validar_Fecha:6,
   Obtener_cupones:7,
   Cupones_obtenidos:8,
-  Validar_Pais:9
+  Validar_Pais:9,
+  Compartir:10
  };
  var sett;
  var param1;
@@ -404,6 +405,11 @@ FB.ui({
     }
   })
 }, function(response) {
+  if(response==undefined){}
+  else
+  {
+    compartirlog();
+  }
 });
 }
 function cuponesenpromocion()
@@ -450,6 +456,10 @@ function actValByClassName(classname,valor)
     arrayobj[i].innerHTML=""+valor;
   }
 }
+function getValByClassName(classname)
+{
+  return document.getElementsByClassName(classname)[0].textContent;
+}
 function principal()
 {
   s_oMain.gotoMenu();
@@ -471,4 +481,25 @@ function mostrarcupon()
    {
         $("#cuponUno").css("display", "block");
    }
+}
+function compartirlog()
+{
+  param1=getValByClassName("displayUserName");
+  param2='';
+  param3='';
+  param4=MetodoEnum.Compartir;
+  logcompartir();
+}
+function logcompartir(){
+  var dataString = 'param1=' + param1 + '&param2=' + param2+'&param3=' + param3 + '&param4=' + param4;
+ // console.log(dataString);
+  $.ajax({
+    type : 'POST',
+    url  : 'respuesta.php',
+    data:  dataString,
+    success:function(data) {
+      //console.log(data);
+      //alert('log compartir');
+    }
+  });
 }

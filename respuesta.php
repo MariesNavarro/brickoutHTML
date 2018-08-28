@@ -28,8 +28,18 @@
   }
   else if($tipo==4)
   {
-    $idreg=$_POST['param1'];
-    participacion_php($idreg,$ip);
+    $ban=false;
+    if($ban)
+    {
+      redirect("index.php");
+    }
+    else
+    {
+      
+      $idreg=$_POST['param1'];
+      participacion_php($idreg,$ip);
+    }
+    
   }
   else if($tipo==5)
   {
@@ -37,6 +47,8 @@
     $idreg=$_POST['param2'];
     $idpart=$_POST['param3'];
     participacionupd_php($score,$idreg,$idpart);
+    
+
   }
   else if($tipo==6)
   {
@@ -60,6 +72,10 @@
   }
    else if($tipo==9){
     validapais_php($ip);
+  }
+   else if($tipo==10){
+    $compartio=$_POST['param1'];
+    logcompartir_php($compartio);
   }
   function ante(){
     $findip=getpromoestado($ip,$promo);
@@ -153,5 +169,15 @@
     {
       echo "NO";
     }
+  }
+  function logcompartir_php($compartio)
+  {
+     compartiodb($compartio);
+  }
+  function redirect($url) {
+    ob_start();
+    header('Location: '.$url);
+    ob_end_flush();
+    die();
   }
 ?>
