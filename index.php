@@ -441,7 +441,7 @@
             <div id="content">
 
               <!-- DISCLAIMER -->
-              <section id="disclaimer" class="flexDisplay">
+              <section id="disclaimer">
                 <section id="back"></section>
                 <img src="img/budlight-logo-white.svg">
                 <h3>¿Eres mayor de edad?</h3>
@@ -539,7 +539,6 @@
                   <p> Lo sentimos, tienes que ser <b>mayor de 18 años</b> para ingresar a este sitio. </p>
                 </div>
               </section>
-<<<<<<< HEAD
               <section id="emergentes" class="noneDisplay">
                 <div id="back"></div>
                 <div>
@@ -551,8 +550,6 @@
                    <!-- <a id="ventanassinregistro" role="button" onclick="quitarRegistroFrontsinRegistro()">Jugar sin Registro</a> -->
                 </div>
               </section>
-=======
->>>>>>> ff5fc3085ff12edfab5df9bed3cbdf29497c5573
                <section id="paisnovalido" class="noneDisplay">
                 <div id="back"></div>
                 <div>
