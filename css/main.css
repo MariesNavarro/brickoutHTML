@@ -1418,7 +1418,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
       text-align: center;
     }
      #emergentes>#sectionMobile>h2{
-      
+
       color: #263270;
     }
     #emergentes>#sectionMobile>h3:hover{ color: #196d9d; }
@@ -1502,3 +1502,143 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
         font-size: 2rem;
       }
     }
+
+
+#ptsDobles{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-width: 250px;
+  height: 100vh;
+  background: #263270;
+  color: #fff;
+  background-image: url('../img/fondo-juegos-op.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 100000;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+#ptsDobles>h2,#ptsDobles>h3,#ptsDobles>p,#ptsDobles>span{color: #fff;}
+#ptsDobles>h2{
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  margin: 15px auto;
+}
+#ptsDobles>h3{
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.2rem;
+  width: 90%;
+}
+#ptsDobles>p{
+  font-weight: 300;
+  width: 90%;
+  text-align: center;
+}
+#ptsDobles>span{
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin: 15px auto;
+}
+#ptsDobles>img{
+  margin: 15px auto;
+}
+#ptsDobles>a{
+  position: relative;
+  margin: 15px auto;
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border:2px solid #fff;
+  color: #fff;
+}
+#ptsDobles>a>p{ z-index: 2; }
+#ptsDobles>a>span{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 36px;
+  background: #fff;
+}
+#ptsDobles>a:hover>p{ color: #263270; }
+#ptsDobles>a:hover>span{ width: 146px; }
+
+@media (min-width: 860px){
+  #ptsDobles>h2{ font-size: 2.3rem; margin: 40px auto 20px auto; }
+  #ptsDobles>h3,#ptsDobles>p{ width: 60%; max-width: 500px; }
+  #ptsDobles>h3{font-size: 1.5rem;}
+  #ptsDobles>p{font-size: 1.3rem;}
+  #ptsDobles>img{width: 150px;}
+}
+
+#mobileOuter{
+  position: fixed;
+  top: 60px;
+  width: 100vw;
+  min-width: 250px;
+  height: calc(100vh - 60px);
+  z-index: 6000;
+  background: #fff;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content:space-around;
+  -moz-justify-content:space-around;
+  -ms-justify-content:space-around;
+  -o-justify-content:space-around;
+  justify-content:space-around;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+
+}
+#mobileOuter>div:first-child{
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in 0.3s forwards;
+  -moz-animation: fadeIn 1s ease-in 0.3s forwards;
+  -ms-animation: fadeIn 1s ease-in 0.3s forwards;
+  -o-animation: fadeIn 1s ease-in 0.3s forwards;
+  animation: fadeIn 1s ease-in 0.3s forwards;
+}
+#mobileOuter>div:last-child{
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in 0.5s forwards;
+  -moz-animation: fadeIn 1s ease-in 0.5s forwards;
+  -ms-animation: fadeIn 1s ease-in 0.5s forwards;
+  -o-animation: fadeIn 1s ease-in 0.5s forwards;
+  animation: fadeIn 1s ease-in 0.5s forwards;
+}
+#mobileOuter>div>h2{
+  font-weight: 300;
+  font-size: 1.7rem;
+}
+#mobileOuter>div>p{
+  font-size: 2rem;
+}
+#mobileOuter>div{
+  text-align: center;
+}
+
+@media (min-width: 960px){
+  #mobileOuter{ display: none}
+}

@@ -687,3 +687,18 @@ function toggleInstructions(el){
     }
   }
 }
+
+
+function menuMobileOuter(t, c){
+  if(c === "open"){
+    t.setAttribute("onclick", "menuMobileOuter(this, 'close')");
+    t.children[0].setAttribute("src", "img/mobile/close.svg");
+    t.children[1].innerHTML = "Cerrar";
+    mobileOuter.setAttribute("class", "flexDisplay");
+  } else {
+    t.setAttribute("onclick", "menuMobileOuter(this, 'open')");
+    t.children[0].setAttribute("src", "img/mobile/menu.svg");
+    t.children[1].innerHTML = "Menú";
+    mobileOuter.setAttribute("class", "noneDisplay");
+  }
+}

@@ -106,15 +106,11 @@
           <p>
             <span id="hidedocumobile">Documento </span> <span class="displayUserName">sin titulo</span>
           </p>
-          <a id="" role="button" class="flexDisplay">
-            <img src="img/mobile/corcholata.svg" alt="">
-            <p>Bud Light</p>
+          <a id="" role="button" class="flexDisplay" onclick="menuMobileOuter(this, 'open')">
+            <img id="buttonMenuMob" src="img/mobile/menu.svg" >
+            <p>Menú</p>
           </a>
         </div>
-       </div>
-       <!-- menu outter -->
-       <div id="menuMobileOutter">
-
        </div>
         <!-- Menu Desktop -->
         <div id="menu" class="trans7">
@@ -416,6 +412,29 @@
             </li>
           </ul>
         </div>
+        <!--  MENU MOBILE OUTER -->
+        <div id="mobileOuter" class="noneDisplay">
+          <div>
+            <h2>Mejor Puntaje:</h2>
+            <img src="img/mobile/best.svg" width="120">
+            <p class="displayBest">?</p>
+          </div>
+          <div>
+            <h2>Posición General:</h2>
+            <img src="img/mobile/position.svg" width="120">
+            <p class="displayPosition">?</p>
+          </div>
+        </div>
+
+        <!-- PUNTOS DOBLES -->
+        <div id="ptsDobles" class="flexDisplay">
+          <h2>¡Feliz día del gamer!</h2>
+          <h3>¡Recuerda que sólo por hoy, miércoles 29 de agosto* tu score vale <b>x2</b>!</h3>
+          <img src="img/trofeo.svg" width="80">
+          <span>* Válido de las 00:00 a las 24:00 hrs.</span>
+          <a role="button" class="trans7" onclick="cuponOpacity(this)"><p>Listo</p> <span class="trans7"></span></a>
+        </div>
+
 
         <!-- CUPON -->
         <div id="cuponUno" class="cupon trans7">
@@ -437,7 +456,7 @@
 
         <div id="messagesGame" class="flexDisplay back_word"> <!-- style="display:none"  -->
           <!-- flexDisplay -->
-          <div id="disclaimerIndex" class="noneDisplay"><!-- alto -->
+          <div id="disclaimerIndex" class="flexDisplay"><!-- alto -->
             <div id="content">
 
               <!-- DISCLAIMER -->
@@ -545,7 +564,7 @@
                 <div id="back"></div>
                 <div>
                   <img src="img/404.svg">
-                  
+
                   <p>Puedes ver el proceso para habilitarlas aqui:</p><br>
                   <a href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+escritorio&amp;oq=Como+desbloquear+ventanas+en+escritorio=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">Escritorio</a>
                    <br><a target="_blank" href="https://www.google.com.mx/search?q=como+desbloquear+ventanas+emergentes+en+celular&amp;oq=Como+desbloquear+ventanas+en+celu&amp;aqs=chrome.1.69i57j0.7635j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Movil</a><br>
@@ -567,7 +586,7 @@
                 </div>
               </section>
               <section id="mensajebienvenida" class="noneDisplay" style="opacity:0">
-                <img src="img/budlightdocs.png">
+                <img src="img/budlightdocs.gif">
                 <h1>Bud Light Docs</h1>
                 <p>
                   Festeja el día gamer jugando. No te preocupes entendemos que no siempre es el mejor momento para jugar, especialmente si estás en tu trabajo.
@@ -580,9 +599,9 @@
                   <p>Regístrate con Facebook</p>
                   <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
-                <!-- <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
+                <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (botón demo)
-                </a> -->
+                </a>
               </section>
             </div>
           </div>
@@ -684,6 +703,7 @@ Presiona ENTER de nuevo para regresar a jugar.
 
         <!-- Globales Front -->
         <script type="text/javascript">
+
           /* BOWSER */
           var checkMobile = false;
           if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) checkMobile = true;
@@ -691,7 +711,9 @@ Presiona ENTER de nuevo para regresar a jugar.
           var mobileIns = document.getElementsByClassName("mobileIns");
           var escritorioIns = document.getElementsByClassName("escritorioIns");
           var instructionDiv = document.getElementsByClassName("instructionDiv");
-
+          /* MENU MOBILE 2 */
+          var mobileOuter = document.getElementById("mobileOuter");
+          var buttonMenuMob = document.getElementById("buttonMenuMob");
 
           var disclaimerIndex = document.getElementById("disclaimerIndex");
           var tituloDe = document.getElementById("tituloDe");
