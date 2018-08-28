@@ -20,8 +20,8 @@ class foo_mysqli extends mysqli {
 }
 function connect()
 {
-  // PRODUCCION 
-  $hostname_conexion = "localhost";
+  // PRODUCCION
+  $hostname_conexion = "gamer64.com";
   $database_conexion = "gamer65_budlight";
   $username_conexion = "gamer65_budlight";
   $password_conexion = "eh9d+Cxf(3K0";

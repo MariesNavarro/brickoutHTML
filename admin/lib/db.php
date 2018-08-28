@@ -109,7 +109,7 @@ function get_pass($link,$user) {
  if ($resultado = mysqli_query($link, $consulta)) {
    while ($fila = mysqli_fetch_row($resultado)) {
      $pass=$fila[0];
-     
+
     }/* liberar el conjunto de resultados */
     mysqli_free_result($resultado);
   }
@@ -123,10 +123,10 @@ function login($user,$pass)
   $passdecode=base64_decode($passbd);
   if($passdecode==$pass&&$passbd!='')
   {
-    $salida=' 
-        <div class="flexDisplay">
-            <a role="button"onclick="actualizadiv();"><center>Actualizar</center><span class="trans7"></span> </a>
-            <a role="button"onclick="salir();"><center>Salir</center><span class="trans7"></span> </a>
+    $salida='
+        <div id="interface" class="flexDisplay">
+            <a role="button"onclick="actualizadiv();"><p>Actualizar</p><span class="trans7"></span> </a>
+            <a role="button"onclick="salir();"><p>Salir</p><span class="trans7"></span> </a>
         </div>'.createhtml($link).'<script>
       document.getElementById("defaultOpen").click();
       </script> ';
@@ -136,7 +136,7 @@ function login($user,$pass)
   }
   Close($link);
   return $salida;
-    
+
 }
 function loginhtml($error) {
      $salida='<div id="disclaimerIndex" class="flexDisplay back_word">
@@ -146,7 +146,7 @@ function loginhtml($error) {
         <h3>Usuario:</h3>
         <input name="username" type="text" id="username" required>
         <h3>Password:</h3>
-        <input name="password" type="password" id="password" required>                
+        <input name="password" type="password" id="password" required>
         <div class="flexDisplay">
                     <a role="button"onclick="ingresar();"><p class="trans7">Login</p><span class="trans7"></span> </a>
         </div>';
@@ -179,31 +179,34 @@ function createhtml($link)
 
 <!-- Tab content -->
 <div id="Consolidados" class="tabcontent">
-  <h2><center>General</center></h2>
+  <h1>General</h1>
   <br /><br />
-  <h3><center>Registros generados</center></h3>
-  <h2><center>'.registrosgenerados($link).'</center></h2>
-  <h3><center>Numero de veces que se ha jugado</center></h3>
-  <h2><center>'.participaciones($link) .'</center></h2>
-  <h3><center>Cupones que se han entregado</center></h3>
-  <h2><center>'.cuponesentregados($link).'</center></h2>
-  <h3><center>Mejor posición</h3>
-  <h2><center>'.maxscoreobtenido($link).'</center></h2>
+  <h3>Registros generados</h3>
+  <h2>'.registrosgenerados($link).'</h2>
+  <br />
+  <h3>Numero de veces que se ha jugado</h3>
+  <h2>'.participaciones($link) .'</h2>
+  <br />
+  <h3>Cupones que se han entregado</h3>
+  <h2>'.cuponesentregados($link).'</h2>
+  <br />
+  <h3>Mejor posición</h3>
+  <h2>'.maxscoreobtenido($link).'</h2>
 </div>
 
 <div id="Posiciones" class="tabcontent">
-  <h2><center>Mejores 15 Posiciones</center></h2>
+  <h2>Mejores 15 Posiciones</h2>
   <table><TR><TH>#</TH><TH>Nombre</TH><TH>Usuario</TH><TH>Juegos Realizados</TH><TH>MaximoScore</TH><TH>Fecha Registro</TH><TH>Fecha MaximoScore</TH><TH>Promo Obtenida</TH><TH>Score RequeridoPromo</TH><TH>Score ObtenidoPromo</TH></TR>'.posicionactual($link).'</table>
 </div>
 
 <div id="Registros" class="tabcontent">
-  <h2><center>Registros</center></h2>
+  <h2>Registros</h2>
   <table><TR><TH>Nombre</TH><TH>Usuario</TH><TH>Id Facebook</TH><TH>Fecha Registro</TH><TH>Fecha Update</TH>'.registrosdetalle($link).'</table>
 </div>
 <div id="Cupones" class="tabcontent">
-  <h2><center>Cupones por promoción</center></h2>
+  <h2>Cupones por promoción</h2>
   <table><TR><TH>Cupon</TH><TH>Promocion</TH><TH>Score Requerido</TH><TH>Cupones Entregados</TH>'.cuponesdetalle($link).'</table>
- 
+
 </div> ';
 }
 ?>

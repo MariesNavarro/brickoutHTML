@@ -13,12 +13,12 @@ ol, ul {list-style: none; }
 * a {cursor: pointer; text-decoration: none; }
 * i {font-style: italic; } * p { font-size: 1rem;}
 h1,  b {  /* Falta font family */ font-weight: 600;   font-size: 2rem; }
-h2 {  /* Falta font family */ font-weight: 600; font-size: 1.8rem; }
+h2 {  /* Falta font family */ font-weight: 600; font-size: 1.6rem; }
 h3 {  /* Falta font family */ font-weight: 600; font-size: 1.2rem; }
 h4 {  /* Falta font family */ font-weight: 600; font-size: 1.0rem;  }
 h5 {  /* Falta font family */ font-weight: 600; font-size: 0.8rem;  }
 h6 {  /* Falta font family */ font-weight: 600; font-size: 0.6rem;  }
-    
+
 .flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
 .noneDisplay{ display: none}
 .trans7{ -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
@@ -57,7 +57,7 @@ body{
     border: 1px solid #ccc;
     border-top: none;
     height: auto;
-} 
+}
 table, td, th {
     border: 1px solid black;
 }
@@ -303,3 +303,29 @@ th {
      font-size: 1.3rem;
      font-weight: 300;
  }
+
+#general>.tab{
+  color: #fff;
+  background: #263270;
+}
+#general>.tab>button{ color: #fff }
+#general>#interface>a>p{
+  display: block;
+  width: 100%;
+  line-height: 36px;
+  text-align: center;
+}
+
+#general>#Consolidados{
+  width: 300px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  border: 0;
+}
+
+  @media (min-width: 960px){
+    #general>#Consolidados{
+      width: 600px;
+    }
+  }
