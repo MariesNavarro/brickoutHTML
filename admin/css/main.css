@@ -315,13 +315,16 @@ th {
   line-height: 36px;
   text-align: center;
 }
-
+#general>div
+{
+    border: 0;
+}
 #general>#Consolidados{
   width: 300px;
   position: relative;
   margin: 0 auto;
   text-align: center;
-  border: 0;
+
 }
 
   @media (min-width: 960px){
