@@ -1417,6 +1417,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f7448', end
       color: #263270;
       text-align: center;
     }
+     #emergentes>#sectionMobile>h2{
+      
+      color: #263270;
+    }
     #emergentes>#sectionMobile>h3:hover{ color: #196d9d; }
     #emergentes>#sectionMobile>#subSectionMobile{
       width: 100%;

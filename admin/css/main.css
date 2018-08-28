@@ -13,7 +13,7 @@ ol, ul {list-style: none; }
 * a {cursor: pointer; text-decoration: none; }
 * i {font-style: italic; } * p { font-size: 1rem;}
 h1,  b {  /* Falta font family */ font-weight: 600;   font-size: 2rem; }
-h2 {  /* Falta font family */ font-weight: 600; font-size: 1.6rem; }
+h2 {  /* Falta font family */ font-weight: 600; font-size: 1.8rem; }
 h3 {  /* Falta font family */ font-weight: 600; font-size: 1.2rem; }
 h4 {  /* Falta font family */ font-weight: 600; font-size: 1.0rem;  }
 h5 {  /* Falta font family */ font-weight: 600; font-size: 0.8rem;  }
@@ -68,7 +68,15 @@ table {
 }
 
 th {
-    text-align: left;
+    text-align: center;
+    font-weight: 800;
+}
+.centrado {
+    text-align: center!important;
+}
+.derecha {
+    text-align: right!important;
+    padding-right: 5px!important;
 }
 .error {
     color: red;"
@@ -325,6 +333,24 @@ th {
   margin: 0 auto;
   text-align: center;
 
+}
+#general>#Posiciones>h1{
+  width: 300px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+#general>#Registros>h1{
+  width: 300px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+#general>#Cupones>h1{
+  width: 300px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
 }
 
   @media (min-width: 960px){

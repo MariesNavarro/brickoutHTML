@@ -10,7 +10,7 @@ function maxscoreobtenido($link) {
    $consulta = "select b.nombre,a.score from bdlt_participacion a inner join bdlt_registro b on a.id_registro=b.id order by score desc LIMIT 1;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
-         $score=$fila[0].' con un score de '.$fila[1];
+         $score=$fila[0].'<br /> score '.number_format($fila[1], 0, '.', ',');
       }
       /* liberar el conjunto de resultados */
       mysqli_free_result($resultado);
@@ -68,7 +68,7 @@ function posicionactual($link) {
    $consulta = "select pu.nombre,pu.usuario,pu.participaciones,pu.score maximoscore,pu.fecha_registro,pu.FechaScore,cg.descripcion,cg.ScoreRequerido,cg.ScoreObtenido,cg.codigo from (select reg.id,reg.nombre,reg.usuario,Res.score,Res.participaciones,reg.fecha_registro,Res.fecha FechaScore from (select a.id_registro,a.score,P.participaciones,MIN(fecha) fecha from (select id_registro,COUNT(id) participaciones,MAX(score) MaxScore from bdlt_participacion group by id_registro) P inner join bdlt_participacion a on a.id_registro=P.id_registro and a.score=P.MaxScore group by a.id_registro,a.score) Res inner join bdlt_registro reg on Res.id_registro=reg.id) pu left join (select a.id_registro,a.score ScoreObtenido,c.descripcion,c.score ScoreRequerido,b.codigo from bdlt_participacion a inner join bdlt_codigos b on  a.id_codigo=b.id inner join bdlt_cupones c on b.id_cupon=c.id where id_codigo is not null) cg on pu.id=cg.id_registro order by maximoscore desc,FechaScore asc  LIMIT 15;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
-     	  $pos=$pos.'<TR><TH>'.$contador.'</TH><TH>'.$fila[0].'</TH><TH>'.$fila[1].'</TH><TH>'.$fila[2].'</TH><TH>'.$fila[3].'</TH><TH>'.$fila[4].'</TH><TH>'.$fila[5].'</TH><TH>'.$fila[6].'</TH><TH>'.$fila[7].'</TH><TH>'.$fila[8].'</TH></TR>';
+     	  $pos=$pos.'<TR><TD>'.$contador.'</TD><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="derecha">'.number_format($fila[3], 0, '.', ',').'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD><TD>'.$fila[6].'</TD><TD class="derecha">'.number_format($fila[7], 0, '.', ',').'</TD><TD class="derecha">'.number_format($fila[8], 0, '.', ',').'</TD></TR>';
         $contador++;
       }
       /* liberar el conjunto de resultados */
@@ -82,7 +82,7 @@ function registrosdetalle($link) {
    $consulta = "select * from bdlt_registro LIMIT 1000000;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
-        $pos=$pos.'<TR><TH>'.$fila[1].'</TH><TH>'.$fila[2].'</TH><TH>'.$fila[3].'</TH><TH>'.$fila[4].'</TH><TH>'.$fila[5].'</TH></TR>';
+        $pos=$pos.'<TR><TD>'.$fila[1].'</TD><TD>'.$fila[2].'</TD><TD>'.$fila[3].'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD></TR>';
       }
       /* liberar el conjunto de resultados */
       mysqli_free_result($resultado);
@@ -95,7 +95,7 @@ function cuponesdetalle($link) {
    $consulta = "select a.cupon,a.descripcion,a.score,COUNT(b.id) entregados from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where entregado=1 group by a.cupon,a.descripcion,a.score;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
-        $pos=$pos.'<TR><TH>'.$fila[0].'</TH><TH>'.$fila[1].'</TH><TH>'.$fila[2].'</TH><TH>'.$fila[3].'</TH><TH>'.$fila[5].'</TH></TR>';
+        $pos=$pos.'<TR><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="centrado"> '.$fila[3].' de 1,000</TD></TR>';
       }
       /* liberar el conjunto de resultados */
       mysqli_free_result($resultado);
@@ -168,6 +168,8 @@ function salir()
 }
 function createhtml($link)
 {
+  $registros = registrosgenerados($link);
+
   echo '
   <!-- Tab links -->
 <div class="tab">
@@ -182,30 +184,33 @@ function createhtml($link)
   <h1>General</h1>
   <br /><br />
   <h3>Registros generados</h3>
-  <h2>'.registrosgenerados($link).'</h2>
+  <h2>'.number_format($registros, 0, '.', ',').'</h2>
   <br />
-  <h3>Numero de veces que se ha jugado</h3>
-  <h2>'.participaciones($link) .'</h2>
+  <h3>Número de veces que se ha jugado</h3>
+  <h2>'.number_format(participaciones($link), 0, '.', ',') .'</h2>
   <br />
   <h3>Cupones que se han entregado</h3>
-  <h2>'.cuponesentregados($link).'</h2>
+  <h2>'.number_format(cuponesentregados($link), 0, '.', ',').'</h2>
   <br />
   <h3>Mejor posición</h3>
   <h2>'.maxscoreobtenido($link).'</h2>
 </div>
 
 <div id="Posiciones" class="tabcontent">
-  <h2>Mejores 15 Posiciones</h2>
-  <table><TR><TH>#</TH><TH>Nombre</TH><TH>Usuario</TH><TH>Juegos Realizados</TH><TH>MaximoScore</TH><TH>Fecha Registro</TH><TH>Fecha MaximoScore</TH><TH>Promo Obtenida</TH><TH>Score RequeridoPromo</TH><TH>Score ObtenidoPromo</TH></TR>'.posicionactual($link).'</table>
+  <h1>Mejores 15 Posiciones</h1>
+  <br />
+  <table><TR><TH>#</TH><TH>Nombre</TH><TH>Usuario</TH><TH>Juegos Realizados</TH><TH>Máximo Score</TH><TH>Fecha Registro</TH><TH>Fecha Máximo Score</TH><TH>Promo Obtenida</TH><TH>Score Requerido Promo</TH><TH>Score Obtenido Promo</TH></TR>'.posicionactual($link).'</table>
 </div>
 
 <div id="Registros" class="tabcontent">
-  <h2>Registros</h2>
+  <h1>Registros '.number_format($registros, 0, '.', ',').'</h1>
+  <br />
   <table><TR><TH>Nombre</TH><TH>Usuario</TH><TH>Id Facebook</TH><TH>Fecha Registro</TH><TH>Fecha Update</TH>'.registrosdetalle($link).'</table>
 </div>
 <div id="Cupones" class="tabcontent">
-  <h2>Cupones por promoción</h2>
-  <table><TR><TH>Cupon</TH><TH>Promocion</TH><TH>Score Requerido</TH><TH>Cupones Entregados</TH>'.cuponesdetalle($link).'</table>
+  <h1>Cupones por promoción</h1>
+  <br />
+  <table><TR><TH>Cupón</TH><TH>Promoción</TH><TH>Score Requerido</TH><TH>Cupones Entregados</TH>'.cuponesdetalle($link).'</table>
 
 </div> ';
 }

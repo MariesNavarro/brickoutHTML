@@ -176,7 +176,7 @@ function participacion($idregistro,$ip)
     $link=connect();
 	  mysqli_autocommit($link, FALSE);
     $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
-    $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado) values(".$idregistro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."')";
+    $consulta = "insert into bdlt_participacion(id_registro,fecha,ip,Pais,Estado,fecha_inicio) values(".$idregistro.",CURRENT_TIMESTAMP,'".$ip."','".$country_code."','".$country_region."',CURRENT_TIMESTAMP)";
      $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
     $date= date("Y-m-d H:i:s");
     $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
@@ -364,7 +364,7 @@ function updateparticipacion($score,$idreg,$idpart)
     $link=connect();
     $parti=0;
     mysqli_autocommit($link, FALSE);
-    $query ="UPDATE  bdlt_participacion SET score =".$score." WHERE id =".$idpart.";";
+    $query ="UPDATE  bdlt_participacion SET score =".$score.", fecha=CURRENT_TIMESTAMP WHERE id =".$idpart.";";
     $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
     $date= date("Y-m-d H:i:s");
     $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.']';
