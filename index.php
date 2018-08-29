@@ -1,3 +1,9 @@
+<?php
+ 
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
+ 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -94,6 +100,23 @@
             td.trackEvent(webFormTableName, event);
         }
 </script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '655734318131462');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=655734318131462&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
   </head>
      <body ondragstart="return false;" ondrop="return false;" >
        <!-- Menu mobile -->
@@ -575,7 +598,7 @@
                 <div id="back"></div>
                 <div>
                   <img src="img/404.svg">
-                  <p> Lo sentimos, esta promocion <b>no es valida</b> para tu pais. </p>
+                  <p> Lo sentimos, esta promocion <b>ya no es valida</b></p>
                 </div>
               </section>
               <section id="registrocancel" class="noneDisplay">
@@ -599,9 +622,9 @@
                   <p>Regístrate con Facebook</p>
                   <svg viewBox="0 0 240 240"> <path d="M128,240H9l-9-9V9L9,0H231l9,9V231l-9,9H165c.16-2,.47-3.95.47-5.92q0-40.47,0-80.94v-6.29h31.18c1.55-12,3-23.69,4.6-35.9H165.49c0-8.13,0-15.76,0-23.39.09-12.72,4.88-17.49,17.55-17.55,6.29,0,12.58,0,19.43,0,0-9.61-.14-18.73.08-27.84.08-3.44-1.15-4.81-4.46-4.92-7.65-.24-15.3-.79-23-.89-21.32-.29-37.81,10.09-43.62,28.27-2.14,6.69-2.79,14-3.25,21.07-.53,8.24-.12,16.55-.12,25.32H97.31v36.14H128Z"/> </svg>
                 </a>
-                <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
+               <!--  <a id="quitarFront" role="button" onclick="quitarRegistroFrontsinRegistro()">
                   Quitar (botón demo)
-                </a>
+                </a> -->
               </section>
             </div>
           </div>
@@ -693,10 +716,16 @@ Presiona ENTER de nuevo para regresar a jugar.
         </div>
        <script>
               $(document).ready(function () {
+                var d=new Date();
+                if(d.getDate()!=29)
+                {
+                 $('#ptsDobles').attr("class","noneDisplay");
+                }
                 $('#sectionMobile>h2').css("color",'#263270');
               if(checkPopUp())
                {
-                 paisvalido();
+                 //paisvalido();
+                 valido();
                }
           });
         </script>

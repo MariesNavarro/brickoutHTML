@@ -35,7 +35,7 @@
     }
     else
     {
-      
+
       $idreg=$_POST['param1'];
       participacion_php($idreg,$ip);
     }
@@ -54,7 +54,7 @@
   {
     $cads;
     $val=validafechas($cads);
-    if($val[0]>0.000001&&$val[1]<0.00000001)
+    if($val[2]>0.000001&&$val[3]<0.00000001)
     {
       echo "SI";
     }

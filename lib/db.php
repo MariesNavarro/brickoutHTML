@@ -364,6 +364,22 @@ function updateparticipacion($score,$idreg,$idpart)
     $link=connect();
     $parti=0;
     mysqli_autocommit($link, FALSE);
+    $val=validafechas($cads);
+    if($val[0]>0.000001&&$val[1]<0.00000001)
+    {
+      $score=$score*2;
+    }
+    else
+    {
+    }
+    if($val[2]>0.000001&&$val[3]<0.00000001)
+    {
+      
+    }
+    else
+    {
+      $score=0;
+    }
     $query ="UPDATE  bdlt_participacion SET score =".$score.", fecha=CURRENT_TIMESTAMP WHERE id =".$idpart.";";
     $ip= ($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 0;
     $date= date("Y-m-d H:i:s");

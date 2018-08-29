@@ -145,6 +145,12 @@ function CInterface() {
         s_oStage.addChild(_oFade);
 
         var textcomplete=TEXT_SCORE_GAMEOVER + "\n" + iScore; //"\n"+ TEXT_POSICION+msjposicion+ "\n"+TEXT_PUNTOS_POSICION+msjpuntospos;
+        var d=new Date();
+        if(d.getDate()==29)
+        {
+
+           textcomplete=textcomplete+"(x2)";
+        }
         actValByClassName("displayBest",msjpuntospos);
         actValByClassName("displayPosition",msjposicion);
         _oTextGameOver = new createjs.Text(textcomplete, "normal " + 90 + "px " + PRIMARY_FONT, "#263072");

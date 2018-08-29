@@ -338,8 +338,8 @@ function ValidateDate() {
       }
       else
       {
-        checkLoginState();
-        // alert('Fecha no valida');
+           checkPais(data);
+         //checkLoginState();
       }
     }
   });
