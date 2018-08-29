@@ -1,0 +1,101 @@
+/*
+Oet Capital
+Bud Light Docs Terminado v1
+29  de Agosto 2018
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; }
+ol, ul {list-style: none; }
+* {margin: 0; padding: 0; box-sizing: border-box; }
+* a {cursor: pointer; text-decoration: none; }
+* i {font-style: italic; } * p { font-size: 1rem;}
+h1, h2, h3, h4, h5, h6, b {  /* Falta font family */ font-weight: 600;  }
+.flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
+.noneDisplay{ display: none}
+.trans7{ -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
+.rot180{ -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+/* reset */
+root { display: block }
+*, *:before, *:after { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+input, input:before, input:after { -webkit-user-select: initial; -khtml-user-select: initial; -moz-user-select: initial; -ms-user-select: initial; user-select: initial; }
+::selection { background: transparent;color:inherit; }
+::-moz-selection { background: transparent;color:inherit; }
+/*
+Colores Principales:
+azul oscuro: #263270
+azul claro:
+*/
+body{
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  background: #fff;
+  color: #263270;
+  background-image: url('../img/fondo-juegos-azul.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow:hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+h1,h2,h3,h4{ text-align: center }
+h2{
+  width: 80%;
+  margin-top: 30px;
+  font-size: 1.2rem;
+}
+h1{
+  font-size: 2rem;
+  line-height: 0.9;
+  margin: 5px auto;
+}
+h3{
+  margin: 5px auto;
+}
+h4{
+  font-size: 0.9rem;
+  color: #149be4;
+}
+img{
+  margin: 25px auto;
+}
+@media (min-width: 960px){
+  h2{
+    width: 500px;
+    margin-top: 60px;
+    font-size: 2.1rem;
+    line-height: 1;
+  }
+  h1{
+    font-size: 3rem;
+  }
+  h3{
+    font-size: 1.8rem;
+  }
+  h4{
+    font-size: 1.2rem;
+  }
+  img{
+    margin: 25px auto;
+    width: 300px;
+  }
+}
