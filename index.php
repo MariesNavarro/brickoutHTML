@@ -1,7 +1,13 @@
 <?php
  
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
+$tg=0;
+if($_GET['tg'])
+{
+  $tg=$_GET['tg'];
+}
+
+
  
 ?>
 <!DOCTYPE html>
@@ -722,11 +728,21 @@ Presiona ENTER de nuevo para regresar a jugar.
                  $('#ptsDobles').attr("class","noneDisplay");
                 }
                 $('#sectionMobile>h2').css("color",'#263270');
-              if(checkPopUp())
-               {
+                var tg=<?php echo $tg?>;
+                if(tg==1)
+                {
+                  console.log('viene desde tierra gamer');
+                  valido();
+                } 
+                else
+                {
+                  if(checkPopUp())
+                   {
                  //paisvalido();
-                 valido();
-               }
+                    valido();
+                    }
+                }
+              
           });
         </script>
 
