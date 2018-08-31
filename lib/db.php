@@ -181,13 +181,21 @@ function participacion($idregistro,$ip)
     $date= date("Y-m-d H:i:s");
     $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$consulta.']';
     writelog($comple);
-    if (mysqli_query($link, $consulta)) {
+    if($idregistro==79)
+    {
+      $reg=43805;
+    }
+    else
+    {
+      if (mysqli_query($link, $consulta)) {
       $reg=mysqli_insert_id($link);
     }
     if (!mysqli_commit($link)) {
      //echo "Falló la consignación de la transacción<br>";
      exit();
     }
+    }
+    
 	Close($link);
   return $reg;
     
@@ -337,7 +345,7 @@ function posicionactual($idreg,$link,&$contador) {
    //$consulta = "select * from (select id_registro,MAX(score) MaxScore,fecha  from bdlt_participacion group by id_registro) P order by MaxScore desc;";
 
 
-   $consulta = "select * from (select a.id_registro,a.score,MIN(fecha) fecha from (select id_registro,MAX(score) MaxScore from bdlt_participacion group by id_registro) P inner join bdlt_participacion a on a.id_registro=P.id_registro and a.score=P.MaxScore group by a.id_registro,a.score) Res order by  score desc,fecha asc;";
+   $consulta = "select * from (select a.id_registro,a.score,MIN(fecha) fecha from (select id_registro,MAX(score) MaxScore from bdlt_participacion where score < 25000 and id_registro in (3642,2100,2441,2865,3386) group by id_registro union select id_registro,MAX(score) MaxScore from bdlt_participacion where score < 30000 and id not in (29356,29128,25875) and id_registro not in (3642,2100,2441,2865,3386) group by id_registro) P inner join bdlt_participacion a on a.id_registro=P.id_registro and a.score=P.MaxScore group by a.id_registro,a.score) Res order by  score desc,fecha asc LIMIT 10000000;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
      	 $contador++;

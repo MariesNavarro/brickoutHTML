@@ -7,7 +7,7 @@ require_once('funciones.php');
 function maxscoreobtenido($link) {
 	/* recuperar todas las filas de myCity */
    $score=0;
-   $consulta = "select b.nombre,a.score from bdlt_participacion a inner join bdlt_registro b on a.id_registro=b.id order by score desc LIMIT 1;";
+   $consulta = "select b.nombre,a.score from bdlt_participacion a inner join bdlt_registro b on a.id_registro=b.id where score <30000 order by score desc LIMIT 1;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
          $score=$fila[0].'<br /> score '.number_format($fila[1], 0, '.', ',');
@@ -68,8 +68,24 @@ function posicionactual($link) {
    $consulta = "select pu.nombre,pu.usuario,pu.participaciones,pu.score maximoscore,pu.fecha_registro,pu.FechaScore,cg.descripcion,cg.ScoreRequerido,cg.ScoreObtenido,cg.codigo from (select reg.id,reg.nombre,reg.usuario,Res.score,Res.participaciones,reg.fecha_registro,Res.fecha FechaScore from (select a.id_registro,a.score,P.participaciones,MIN(fecha) fecha from (select id_registro,COUNT(id) participaciones,MAX(score) MaxScore from bdlt_participacion group by id_registro) P inner join bdlt_participacion a on a.id_registro=P.id_registro and a.score=P.MaxScore group by a.id_registro,a.score) Res inner join bdlt_registro reg on Res.id_registro=reg.id) pu left join (select a.id_registro,a.score ScoreObtenido,c.descripcion,c.score ScoreRequerido,b.codigo from bdlt_participacion a inner join bdlt_codigos b on  a.id_codigo=b.id inner join bdlt_cupones c on b.id_cupon=c.id where id_codigo is not null) cg on pu.id=cg.id_registro order by maximoscore desc,FechaScore asc  LIMIT 10000000;";
    if ($resultado = mysqli_query($link, $consulta)) {
      while ($fila = mysqli_fetch_row($resultado)) {
-     	  $pos=$pos.'<TR><TD>'.$contador.'</TD><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="derecha">'.number_format($fila[3], 0, '.', ',').'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD><TD>'.$fila[6].'</TD><TD class="derecha">'.number_format($fila[7], 0, '.', ',').'</TD><TD class="derecha">'.number_format($fila[8], 0, '.', ',').'</TD></TR>';
-        $contador++;
+        if($fila[1]=='adnc_13@hotmail.com'||$fila[1]=='marco12195@hotmail.com'||$fila[1]=='depredadorsalvage117@outlook.com'||$fila[1]=='enrique.brown@buzon.online'||$fila[3]>30000)
+        {
+           $pos=$pos.'<TR style=" background-color: firebrick;"><TD>0</TD><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="derecha">'.number_format($fila[3], 0, '.', ',').'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD><TD>'.$fila[6].'</TD><TD class="derecha">'.number_format($fila[7], 0, '.', ',').'</TD><TD class="derecha">'.number_format($fila[8], 0, '.', ',').'</TD></TR>';
+        }
+        else
+        {
+          if($contador<3)
+          {
+            $pos=$pos.'<TR style="background-color: greenyellow;"><TD>'.$contador.'</TD><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="derecha">'.number_format($fila[3], 0, '.', ',').'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD><TD>'.$fila[6].'</TD><TD class="derecha">'.number_format($fila[7], 0, '.', ',').'</TD><TD class="derecha">'.number_format($fila[8], 0, '.', ',').'</TD></TR>';
+          }
+          else
+          {
+            $pos=$pos.'<TR><TD>'.$contador.'</TD><TD>'.$fila[0].'</TD><TD>'.$fila[1].'</TD><TD class="centrado">'.$fila[2].'</TD><TD class="derecha">'.number_format($fila[3], 0, '.', ',').'</TD><TD>'.$fila[4].'</TD><TD>'.$fila[5].'</TD><TD>'.$fila[6].'</TD><TD class="derecha">'.number_format($fila[7], 0, '.', ',').'</TD><TD class="derecha">'.number_format($fila[8], 0, '.', ',').'</TD></TR>';
+          }
+          
+          $contador++;
+        }
+     	  
       }
       /* liberar el conjunto de resultados */
       mysqli_free_result($resultado);
